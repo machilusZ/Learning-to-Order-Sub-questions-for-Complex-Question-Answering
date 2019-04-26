@@ -23,7 +23,7 @@ class State:
 
         # init Rt from the relations in the question
         self.init_Rt()
-    
+
     # add a node to one of the subgraph, input format (e1, r, e2)
     def update(self, edge):
         e1, _, e2 = edge
@@ -53,17 +53,17 @@ class State:
     def init_embedding(self, path_to_embedding, spliter):
         # read in the embeding
         embeddings_index = {}
-        
-        with open(path_to_embedding) as f:
-            for line in tqdm(f):
-                try:
-                    values = line.split()
-                    word = values[0]
-                    coefs = np.asarray(values[1:], dtype='float32')
-                    embeddings_index[word] = coefs
-                except:
-                    pass
-    
+
+        # with open(path_to_embedding) as f:
+        #     for line in tqdm(f):
+        #         try:
+        #             values = line.split()
+        #             word = values[0]
+        #             coefs = np.asarray(values[1:], dtype='float32')
+        #             embeddings_index[word] = coefs
+        #         except:
+        #             pass
+
         for r in self.graph.rel_vocab:
             index = self.graph.rel_vocab[r]
             words = spliter(r)
@@ -85,11 +85,11 @@ class State:
         for r in self.rs:
             r_embedding = self.rel_embedding.get(r, [])
             if len(r_embedding) == 0:
-                print("relation: " + r + " not in vocab") 
+                print("relation: " + r + " not in vocab")
                 exit
             self.Rt.append(r_embedding)
         self.Rt = np.array(self.Rt)
- 
+
     # TODO: embed node here
     def embed(self):
         pass
@@ -101,4 +101,4 @@ class State:
 def camel_case_spliter(word):
     matches = re.finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)',word)
     return [m.group(0) for m in matches]
-    
+

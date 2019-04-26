@@ -12,7 +12,7 @@ def load_data(dataset_name):
 
 
 def load_questions(file_path, line_parser):
-    with open(file_path) as fp:
+    with open(file_path, 'rb') as fp:
         line = fp.readline()
         qs = []
         while line:
@@ -25,11 +25,11 @@ def load_questions(file_path, line_parser):
 
 # Parsers, each parser takes in one line of the question file and return (answer, [e1, e2, ..], [r1, r2, ...])
 def countires_parser(line):
-    temp = line[0:-2].split("\t")
+    temp = line[0:-2].decode("utf-8").split("\t")
     if len(temp) != 5:
         return None
     a, r1, e1, r2, e2 = temp
     return (a, [e1,e2], [r1,r2])
 
-    
-        
+
+

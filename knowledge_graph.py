@@ -5,17 +5,17 @@ class KnowledgeGraph:
         self.rel_vocab = None
         self.en_vocab = None
         self.text_graph = {}
-        self.graph = {}       # encoded graph (using index in vocab)  
-        
+        self.graph = {}       # encoded graph (using index in vocab)
+
         self.read_vocab(vocab_path)
-        self.read_graph(file_path)  
-    
+        self.read_graph(file_path)
+
     # read text graph from file
     def read_graph(self, file_path):
-        with open(file_path) as fp:  
+        with open(file_path, 'rb') as fp:
             line = fp.readline()
             while line:
-                e1, r, e2 = line[0:-2].split("\t")
+                e1, r, e2 = line[0:-2].decode("utf-8").split("\t")
                 # update the text_graph (! inverse relation here)
                 if e2 not in self.text_graph:
                     self.text_graph[e2] = []
@@ -30,9 +30,9 @@ class KnowledgeGraph:
 
     # read vocab from file
     def read_vocab(self, vocab_path):
-        with open(vocab_path + "entity_vocab.json") as json_file: 
+        with open(vocab_path + "entity_vocab.json") as json_file:
             self.en_vocab = json.load(json_file)
-        with open(vocab_path + "relation_vocab.json") as json_file: 
+        with open(vocab_path + "relation_vocab.json") as json_file:
             self.rel_vocab = json.load(json_file)
 
     # encode an edge
@@ -42,7 +42,7 @@ class KnowledgeGraph:
         index_e2 = self.en_vocab[e2]
         index_r  = self.rel_vocab[r]
         return index_e1, index_r, index_e2
-    
+
     # encode a question of format ([e1,e2 ...], [r1, r2 ...])
     def encode_question(self, question):
         ens, rels = question
@@ -52,5 +52,5 @@ class KnowledgeGraph:
             iens.append(self.en_vocab[e])
         for r in rels:
             irels.append(self.rel_vocab[r])
-        return (iens, irels) 
+        return (iens, irels)
 
