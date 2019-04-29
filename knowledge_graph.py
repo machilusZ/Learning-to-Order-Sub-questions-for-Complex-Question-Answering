@@ -6,6 +6,7 @@ class KnowledgeGraph:
         self.en_vocab = None
         self.text_graph = {}
         self.graph = {}       # encoded graph (using index in vocab)
+        self.inv_graph = {}   # (r, e2) -> e1
 
         self.read_vocab(vocab_path)
         self.read_graph(file_path)
@@ -26,6 +27,12 @@ class KnowledgeGraph:
                 if ie2 not in self.graph:
                     self.graph[ie2] = []
                 self.graph[ie2].append((ir,ie1))
+
+                # update inv_graph
+                if (ir, ie1) not in self.inv_graph:
+                    self.inv_graph[(ir, ie1)] = []
+                self.inv_graph[(ir, ie1)].append(ie2)
+
                 line = fp.readline()
 
     # read vocab from file
