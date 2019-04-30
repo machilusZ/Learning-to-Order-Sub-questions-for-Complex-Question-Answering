@@ -23,7 +23,7 @@ class State:
         self.init_rel_embedding("glove.840B.300d.txt",camel_case_spliter)
 
         # get node embeding for each entity
-        self.init_node_embedding()
+        self.init_node_embedding("./data/countries/countries_embed.npy")
 
         # init Rt from the relations in the question
         self.init_Rt()
@@ -44,12 +44,12 @@ class State:
                     break
             if done:
                 break
-        
+
         # update Rt
         rt_embed = self.rel_embedding[r]
         for i in range(self.Rt.shape[0]):
             # if Rt is already all zeros, we will not reduce it
-            if np.sum(self.Rt[i] != 0) != 0: 
+            if np.sum(self.Rt[i] != 0) != 0:
                 gamma = 1 - cosine(self.Rt[i], rt_embed)
                 self.Rt[i] -= gamma * rt_embed
 
@@ -73,7 +73,7 @@ class State:
                 if e2 not in subgraph:
                     ret.append((e1, r, e2))
         return ret
- 
+
     # generate all possible actions (r, e) according given all the current neighbors
     def generate_all_possible_actions(self):
         neighbors = self.find_all_neighbors()
@@ -113,12 +113,11 @@ class State:
                 self.rel_embedding[index] = np.random.randn((self.word_emb_dim))
             else:
                 self.rel_embedding[index] = r_vector/found
-   
-    # embed nodes TODO: change this
-    def init_node_embedding(self):
-        for e in self.graph.en_vocab:
-            ie = self.graph.en_vocab[e]
-            self.node_embedding[ie] = np.random.randn((3))
+
+    # embed nodes: change this
+    def init_node_embedding(self, path):
+        # load pretrained embedding directly
+        self.node_embedding = np.load(path)
 
     # get vectors of all relations to build Rt
     def init_Rt(self):
@@ -134,7 +133,7 @@ class State:
     def init_Ht(self):
         for subgraph in self.subgraphs:
             e = subgraph[0]
-            self.Ht.append(self.node_embedding[e]) 
+            self.Ht.append(self.node_embedding[e])
 
     def get_embedded_state(self):
         return (torch.tensor(self.Ht).float(),torch.tensor(self.Rt).float())
