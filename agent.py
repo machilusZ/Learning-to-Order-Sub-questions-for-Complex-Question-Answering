@@ -7,19 +7,18 @@ from torch.autograd import Variable
 
 
 class Agent():
-    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, gamma, learning_rate):
+    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, gamma, learning_rate, model_param_list):
         self.gamma = gamma
         self.action_dim = num_entity * num_rel
         self.num_entity = num_entity
         self.policy = Policy(input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel)
         self.reward_history = []
         self.logprob_history = []
-        self.optimizer = torch.optim.Adam(self.policy.parameters(), lr=learning_rate)
-
+        params = list(self.policy.parameters()) + model_param_list
+        self.optimizer = torch.optim.Adam(params, lr=learning_rate)
 
     def get_action(self, state, possible_actions):
         scores = self.policy(state)
-
         # zero out all impossible actions
         possible_index = []
         for action in possible_actions:
@@ -77,3 +76,5 @@ class Agent():
         # reinitialize history
         self.logprob_history = []
         self.reward_history = []
+
+        return loss.item()

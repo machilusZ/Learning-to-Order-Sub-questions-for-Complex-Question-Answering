@@ -17,9 +17,8 @@ def load_questions(file_path, line_parser):
         qs = []
         while line:
             question = line_parser(line)
-            if None:
-                continue
-            qs.append(question)
+            if question:
+                qs.append(question)
             line = fp.readline()
     return qs
 

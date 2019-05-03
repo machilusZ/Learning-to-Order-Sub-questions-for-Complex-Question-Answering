@@ -17,7 +17,7 @@ class KnowledgeGraph:
             line = fp.readline()
             while line:
                 e1, r, e2 = line[0:-2].decode("utf-8").split("\t")
-                # update the text_graph (! inverse relation here)
+                # update the text_graph
                 if e2 not in self.text_graph:
                     self.text_graph[e2] = []
                 self.text_graph[e2].append((r,e1))
@@ -34,6 +34,17 @@ class KnowledgeGraph:
                 self.inv_graph[(ir, ie1)].append(ie2)
 
                 line = fp.readline()
+            
+            # add inverse relation to graph and inv_graph
+            self_loop_relation = self.rel_vocab["NO_OP"]
+            for e in self.en_vocab:
+                ie = self.en_vocab[e]
+                if ie not in self.graph:
+                    self.graph[ie] = []
+                if (self_loop_relation, ie) not in self.inv_graph:
+                    self.inv_graph[(self_loop_relation, ie)] = []
+                self.graph[ie].append((self_loop_relation,ie))
+                self.inv_graph[(self_loop_relation,ie)].append(ie)
 
     # read vocab from file
     def read_vocab(self, vocab_path):

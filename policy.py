@@ -29,16 +29,16 @@ class Policy(nn.Module):
         pt = self.path[-1][0][-1,:,:]
         
         # cancatenate
-        Ht = Ht.view(-1)
+        Ht = torch.stack(Ht).view(-1)
         Rt = Rt.view(-1)
         pt = pt.view(-1)
         X = torch.cat((Ht,pt,Rt), dim=-1)
 
         X = self.fc1(X)
         X = F.relu(X)
-        X = self.Dropout1(X)
+        #X = self.Dropout1(X)
         X = self.fc2(X)
-        X = self.Dropout2(X)
+        #X = self.Dropout2(X)
 
         return X
 

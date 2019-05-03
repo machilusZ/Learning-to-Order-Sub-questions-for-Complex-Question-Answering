@@ -1,19 +1,25 @@
 import numpy as np
 from tqdm import tqdm
 from scipy.spatial.distance import cosine
+import torch.nn.functional as F
+import torch.nn as nn
 import torch
 import re
 
 class State:
-    def __init__(self, question, graph, word_emb_dim):
+    def __init__(self, question, graph, word_emb_dim, word2node, attention):
         self.es, self.rs = graph.encode_question(question) # encoded entities and relations in the question
-        self.word_emb_dim = word_emb_dim  # dimension of word embeding
-        self.subgraphs = []     # each element is a vector of format [e1, e2, ... ] representing a subgraph
-        self.rel_embedding = {} # mapping from all the relations in vocb to its embeding
-        self.node_embedding = {} # mappin from all nodes to its embeding
-        self.Rt = []            # Rt in the state (each row is a embedded relation)
-        self.Ht  = []           # Ht in the state
-        self.graph = graph      # knowledge graph object
+        self.word_emb_size = word_emb_dim  # dimension of word embeding
+        self.subgraphs = []               # each element is a vector of format [e1, e2, ... ] representing a subgraph
+        self.rel_embedding = {}           # mapping from all the relations in vocb to its embeding
+        self.node_embedding_size = None   # size of node embeding
+        self.node_embedding = {}          # mappin from all nodes to its embeding
+        self.Rt = []                      # Rt in the state (each row is a embedded relation)
+        self.ht = []                      # hti for each of the subgraph
+        self.Ht  = []                     # Ht in the state
+        self.graph = graph                # knowledge graph object
+        self.word2node = word2node        # a fc layer project word embeding to node embedingg
+        self.attention = attention        # mutihead self-attention 
 
         # init all subgraphs from the question
         for e in self.es:
@@ -29,7 +35,8 @@ class State:
         self.init_Rt()
 
         # init Ht
-        self.init_Ht()
+        self.calculate_ht()
+        self.calculate_Ht()
 
     # add a node to one of the subgraph, input format (r, e2)
     def update(self, action):
@@ -101,7 +108,7 @@ class State:
         for r in self.graph.rel_vocab:
             index = self.graph.rel_vocab[r]
             words = spliter(r)
-            r_vector = np.zeros((self.word_emb_dim))
+            r_vector = np.zeros((self.word_emb_size))
             found = 0
             for word in words:
                 embedding_vector = embeddings_index.get(word.lower())
@@ -110,7 +117,7 @@ class State:
                     r_vector += embedding_vector
             # if all words of a relation are not in our pretrained glove, set to all-zeros
             if found == 0:
-                self.rel_embedding[index] = np.random.randn((self.word_emb_dim))
+                self.rel_embedding[index] = np.random.randn((self.word_emb_size))
             else:
                 self.rel_embedding[index] = r_vector/found
 
@@ -129,22 +136,53 @@ class State:
             self.Rt.append(r_embedding)
         self.Rt = np.array(self.Rt)
 
-    # TODO: change this
-    def init_Ht(self):
-        for subgraph in self.subgraphs:
-            e = subgraph[0]
-            self.Ht.append(self.node_embedding[e])
+    # calculate ht based on self.subgraphs
+    def calculate_ht(self):
+        projected_Rt = torch.t(self.word2node(torch.Tensor(self.Rt)))
+        init_ht = False
+        if len(self.ht) == 0:
+            init_ht = True
+
+        for i, subgraph in enumerate(self.subgraphs):
+            gti = []
+            for e in subgraph:
+                gti.append(self.node_embedding[e])
+            gti = torch.Tensor(gti)
+            if init_ht:
+                self.ht.append(get_hti(gti, projected_Rt))
+            else:
+                self.ht[i] = get_hti(gti, projected_Rt)
+
+    def calculate_Ht(self):
+        init_Ht = False
+        if len(self.Ht) == 0:
+            init_Ht = True
+        for i, hti in enumerate(self.ht):
+            Hti = self.attention(torch.t(hti))
+            if init_Ht:
+                self.Ht.append(Hti)
+            else:
+                self.Ht[i] = Hti
 
     def get_embedded_state(self):
-        return (torch.tensor(self.Ht).float(),torch.tensor(self.Rt).float())
+        return (self.Ht,torch.Tensor(self.Rt).float())
 
     def get_input_size(self):
-        Ht_len = torch.tensor(self.Ht).view(-1).size()[0]
-        Rt_len = torch.tensor(self.Rt).view(-1).size()[0]
+        Ht_len = torch.stack(self.Ht).view(-1).size()[0]
+        Rt_len = torch.Tensor(self.Rt).view(-1).size()[0]
         return Ht_len + Rt_len
 
 # spliters: split the relation into words
 def camel_case_spliter(word):
     matches = re.finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)',word)
     return [m.group(0) for m in matches]
+
+# helper function for calculate hti
+# shape of gti (k+1, embedding_size), shape of Rt(embedding_size, m + 1)
+def get_hti(gti, Rt):
+    L = torch.mm(gti,Rt)
+    A_Rt = F.softmax(L, dim=1)
+    hti = torch.mm(torch.t(gti),A_Rt)
+
+    return hti
 
