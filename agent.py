@@ -8,12 +8,14 @@ from torch.autograd import Variable
 
 
 class Agent():
-    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, gamma, learning_rate, model_param_list):
+    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, num_subgraph, gamma, learning_rate, model_param_list):
         self.gamma = gamma
         self.action_dim = num_entity * num_rel
+        self.num_subgraph = num_subgraph
         self.num_entity = num_entity
-        self.policy = Policy(input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel)
-        self.reward_history = []
+        self.num_rel = num_rel
+        self.policy = Policy(input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, num_subgraph)
+        self.reward_history = [] 
         self.logprob_history = []
         params = list(self.policy.parameters()) + model_param_list
         self.optimizer = torch.optim.Adam(params, lr=learning_rate)
@@ -23,8 +25,8 @@ class Agent():
         # zero out all impossible actions
         possible_index = []
         for action in possible_actions:
-            r, e = action
-            index = r * self.num_entity + e
+            g, r, e = action
+            index = g * self.num_rel * self.num_entity + r * self.num_entity + e
             possible_index.append(index)
         scores_possible = scores[possible_index]
         sm = torch.nn.Softmax(dim=-1)
@@ -34,16 +36,19 @@ class Agent():
         c =  Categorical(scores_possible)
         index = c.sample()
         action = possible_index[index]
-        r = math.floor(action/self.num_entity)
+        g = math.floor(action/(self.num_entity*self.num_rel))
+        rest = action%(self.num_entity*self.num_rel)
+        r = math.floor(rest/self.num_entity)
         e = action%self.num_entity
+        
 
         # add log prob to history
         self.logprob_history.append(c.log_prob(index))
 
-        # add action to path
-        self.policy.update_path((r,e))
+        # add action to path (TODO:add graph to policy)
+        self.policy.update_path((g,r,e))
 
-        return (r,e)
+        return (g,r,e)
 
     # assign hard reward
     def hard_reward(self, a):

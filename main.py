@@ -26,7 +26,7 @@ rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM)
 word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False)      
 
 # mutihead self-attention 
-attention = Attention(8, NODE_EMB_DIM, H_DIM, 0.01)                
+attention = Attention(4, NODE_EMB_DIM, H_DIM, 0.01)                
 
 # list contains all params that need to optimize
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
@@ -36,7 +36,8 @@ state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention,
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-agent = Agent(input_dim, 5, 0.4, 3, num_entity, num_rel, GAMMA, 0.0001, model_param_list)
+num_subgraph = len(state.subgraphs)
+agent = Agent(input_dim, 10, 0.5, 2, num_entity, num_rel, num_subgraph, GAMMA, 0.001, model_param_list)
 
 # training loop
 for epoch in range(NUM_EPOCH):
@@ -55,7 +56,7 @@ for epoch in range(NUM_EPOCH):
             embedded_state = state.get_embedded_state()
             possible_actions = state.generate_all_possible_actions()
             action = agent.get_action(embedded_state, possible_actions)
-            r, e = action
+            g, r, e = action
             if step < T-1:
                 agent.hard_reward(0)
             else:
@@ -64,6 +65,7 @@ for epoch in range(NUM_EPOCH):
                 else:
                     answer_embedding = state.node_embedding[answer]
                     e_embedding = state.node_embedding[e]
+                    # TODO: add reward for in the same subgraph
                     agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE)
             state.update(action)
             #print("step: " + str(step) + ", take action: " + str(action) + "result_subgraphs:" + str(state.subgraphs))

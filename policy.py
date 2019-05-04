@@ -4,10 +4,11 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 
 class Policy(nn.Module):
-    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel):
+    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, num_subgraph):
         super(Policy, self).__init__()
         self.num_entity = num_entity
-        self.action_dim = num_entity * num_rel
+        self.action_dim = num_subgraph * num_entity * num_rel
+        self.num_rel = num_rel
         self.hidden_dim = hidden_dim
         self.lstm_num_layers = lstm_num_layers
         self.batch_size = 1             # currently using 1 question per batch
@@ -45,7 +46,7 @@ class Policy(nn.Module):
     def init_path(self, e0):
         # initial value for action with one hot encoding of (r0,e0)
         # where r0 is the DUMMY_START_RELATION (encoded as 0) and e0 is one entity from the question
-        init_action = self.one_hot_encode((0,e0))
+        init_action = self.one_hot_encode((0,0,e0))
         init_action = init_action.view(self.batch_size, 1, -1)
 
         hidden_a = torch.randn(self.lstm_num_layers, self.batch_size, self.hidden_dim)
@@ -62,9 +63,9 @@ class Policy(nn.Module):
 
     # one hot encode an action
     def one_hot_encode(self, action):
-        r, e = action
+        g, r, e = action
         one_hot_action = torch.zeros(self.action_dim)
-        index = r * self.num_entity + e
+        index = g * self.num_rel * self.num_entity + r * self.num_entity + e
         one_hot_action[int(index)] = 1
         return one_hot_action
 
