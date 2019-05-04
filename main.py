@@ -11,8 +11,8 @@ GAMMA = 0.5
 WORD_EMB_DIM = 300
 NODE_EMB_DIM = 16
 H_DIM = 16
-T = 3
-NUM_EPOCH = 10
+T = 4
+NUM_EPOCH = 20
 
 parser = argparse.ArgumentParser("main.py")
 parser.add_argument("dataset", help="the name of the dataset", type=str)
@@ -35,11 +35,13 @@ state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention)
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-agent = Agent(input_dim, 5, 0.5, 2, num_entity, num_rel, 0.1, 0.001, model_param_list)
+agent = Agent(input_dim, 5, 0.1, 2, num_entity, num_rel, 0.5, 0.0006, model_param_list)
 
 # training loop
 for epoch in range(NUM_EPOCH):
     losses = []
+    rewards = []
+    correct = 0
     for i in tqdm(range(len(train))):
         # create state from the question
         state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention)
@@ -66,11 +68,16 @@ for epoch in range(NUM_EPOCH):
             #print("step: " + str(step) + ", take action: " + str(action) + "result_subgraphs:" + str(state.subgraphs))
         
         # update the policy net and record loss
-        loss = agent.update_policy()
+        loss, reward, last_reward = agent.update_policy()
+        if last_reward == 1:
+            correct += 1
         losses.append(loss)
+        rewards.append(reward)
 
+    acc = correct/len(train)
     avg_loss = np.mean(losses)
-    print("epoch: " + str(epoch) + ", loss: " + str(loss))
+    avg_reward = np.mean(rewards)
+    print("epoch: " + str(epoch) + ", loss: " + str(avg_loss) + ", reward: " + str(avg_reward) + ", acc: " + str(acc))
 
 
 

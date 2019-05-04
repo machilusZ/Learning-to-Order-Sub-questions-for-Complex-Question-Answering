@@ -36,7 +36,7 @@ class Policy(nn.Module):
 
         X = self.fc1(X)
         X = F.relu(X)
-        #X = self.Dropout1(X)
+        X = self.Dropout1(X)
         X = self.fc2(X)
         #X = self.Dropout2(X)
 
@@ -66,7 +66,7 @@ class Policy(nn.Module):
         r, e = action
         one_hot_action = torch.zeros(self.action_dim)
         index = r * self.num_entity + e
-        one_hot_action[index] = 1
+        one_hot_action[int(index)] = 1
         return one_hot_action
 
 

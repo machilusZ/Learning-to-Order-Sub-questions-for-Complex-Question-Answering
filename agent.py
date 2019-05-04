@@ -1,5 +1,6 @@
 import torch
 import numpy as np
+import math
 from policy import Policy 
 from scipy.spatial.distance import cosine
 from torch.distributions import Categorical
@@ -33,7 +34,7 @@ class Agent():
         c =  Categorical(scores_possible)
         index = c.sample()
         action = possible_index[index]
-        r = action/self.num_entity
+        r = math.floor(action/self.num_entity)
         e = action%self.num_entity
 
         # add log prob to history
@@ -61,9 +62,11 @@ class Agent():
             rewards.insert(0,R)
        
         # Scale rewards
-        rewards = torch.FloatTensor(rewards)
-        rewards = (rewards - rewards.mean()) / (rewards.std() + np.finfo(np.float32).eps)
-        
+        rewards = np.array(rewards)
+        # if we normalize the reward, the loss don't go down
+        # rewards = (rewards - rewards.mean()) / (np.std(rewards) + np.finfo(np.float32).eps)
+        rewards = torch.Tensor(rewards)
+
         # Calculate loss
         logprobs = torch.stack(self.logprob_history)
         loss = (torch.sum(torch.mul(logprobs, Variable(rewards)).mul(-1), -1))
@@ -73,8 +76,9 @@ class Agent():
         loss.backward()
         self.optimizer.step()
 
+
         # reinitialize history
         self.logprob_history = []
         self.reward_history = []
 
-        return loss.item()
+        return loss.item(), torch.sum(rewards).item(), rewards[-1]

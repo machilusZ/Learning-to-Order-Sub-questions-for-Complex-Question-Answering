@@ -60,8 +60,9 @@ class State:
                 gamma = 1 - cosine(self.Rt[i], rt_embed)
                 self.Rt[i] -= gamma * rt_embed
 
-        # TODO: update Ht
-
+        # update Ht
+        self.calculate_ht()
+        self.calculate_Ht()
 
     # find the neighbors of all subgraphs
     def find_all_neighbors(self):
