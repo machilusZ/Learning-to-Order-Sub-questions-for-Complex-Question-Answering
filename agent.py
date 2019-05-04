@@ -50,9 +50,9 @@ class Agent():
         self.reward_history.append(a)
 
     # soft reward for the final step
-    def soft_reward(self, answer_embedding, last_action_embedding):
+    def soft_reward(self, answer_embedding, last_action_embedding, scale):
         R = 1 - cosine(answer_embedding, last_action_embedding)
-        self.reward_history.append(R)
+        self.reward_history.append(scale*R)
            
     def update_policy(self):
         R = 0

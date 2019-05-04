@@ -11,31 +11,32 @@ GAMMA = 0.5
 WORD_EMB_DIM = 300
 NODE_EMB_DIM = 16
 H_DIM = 16
-T = 4
-NUM_EPOCH = 20
+T = 3
+NUM_EPOCH = 40
+SOFT_REWARD_SCALE = 0.01
 
 parser = argparse.ArgumentParser("main.py")
 parser.add_argument("dataset", help="the name of the dataset", type=str)
 args = parser.parse_args()
 
 # load dataset
-kg, train, test = load_data(args.dataset)
+rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM)
 
 # projection from word embedding to node node embedding
 word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False)      
 
 # mutihead self-attention 
-attention = Attention(2, NODE_EMB_DIM, H_DIM, 0.01)                
+attention = Attention(8, NODE_EMB_DIM, H_DIM, 0.01)                
 
 # list contains all params that need to optimize
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
 
 # init agent
-state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention) # init here to calculate the input size
+state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding) # init here to calculate the input size
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-agent = Agent(input_dim, 5, 0.1, 2, num_entity, num_rel, 0.5, 0.0006, model_param_list)
+agent = Agent(input_dim, 5, 0.4, 3, num_entity, num_rel, GAMMA, 0.0001, model_param_list)
 
 # training loop
 for epoch in range(NUM_EPOCH):
@@ -44,7 +45,7 @@ for epoch in range(NUM_EPOCH):
     correct = 0
     for i in tqdm(range(len(train))):
         # create state from the question
-        state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention)
+        state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding)
         answer = kg.en_vocab[train[i][0]]
         e0 = state.subgraphs[0][0]
         agent.policy.init_path(e0)
@@ -63,7 +64,7 @@ for epoch in range(NUM_EPOCH):
                 else:
                     answer_embedding = state.node_embedding[answer]
                     e_embedding = state.node_embedding[e]
-                    agent.soft_reward(answer_embedding, e_embedding)
+                    agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE)
             state.update(action)
             #print("step: " + str(step) + ", take action: " + str(action) + "result_subgraphs:" + str(state.subgraphs))
         

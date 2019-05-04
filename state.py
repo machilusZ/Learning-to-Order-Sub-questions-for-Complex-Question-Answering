@@ -7,26 +7,23 @@ import torch
 import re
 
 class State:
-    def __init__(self, question, graph, word_emb_dim, word2node, attention):
+    def __init__(self, question, graph, word_emb_dim, word2node, attention, rel_embedding):
         self.es, self.rs = graph.encode_question(question) # encoded entities and relations in the question
         self.word_emb_size = word_emb_dim  # dimension of word embeding
-        self.subgraphs = []               # each element is a vector of format [e1, e2, ... ] representing a subgraph
-        self.rel_embedding = {}           # mapping from all the relations in vocb to its embeding
-        self.node_embedding_size = None   # size of node embeding
-        self.node_embedding = {}          # mappin from all nodes to its embeding
-        self.Rt = []                      # Rt in the state (each row is a embedded relation)
-        self.ht = []                      # hti for each of the subgraph
-        self.Ht  = []                     # Ht in the state
-        self.graph = graph                # knowledge graph object
-        self.word2node = word2node        # a fc layer project word embeding to node embedingg
-        self.attention = attention        # mutihead self-attention 
+        self.subgraphs = []                # each element is a vector of format [e1, e2, ... ] representing a subgraph
+        self.rel_embedding = rel_embedding # mapping from all the relations in vocb to its embeding
+        self.node_embedding_size = None    # size of node embeding
+        self.node_embedding = {}           # mappin from all nodes to its embeding
+        self.Rt = []                       # Rt in the state (each row is a embedded relation)
+        self.ht = []                       # hti for each of the subgraph
+        self.Ht  = []                      # Ht in the state
+        self.graph = graph                 # knowledge graph object
+        self.word2node = word2node         # a fc layer project word embeding to node embedingg
+        self.attention = attention         # mutihead self-attention 
 
         # init all subgraphs from the question
         for e in self.es:
             self.subgraphs.append([e])
-
-        # get word vectors for each relations
-        self.init_rel_embedding("glove.840B.300d.txt",camel_case_spliter)
 
         # get node embeding for each entity
         self.init_node_embedding("./data/countries/countries_embed.npy")
@@ -91,37 +88,6 @@ class State:
                 actions.append((r, e2))
         return actions
 
-    # embed relations
-    def init_rel_embedding(self, path_to_embedding, spliter):
-        # read in the embeding
-        embeddings_index = {}
-
-        # with open(path_to_embedding) as f:
-        #     for line in tqdm(f):
-        #         try:
-        #             values = line.split()
-        #             word = values[0]
-        #             coefs = np.asarray(values[1:], dtype='float32')
-        #             embeddings_index[word] = coefs
-        #         except:
-        #             pass
-
-        for r in self.graph.rel_vocab:
-            index = self.graph.rel_vocab[r]
-            words = spliter(r)
-            r_vector = np.zeros((self.word_emb_size))
-            found = 0
-            for word in words:
-                embedding_vector = embeddings_index.get(word.lower())
-                if embedding_vector is not None:
-                    found += 1
-                    r_vector += embedding_vector
-            # if all words of a relation are not in our pretrained glove, set to all-zeros
-            if found == 0:
-                self.rel_embedding[index] = np.random.randn((self.word_emb_size))
-            else:
-                self.rel_embedding[index] = r_vector/found
-
     # embed nodes: change this
     def init_node_embedding(self, path):
         # load pretrained embedding directly
@@ -173,10 +139,6 @@ class State:
         Rt_len = torch.Tensor(self.Rt).view(-1).size()[0]
         return Ht_len + Rt_len
 
-# spliters: split the relation into words
-def camel_case_spliter(word):
-    matches = re.finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)',word)
-    return [m.group(0) for m in matches]
 
 # helper function for calculate hti
 # shape of gti (k+1, embedding_size), shape of Rt(embedding_size, m + 1)
