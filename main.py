@@ -26,7 +26,7 @@ rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM)
 word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False)      
 
 # mutihead self-attention 
-attention = Attention(4, NODE_EMB_DIM, H_DIM, 0.01)                
+attention = Attention(8, NODE_EMB_DIM, H_DIM, 0.01)                
 
 # list contains all params that need to optimize
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
@@ -37,7 +37,7 @@ input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
 num_subgraph = len(state.subgraphs)
-agent = Agent(input_dim, 10, 0.5, 2, num_entity, num_rel, num_subgraph, GAMMA, 0.001, model_param_list)
+agent = Agent(input_dim, 10, 0.05, 2, num_entity, num_rel, num_subgraph, GAMMA, 0.0001, model_param_list)
 
 # training loop
 for epoch in range(NUM_EPOCH):
