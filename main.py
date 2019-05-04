@@ -12,7 +12,7 @@ WORD_EMB_DIM = 300
 NODE_EMB_DIM = 16
 H_DIM = 16
 T = 3
-NUM_EPOCH = 40
+NUM_EPOCH = 100
 SOFT_REWARD_SCALE = 0.01
 
 parser = argparse.ArgumentParser("main.py")
@@ -36,7 +36,7 @@ state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention,
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-agent = Agent(input_dim, 5, 0.4, 3, num_entity, num_rel, GAMMA, 0.0001, model_param_list)
+agent = Agent(input_dim, 10, 0.05, 3, num_entity, num_rel, GAMMA, 0.0001, model_param_list)
 
 # training loop
 for epoch in range(NUM_EPOCH):

@@ -76,9 +76,13 @@ class Agent():
         loss.backward()
         self.optimizer.step()
 
-
         # reinitialize history
         self.logprob_history = []
         self.reward_history = []
 
-        return loss.item(), torch.sum(rewards).item(), rewards[-1]
+        hit = 0
+        for i in rewards:
+            if i == 1:
+                hit += 1
+
+        return loss.item(), torch.sum(rewards).item(), hit
