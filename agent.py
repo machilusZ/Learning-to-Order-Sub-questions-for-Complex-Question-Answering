@@ -24,7 +24,7 @@ class Agent():
         possible_index = []
         for action in possible_actions:
             r, e = action
-            index = r * self.num_entity + e
+            index = (r-1) * self.num_entity + e # not taking start relation #0 into account
             possible_index.append(index)
         scores_possible = scores[possible_index]
         sm = torch.nn.Softmax(dim=-1)
@@ -34,7 +34,7 @@ class Agent():
         c =  Categorical(scores_possible)
         index = c.sample()
         action = possible_index[index]
-        r = math.floor(action/self.num_entity)
+        r = math.floor(action/self.num_entity) + 1
         e = action%self.num_entity
 
         # add log prob to history

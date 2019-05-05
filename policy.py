@@ -7,7 +7,7 @@ class Policy(nn.Module):
     def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel):
         super(Policy, self).__init__()
         self.num_entity = num_entity
-        self.action_dim = num_entity * num_rel
+        self.action_dim = num_entity * (num_rel - 1) # we are not using start relation
         self.hidden_dim = hidden_dim
         self.lstm_num_layers = lstm_num_layers
         self.batch_size = 1             # currently using 1 question per batch
