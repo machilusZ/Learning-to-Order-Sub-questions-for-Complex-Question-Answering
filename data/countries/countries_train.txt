@@ -1,308 +1,308 @@
-sweden	locatedIn	europe	neighborOf	finland
-latvia	neighborOf	estonia	neighborOf	lithuania
-trinidad_and_tobago	locatedIn	caribbean	locatedIn	americas
-brunei	locatedIn	asia	neighborOf	malaysia
-dr_congo	locatedIn	africa	neighborOf	tanzania
-australia_and_new_zealand	locatedIn	oceania
-zimbabwe	neighborOf	botswana	locatedIn	africa
-cyprus	locatedIn	europe
-monaco	locatedIn	western_europe
-cape_verde	locatedIn	africa
-zambia	neighborOf	tanzania	neighborOf	zimbabwe
-uruguay	locatedIn	south_america	neighborOf	argentina
-guinea	neighborOf	senegal	neighborOf	sierra_leone
-turks_and_caicos_islands	locatedIn	caribbean	locatedIn	americas
-isle_of_man	locatedIn	europe
-ukraine	neighborOf	moldova	neighborOf	belarus
-malawi	locatedIn	eastern_africa	neighborOf	zambia
-puerto_rico	locatedIn	caribbean	locatedIn	americas
-jamaica	locatedIn	americas	locatedIn	caribbean
-barbados	locatedIn	americas
-botswana	neighborOf	zimbabwe	neighborOf	namibia
-botswana	locatedIn	africa	neighborOf	namibia
-costa_rica	neighborOf	panama	locatedIn	central_america
-northern_mariana_islands	locatedIn	micronesia	locatedIn	oceania
-palau	locatedIn	oceania	locatedIn	micronesia
-germany	neighborOf	luxembourg	neighborOf	netherlands
-tajikistan	locatedIn	asia	neighborOf	kyrgyzstan
-israel	neighborOf	jordan	neighborOf	egypt
-spain	locatedIn	southern_europe	neighborOf	andorra
-iraq	neighborOf	saudi_arabia	neighborOf	syria
-niger	neighborOf	mali	neighborOf	chad
-papua_new_guinea	locatedIn	oceania	neighborOf	indonesia
-yemen	neighborOf	saudi_arabia	locatedIn	asia
-swaziland	neighborOf	south_africa	locatedIn	africa
-barbados	locatedIn	americas	locatedIn	caribbean
-tanzania	neighborOf	kenya	neighborOf	malawi
-bangladesh	neighborOf	india
-south_korea	neighborOf	north_korea	locatedIn	asia
-kuwait	locatedIn	asia	neighborOf	saudi_arabia
-portugal	locatedIn	europe
-guernsey	locatedIn	europe	locatedIn	northern_europe
-colombia	locatedIn	americas	neighborOf	ecuador
-greece	locatedIn	europe	neighborOf	bulgaria
-cook_islands	locatedIn	oceania
-cocos_keeling_islands	locatedIn	oceania	locatedIn	australia_and_new_zealand
-sao_tome_and_principe	locatedIn	middle_africa	locatedIn	africa
-australia	locatedIn	oceania	locatedIn	australia_and_new_zealand
-angola	neighborOf	dr_congo	neighborOf	republic_of_the_congo
-japan	locatedIn	asia
-trinidad_and_tobago	locatedIn	americas
-oman	locatedIn	western_asia	locatedIn	asia
-sudan	neighborOf	eritrea	neighborOf	central_african_republic
-uzbekistan	neighborOf	turkmenistan	neighborOf	kyrgyzstan
-cocos_keeling_islands	locatedIn	oceania
-tajikistan	locatedIn	central_asia	neighborOf	kyrgyzstan
-kiribati	locatedIn	oceania	locatedIn	micronesia
-spain	neighborOf	portugal	neighborOf	andorra
-costa_rica	locatedIn	central_america	neighborOf	nicaragua
-finland	locatedIn	europe	neighborOf	russia
-honduras	locatedIn	central_america	neighborOf	el_salvador
-jersey	locatedIn	europe
-saint_kitts_and_nevis	locatedIn	caribbean	locatedIn	americas
-tunisia	locatedIn	africa	neighborOf	algeria
-rwanda	locatedIn	africa	neighborOf	uganda
-switzerland	locatedIn	europe	neighborOf	liechtenstein
-syria	locatedIn	western_asia	neighborOf	iraq
-united_arab_emirates	locatedIn	asia	neighborOf	oman
-latvia	neighborOf	russia	neighborOf	lithuania
-reunion	locatedIn	africa
-cayman_islands	locatedIn	caribbean	locatedIn	americas
-andorra	locatedIn	southern_europe	locatedIn	europe
-bhutan	locatedIn	asia	neighborOf	india
-mauritius	locatedIn	africa	locatedIn	eastern_africa
-zambia	neighborOf	malawi	neighborOf	zimbabwe
-equatorial_guinea	locatedIn	middle_africa	neighborOf	gabon
-guinea-bissau	neighborOf	senegal
-ivory_coast	locatedIn	africa	neighborOf	guinea
-singapore	locatedIn	asia
-singapore	locatedIn	asia	locatedIn	south-eastern_asia
-wallis_and_futuna	locatedIn	oceania
-guadeloupe	locatedIn	americas	locatedIn	caribbean
-san_marino	locatedIn	europe	neighborOf	italy
-nauru	locatedIn	micronesia	locatedIn	oceania
-svalbard_and_jan_mayen	locatedIn	europe
-south_africa	locatedIn	southern_africa	locatedIn	africa
-china	locatedIn	asia	neighborOf	bhutan
-italy	locatedIn	europe	neighborOf	france
-seychelles	locatedIn	africa
-benin	neighborOf	togo	neighborOf	niger
-comoros	locatedIn	africa	locatedIn	eastern_africa
-cook_islands	locatedIn	oceania	locatedIn	polynesia
-canada	neighborOf	united_states	locatedIn	americas
-niger	neighborOf	algeria	neighborOf	chad
-gambia	neighborOf	senegal	locatedIn	africa
-pitcairn_islands	locatedIn	oceania
-poland	neighborOf	lithuania	neighborOf	belarus
-taiwan	locatedIn	asia	locatedIn	eastern_asia
-bahrain	locatedIn	western_asia	locatedIn	asia
-liberia	locatedIn	western_africa	neighborOf	ivory_coast
-czechia	locatedIn	europe	neighborOf	slovakia
-hong_kong	locatedIn	asia	locatedIn	eastern_asia
-comoros	locatedIn	africa
-sri_lanka	neighborOf	india	locatedIn	southern_asia
-central_african_republic	neighborOf	dr_congo	neighborOf	chad
-new_caledonia	locatedIn	melanesia	locatedIn	oceania
-vatican_city	locatedIn	southern_europe
-macedonia	neighborOf	albania	neighborOf	serbia
-turkey	neighborOf	iraq	neighborOf	georgia
-indonesia	locatedIn	south-eastern_asia	neighborOf	papua_new_guinea
-northern_europe	locatedIn	europe
-brazil	neighborOf	argentina	neighborOf	paraguay
-saint_vincent_and_the_grenadines	locatedIn	caribbean	locatedIn	americas
-benin	neighborOf	burkina_faso	locatedIn	western_africa
-belarus	neighborOf	poland	neighborOf	ukraine
-vietnam	neighborOf	cambodia	locatedIn	asia
-liberia	locatedIn	africa	neighborOf	ivory_coast
-cambodia	locatedIn	south-eastern_asia	neighborOf	laos
-czechia	neighborOf	germany	neighborOf	slovakia
-palau	locatedIn	micronesia
-madagascar	locatedIn	africa
-dominican_republic	locatedIn	americas
-southern_europe	locatedIn	europe
-eastern_europe	locatedIn	europe
-algeria	neighborOf	tunisia	neighborOf	mauritania
-eastern_asia	locatedIn	asia
-cape_verde	locatedIn	western_africa	locatedIn	africa
-jamaica	locatedIn	americas
-andorra	locatedIn	europe	neighborOf	spain
-bahamas	locatedIn	americas
-panama	neighborOf	costa_rica	neighborOf	colombia
-turkey	neighborOf	syria	neighborOf	georgia
-paraguay	neighborOf	bolivia	neighborOf	brazil
-mozambique	neighborOf	malawi	neighborOf	swaziland
-central_african_republic	neighborOf	republic_of_the_congo	locatedIn	middle_africa
-jordan	neighborOf	saudi_arabia	locatedIn	western_asia
-saint_lucia	locatedIn	americas
-djibouti	neighborOf	eritrea	neighborOf	somalia
-china	locatedIn	eastern_asia	neighborOf	bhutan
-turks_and_caicos_islands	locatedIn	americas
-vanuatu	locatedIn	oceania
-morocco	locatedIn	africa	neighborOf	algeria
-american_samoa	locatedIn	oceania
-france	neighborOf	luxembourg	neighborOf	monaco
-macedonia	neighborOf	greece	neighborOf	serbia
-armenia	neighborOf	turkey	neighborOf	georgia
-tokelau	locatedIn	oceania	locatedIn	polynesia
-marshall_islands	locatedIn	micronesia
-argentina	locatedIn	americas	neighborOf	chile
-saint_pierre_and_miquelon	locatedIn	americas
-northern_america	locatedIn	americas
-iran	neighborOf	turkey	neighborOf	armenia
-luxembourg	neighborOf	france	neighborOf	germany
-ukraine	neighborOf	romania	neighborOf	belarus
-french_polynesia	locatedIn	oceania
-malta	locatedIn	southern_europe	locatedIn	europe
-san_marino	locatedIn	southern_europe
-denmark	neighborOf	germany	locatedIn	northern_europe
-timor-leste	locatedIn	south-eastern_asia
-mauritania	neighborOf	mali	neighborOf	algeria
-burundi	locatedIn	africa	neighborOf	dr_congo
-libya	neighborOf	tunisia	neighborOf	chad
-honduras	neighborOf	nicaragua	neighborOf	el_salvador
-indonesia	locatedIn	asia	neighborOf	papua_new_guinea
-swaziland	locatedIn	southern_africa	neighborOf	mozambique
-malawi	neighborOf	tanzania	neighborOf	zambia
-saint_barthelemy	locatedIn	americas
-romania	locatedIn	europe	neighborOf	ukraine
-seychelles	locatedIn	africa	locatedIn	eastern_africa
-moldova	neighborOf	romania	locatedIn	eastern_europe
-norway	locatedIn	northern_europe	neighborOf	finland
-united_states	locatedIn	americas	neighborOf	canada
-ecuador	locatedIn	south_america	locatedIn	americas
-tuvalu	locatedIn	oceania
-lithuania	neighborOf	poland	neighborOf	russia
-el_salvador	neighborOf	honduras	locatedIn	central_america
-united_states	neighborOf	mexico	locatedIn	northern_america
-bhutan	locatedIn	asia	locatedIn	southern_asia
-belize	locatedIn	central_america	neighborOf	guatemala
-reunion	locatedIn	eastern_africa	locatedIn	africa
-saint_lucia	locatedIn	americas	locatedIn	caribbean
-yemen	neighborOf	oman
-pitcairn_islands	locatedIn	polynesia	locatedIn	oceania
-greenland	locatedIn	americas
-gibraltar	neighborOf	spain	locatedIn	europe
-isle_of_man	locatedIn	europe	locatedIn	northern_europe
-bahamas	locatedIn	americas	locatedIn	caribbean
-serbia	neighborOf	bulgaria	neighborOf	hungary
-burkina_faso	neighborOf	benin	neighborOf	ivory_coast
-mayotte	locatedIn	africa	locatedIn	eastern_africa
-aland_islands	locatedIn	northern_europe	locatedIn	europe
-maldives	locatedIn	asia
-tonga	locatedIn	polynesia	locatedIn	oceania
-haiti	locatedIn	americas	locatedIn	caribbean
-nepal	locatedIn	asia	neighborOf	india
-guam	locatedIn	micronesia
-guadeloupe	locatedIn	americas
-british_indian_ocean_territory	locatedIn	africa
-united_kingdom	locatedIn	northern_europe
-slovenia	locatedIn	europe	neighborOf	austria
-mexico	locatedIn	americas	neighborOf	united_states
-new_zealand	locatedIn	oceania
-gambia	locatedIn	africa
-sint_maarten	neighborOf	saint_martin	locatedIn	americas
-mongolia	locatedIn	eastern_asia	neighborOf	russia
-cayman_islands	locatedIn	americas
-saudi_arabia	locatedIn	western_asia	neighborOf	yemen
-samoa	locatedIn	oceania	locatedIn	polynesia
-martinique	locatedIn	americas	locatedIn	caribbean
-bahrain	locatedIn	asia
-dominican_republic	neighborOf	haiti	locatedIn	caribbean
-middle_africa	locatedIn	africa
-togo	locatedIn	africa	neighborOf	burkina_faso
-southern_asia	locatedIn	asia
-kyrgyzstan	neighborOf	china	locatedIn	central_asia
-haiti	locatedIn	americas	neighborOf	dominican_republic
-israel	neighborOf	syria	neighborOf	egypt
-faroe_islands	locatedIn	europe	locatedIn	northern_europe
-slovenia	locatedIn	europe	neighborOf	hungary
-solomon_islands	locatedIn	oceania
-kenya	locatedIn	eastern_africa	neighborOf	somalia
-gibraltar	locatedIn	europe
-french_guiana	neighborOf	brazil
-british_virgin_islands	locatedIn	caribbean	locatedIn	americas
-kosovo	locatedIn	europe	neighborOf	montenegro
-gabon	neighborOf	republic_of_the_congo	neighborOf	equatorial_guinea
-sao_tome_and_principe	locatedIn	africa
-guinea-bissau	locatedIn	africa	neighborOf	guinea
-chile	locatedIn	americas	neighborOf	bolivia
-belarus	neighborOf	lithuania	neighborOf	ukraine
-christmas_island	locatedIn	oceania	locatedIn	australia_and_new_zealand
-martinique	locatedIn	americas
-iceland	locatedIn	europe
-mali	neighborOf	senegal	neighborOf	ivory_coast
-sweden	locatedIn	europe	neighborOf	norway
-united_kingdom	locatedIn	europe	neighborOf	ireland
-sierra_leone	neighborOf	liberia
-philippines	locatedIn	asia	locatedIn	south-eastern_asia
-central_america	locatedIn	americas
-qatar	locatedIn	asia	neighborOf	saudi_arabia
-aland_islands	locatedIn	europe
-egypt	neighborOf	libya	neighborOf	israel
-namibia	neighborOf	zambia	neighborOf	south_africa
-turkmenistan	locatedIn	asia	neighborOf	uzbekistan
-aruba	locatedIn	americas
-uruguay	locatedIn	americas	neighborOf	argentina
-ireland	locatedIn	northern_europe	locatedIn	europe
-philippines	locatedIn	asia
-belgium	locatedIn	europe	neighborOf	france
-niue	locatedIn	oceania
-western_africa	locatedIn	africa
-nauru	locatedIn	micronesia
-luxembourg	neighborOf	belgium	neighborOf	germany
-sierra_leone	neighborOf	guinea	locatedIn	western_africa
-montenegro	neighborOf	croatia	neighborOf	serbia
-slovakia	neighborOf	poland	neighborOf	ukraine
-croatia	neighborOf	hungary	neighborOf	bosnia_and_herzegovina
-italy	neighborOf	austria	neighborOf	france
-india	neighborOf	sri_lanka	neighborOf	myanmar
-tonga	locatedIn	oceania
-somalia	locatedIn	africa	neighborOf	djibouti
-south_georgia	locatedIn	americas	locatedIn	south_america
-lithuania	neighborOf	belarus	neighborOf	russia
-burundi	locatedIn	africa	locatedIn	eastern_africa
-vatican_city	neighborOf	italy	locatedIn	europe
-malaysia	locatedIn	asia	neighborOf	brunei
-cambodia	locatedIn	asia	neighborOf	laos
-lebanon	locatedIn	asia	neighborOf	syria
-eastern_africa	locatedIn	africa
-kazakhstan	neighborOf	russia	neighborOf	uzbekistan
-gabon	locatedIn	africa	neighborOf	equatorial_guinea
-kosovo	neighborOf	albania	locatedIn	eastern_europe
-qatar	locatedIn	asia	locatedIn	western_asia
-russia	neighborOf	kazakhstan	locatedIn	eastern_europe
-togo	locatedIn	western_africa	neighborOf	burkina_faso
-saint_pierre_and_miquelon	locatedIn	northern_america	locatedIn	americas
-libya	neighborOf	algeria	neighborOf	chad
-new_caledonia	locatedIn	oceania
-thailand	neighborOf	laos	neighborOf	cambodia
-grenada	locatedIn	americas	locatedIn	caribbean
-fiji	locatedIn	oceania	locatedIn	melanesia
-tokelau	locatedIn	oceania
-south_africa	locatedIn	africa	neighborOf	lesotho
-armenia	neighborOf	iran	locatedIn	western_asia
-iran	locatedIn	asia	neighborOf	armenia
-marshall_islands	locatedIn	micronesia	locatedIn	oceania
-romania	neighborOf	moldova	neighborOf	hungary
-peru	neighborOf	brazil	neighborOf	colombia
-bolivia	locatedIn	south_america	neighborOf	brazil
-malaysia	locatedIn	asia	locatedIn	south-eastern_asia
-tunisia	locatedIn	northern_africa	neighborOf	algeria
-bosnia_and_herzegovina	neighborOf	montenegro	locatedIn	southern_europe
-united_states_virgin_islands	locatedIn	caribbean	locatedIn	americas
-pakistan	neighborOf	afghanistan	locatedIn	asia
-venezuela	neighborOf	guyana	locatedIn	americas
-curacao	locatedIn	americas
-albania	locatedIn	europe	neighborOf	kosovo
-new_zealand	locatedIn	australia_and_new_zealand	locatedIn	oceania
-north_korea	neighborOf	china	neighborOf	south_korea
-hungary	locatedIn	eastern_europe	neighborOf	serbia
-caribbean	locatedIn	americas
+iran	locatedIn	asia	neighborOf	azerbaijan
+switzerland	neighborOf	liechtenstein	neighborOf	germany
+namibia	locatedIn	africa	neighborOf	botswana
+djibouti	locatedIn	africa	neighborOf	somalia
+chad	locatedIn	africa	neighborOf	south_sudan
+slovenia	locatedIn	europe	neighborOf	italy
+lesotho	locatedIn	southern_africa	locatedIn	africa
+togo	neighborOf	burkina_faso	neighborOf	benin
+norfolk_island	locatedIn	australia_and_new_zealand	locatedIn	oceania
+poland	neighborOf	belarus	neighborOf	ukraine
+tanzania	neighborOf	uganda	neighborOf	zambia
 guyana	locatedIn	americas	neighborOf	suriname
-south-eastern_asia	locatedIn	asia
-tanzania	locatedIn	eastern_africa	neighborOf	malawi
-austria	locatedIn	europe	neighborOf	germany
-pakistan	neighborOf	iran	neighborOf	india
-serbia	neighborOf	macedonia	neighborOf	hungary
+british_virgin_islands	locatedIn	caribbean	locatedIn	americas
+suriname	locatedIn	americas	neighborOf	guyana
+belgium	locatedIn	europe	neighborOf	germany
+haiti	neighborOf	dominican_republic	locatedIn	caribbean
+bulgaria	locatedIn	europe	neighborOf	macedonia
+sudan	neighborOf	libya	neighborOf	ethiopia
+canada	neighborOf	united_states	locatedIn	northern_america
+serbia	neighborOf	bulgaria	neighborOf	montenegro
+guernsey	locatedIn	europe	locatedIn	northern_europe
+mongolia	locatedIn	asia	neighborOf	russia
+sierra_leone	locatedIn	africa	locatedIn	western_africa
+luxembourg	neighborOf	belgium	neighborOf	france
+marshall_islands	locatedIn	oceania	locatedIn	micronesia
+azerbaijan	neighborOf	turkey	neighborOf	armenia
+guinea	neighborOf	liberia	neighborOf	senegal
+kenya	neighborOf	south_sudan	neighborOf	somalia
+france	neighborOf	andorra	neighborOf	italy
+niger	neighborOf	libya	neighborOf	chad
+germany	neighborOf	poland	neighborOf	luxembourg
+georgia	locatedIn	western_asia	neighborOf	russia
+liberia	neighborOf	guinea	neighborOf	sierra_leone
+estonia	locatedIn	europe	locatedIn	northern_europe
+lebanon	locatedIn	asia	neighborOf	israel
+honduras	neighborOf	guatemala	neighborOf	nicaragua
+mexico	locatedIn	americas	neighborOf	guatemala
+sierra_leone	locatedIn	africa	neighborOf	guinea
+venezuela	neighborOf	colombia	neighborOf	guyana
+montenegro	locatedIn	southern_europe	neighborOf	serbia
+timor-leste	neighborOf	indonesia	locatedIn	asia
+samoa	locatedIn	polynesia	locatedIn	oceania
+oman	neighborOf	saudi_arabia	neighborOf	yemen
+afghanistan	locatedIn	southern_asia	neighborOf	turkmenistan
+equatorial_guinea	locatedIn	middle_africa	locatedIn	africa
+russia	neighborOf	estonia	neighborOf	ukraine
+angola	neighborOf	dr_congo	neighborOf	namibia
+cameroon	neighborOf	equatorial_guinea	neighborOf	central_african_republic
+brazil	neighborOf	colombia	neighborOf	french_guiana
+costa_rica	locatedIn	americas	neighborOf	nicaragua
+bolivia	neighborOf	brazil	neighborOf	chile
+colombia	locatedIn	americas	neighborOf	panama
+brazil	locatedIn	americas	neighborOf	french_guiana
+andorra	locatedIn	europe	neighborOf	france
+gabon	locatedIn	middle_africa	neighborOf	equatorial_guinea
+iraq	neighborOf	jordan	neighborOf	syria
+saint_martin	locatedIn	americas	neighborOf	sint_maarten
+el_salvador	neighborOf	guatemala	neighborOf	honduras
+ethiopia	locatedIn	eastern_africa	neighborOf	kenya
+hungary	locatedIn	europe	neighborOf	romania
+san_marino	locatedIn	europe	neighborOf	italy
+ivory_coast	neighborOf	guinea	neighborOf	burkina_faso
+zimbabwe	neighborOf	south_africa	neighborOf	mozambique
+united_kingdom	neighborOf	ireland	locatedIn	northern_europe
+aland_islands	locatedIn	northern_europe	locatedIn	europe
+czechia	locatedIn	europe	neighborOf	slovakia
+saudi_arabia	neighborOf	iraq	neighborOf	oman
+kiribati	locatedIn	oceania	locatedIn	micronesia
+uganda	neighborOf	tanzania	neighborOf	dr_congo
+greece	locatedIn	southern_europe	neighborOf	bulgaria
+vatican_city	neighborOf	italy	locatedIn	southern_europe
+anguilla	locatedIn	americas	locatedIn	caribbean
+cameroon	locatedIn	middle_africa	neighborOf	central_african_republic
+moldova	neighborOf	romania	locatedIn	eastern_europe
+italy	locatedIn	europe	neighborOf	france
+ireland	locatedIn	europe	neighborOf	united_kingdom
+saint_vincent_and_the_grenadines	locatedIn	caribbean	locatedIn	americas
+grenada	locatedIn	caribbean	locatedIn	americas
+malawi	neighborOf	zambia	neighborOf	tanzania
+romania	neighborOf	hungary	neighborOf	ukraine
+laos	locatedIn	asia	neighborOf	myanmar
+united_states_minor_outlying_islands	locatedIn	northern_america	locatedIn	americas
+benin	locatedIn	africa	neighborOf	niger
+south_georgia	locatedIn	americas	locatedIn	south_america
+chile	locatedIn	south_america	neighborOf	argentina
+liechtenstein	neighborOf	austria	neighborOf	switzerland
+ecuador	locatedIn	americas	neighborOf	peru
+united_states	locatedIn	northern_america	neighborOf	mexico
+turkmenistan	neighborOf	iran	neighborOf	uzbekistan
+vietnam	locatedIn	asia	neighborOf	china
+thailand	locatedIn	asia	neighborOf	myanmar
+bangladesh	locatedIn	asia	neighborOf	myanmar
+dr_congo	neighborOf	angola	neighborOf	rwanda
+malawi	neighborOf	mozambique	neighborOf	tanzania
+costa_rica	locatedIn	americas	locatedIn	central_america
+jordan	locatedIn	asia	neighborOf	syria
+ghana	locatedIn	africa	neighborOf	burkina_faso
+south_africa	locatedIn	southern_africa	neighborOf	mozambique
+peru	locatedIn	americas	neighborOf	bolivia
+zambia	neighborOf	dr_congo	neighborOf	mozambique
+singapore	locatedIn	south-eastern_asia	locatedIn	asia
+guinea-bissau	locatedIn	africa	neighborOf	senegal
+zambia	neighborOf	angola	neighborOf	mozambique
+tajikistan	locatedIn	asia	neighborOf	china
+venezuela	neighborOf	brazil	neighborOf	colombia
+china	neighborOf	hong_kong	locatedIn	eastern_asia
+finland	locatedIn	northern_europe	neighborOf	russia
+cuba	locatedIn	americas	locatedIn	caribbean
+equatorial_guinea	locatedIn	africa	neighborOf	cameroon
+germany	neighborOf	czechia	neighborOf	luxembourg
+french_guiana	locatedIn	south_america	neighborOf	brazil
+south_sudan	neighborOf	kenya	neighborOf	sudan
+suriname	locatedIn	south_america	neighborOf	guyana
+cyprus	locatedIn	europe	neighborOf	united_kingdom
+south_sudan	locatedIn	africa	neighborOf	sudan
+liechtenstein	locatedIn	europe	neighborOf	switzerland
+netherlands	neighborOf	germany	locatedIn	western_europe
+estonia	locatedIn	europe	neighborOf	russia
+benin	neighborOf	togo	locatedIn	africa
+somalia	locatedIn	eastern_africa	neighborOf	kenya
+gibraltar	neighborOf	spain	locatedIn	southern_europe
+macedonia	neighborOf	greece	neighborOf	serbia
+uruguay	locatedIn	south_america	neighborOf	brazil
+lesotho	locatedIn	africa	neighborOf	south_africa
+zimbabwe	locatedIn	africa	neighborOf	botswana
+liberia	neighborOf	ivory_coast	neighborOf	sierra_leone
+ethiopia	neighborOf	djibouti	neighborOf	kenya
+new_caledonia	locatedIn	melanesia	locatedIn	oceania
+belarus	neighborOf	lithuania	neighborOf	latvia
+iraq	locatedIn	asia	neighborOf	syria
+swaziland	neighborOf	south_africa	locatedIn	southern_africa
+belize	locatedIn	central_america	neighborOf	guatemala
+tonga	locatedIn	oceania	locatedIn	polynesia
+mali	neighborOf	burkina_faso	neighborOf	niger
+faroe_islands	locatedIn	northern_europe	locatedIn	europe
+tanzania	locatedIn	africa	neighborOf	rwanda
+indonesia	locatedIn	asia	neighborOf	papua_new_guinea
+north_korea	neighborOf	china	neighborOf	south_korea
+andorra	locatedIn	southern_europe	neighborOf	france
+armenia	neighborOf	azerbaijan	neighborOf	turkey
+nicaragua	neighborOf	honduras	neighborOf	costa_rica
+bosnia_and_herzegovina	locatedIn	southern_europe	neighborOf	serbia
+slovakia	locatedIn	europe	neighborOf	hungary
+cambodia	locatedIn	south-eastern_asia	neighborOf	vietnam
+libya	neighborOf	egypt	neighborOf	algeria
+sudan	neighborOf	egypt	neighborOf	ethiopia
+syria	locatedIn	western_asia	neighborOf	jordan
+argentina	locatedIn	south_america	neighborOf	brazil
+latvia	locatedIn	europe	neighborOf	russia
+burundi	neighborOf	rwanda	neighborOf	tanzania
+niger	locatedIn	africa	neighborOf	algeria
+south_africa	locatedIn	africa	neighborOf	mozambique
+nepal	neighborOf	india	locatedIn	asia
+barbados	locatedIn	americas	locatedIn	caribbean
+rwanda	neighborOf	uganda	neighborOf	burundi
+rwanda	neighborOf	dr_congo	neighborOf	burundi
+brunei	locatedIn	asia	neighborOf	malaysia
+algeria	neighborOf	tunisia	neighborOf	mali
+finland	neighborOf	norway	locatedIn	europe
+libya	neighborOf	sudan	neighborOf	algeria
+western_sahara	locatedIn	africa	neighborOf	morocco
+burkina_faso	neighborOf	togo	neighborOf	niger
+greenland	locatedIn	northern_america	locatedIn	americas
+somalia	neighborOf	djibouti	neighborOf	kenya
+albania	locatedIn	southern_europe	neighborOf	macedonia
+oman	neighborOf	united_arab_emirates	neighborOf	yemen
+micronesia	locatedIn	micronesia	locatedIn	oceania
+central_african_republic	locatedIn	africa	neighborOf	south_sudan
+bermuda	locatedIn	northern_america	locatedIn	americas
+lithuania	neighborOf	poland	neighborOf	latvia
+serbia	neighborOf	macedonia	neighborOf	montenegro
+sao_tome_and_principe	locatedIn	africa	locatedIn	middle_africa
+guyana	locatedIn	south_america	neighborOf	venezuela
+belarus	neighborOf	poland	neighborOf	latvia
+bhutan	locatedIn	asia	neighborOf	china
 nicaragua	locatedIn	central_america	neighborOf	costa_rica
-antigua_and_barbuda	locatedIn	americas
+georgia	neighborOf	turkey	neighborOf	russia
+papua_new_guinea	locatedIn	oceania	neighborOf	indonesia
+china	locatedIn	asia	neighborOf	kazakhstan
+myanmar	locatedIn	asia	neighborOf	bangladesh
+hong_kong	locatedIn	asia	neighborOf	china
+comoros	locatedIn	africa	locatedIn	eastern_africa
+norway	locatedIn	europe	neighborOf	finland
+botswana	locatedIn	southern_africa	neighborOf	zambia
+spain	locatedIn	southern_europe	neighborOf	france
+puerto_rico	locatedIn	americas	locatedIn	caribbean
+laos	neighborOf	china	neighborOf	myanmar
+croatia	neighborOf	slovenia	neighborOf	montenegro
+romania	locatedIn	eastern_europe	neighborOf	ukraine
+uzbekistan	neighborOf	kyrgyzstan	neighborOf	afghanistan
+kazakhstan	locatedIn	asia	neighborOf	turkmenistan
+taiwan	locatedIn	asia	locatedIn	eastern_asia
+peru	locatedIn	south_america	neighborOf	bolivia
+south_korea	locatedIn	asia	locatedIn	eastern_asia
+pakistan	locatedIn	asia	neighborOf	afghanistan
+panama	locatedIn	central_america	locatedIn	americas
+cayman_islands	locatedIn	caribbean	locatedIn	americas
+lithuania	neighborOf	belarus	neighborOf	latvia
+malaysia	locatedIn	asia	neighborOf	indonesia
+algeria	neighborOf	libya	neighborOf	mali
+yemen	neighborOf	oman	neighborOf	saudi_arabia
+uzbekistan	locatedIn	asia	neighborOf	afghanistan
+czechia	neighborOf	austria	neighborOf	slovakia
+israel	locatedIn	asia	neighborOf	lebanon
+curacao	locatedIn	caribbean	locatedIn	americas
+gambia	locatedIn	africa	neighborOf	senegal
+nepal	locatedIn	asia	neighborOf	china
+kuwait	locatedIn	western_asia	neighborOf	saudi_arabia
+ghana	neighborOf	togo	neighborOf	burkina_faso
+france	neighborOf	spain	neighborOf	italy
+paraguay	neighborOf	argentina	neighborOf	brazil
+south_korea	locatedIn	asia	neighborOf	north_korea
+pitcairn_islands	locatedIn	oceania	locatedIn	polynesia
+cambodia	neighborOf	thailand	neighborOf	vietnam
+mongolia	locatedIn	eastern_asia	neighborOf	russia
+morocco	locatedIn	northern_africa	locatedIn	africa
+guatemala	neighborOf	el_salvador	neighborOf	mexico
+austria	neighborOf	slovenia	neighborOf	slovakia
+eritrea	locatedIn	africa	neighborOf	ethiopia
+palestine	locatedIn	asia	neighborOf	israel
+british_indian_ocean_territory	locatedIn	africa	locatedIn	eastern_africa
+colombia	locatedIn	americas	locatedIn	south_america
+azerbaijan	neighborOf	iran	neighborOf	armenia
+american_samoa	locatedIn	polynesia	locatedIn	oceania
+mauritania	neighborOf	algeria	locatedIn	africa
+bahrain	locatedIn	western_asia	locatedIn	asia
+turkey	locatedIn	asia	neighborOf	iran
+french_guiana	neighborOf	suriname	neighborOf	brazil
+india	locatedIn	asia	neighborOf	pakistan
+western_sahara	neighborOf	algeria	neighborOf	morocco
+belize	locatedIn	americas	neighborOf	guatemala
+north_korea	neighborOf	russia	neighborOf	south_korea
+kosovo	neighborOf	montenegro	neighborOf	serbia
+swaziland	locatedIn	southern_africa	neighborOf	mozambique
+mauritania	neighborOf	mali	neighborOf	western_sahara
+egypt	neighborOf	libya	neighborOf	israel
+greece	neighborOf	albania	neighborOf	bulgaria
+saint_martin	locatedIn	caribbean	locatedIn	americas
+switzerland	neighborOf	austria	neighborOf	germany
+guatemala	neighborOf	honduras	neighborOf	mexico
+antigua_and_barbuda	locatedIn	americas	locatedIn	caribbean
+macedonia	neighborOf	bulgaria	neighborOf	serbia
+tajikistan	neighborOf	kyrgyzstan	locatedIn	asia
+kuwait	neighborOf	iraq	locatedIn	western_asia
+uganda	neighborOf	rwanda	neighborOf	dr_congo
+montserrat	locatedIn	americas	locatedIn	caribbean
+italy	neighborOf	switzerland	neighborOf	slovenia
+saint_pierre_and_miquelon	locatedIn	americas	locatedIn	northern_america
+panama	locatedIn	americas	neighborOf	costa_rica
+nauru	locatedIn	micronesia	locatedIn	oceania
+burundi	neighborOf	dr_congo	neighborOf	tanzania
+croatia	neighborOf	hungary	neighborOf	montenegro
+monaco	neighborOf	france	locatedIn	western_europe
+indonesia	locatedIn	asia	neighborOf	timor-leste
+solomon_islands	locatedIn	oceania	locatedIn	melanesia
+central_african_republic	neighborOf	chad	locatedIn	africa
+morocco	locatedIn	africa	neighborOf	western_sahara
+cocos_keeling_islands	locatedIn	oceania	locatedIn	australia_and_new_zealand
+san_marino	locatedIn	southern_europe	locatedIn	europe
+namibia	locatedIn	southern_africa	neighborOf	botswana
+bulgaria	neighborOf	greece	neighborOf	macedonia
+senegal	locatedIn	africa	neighborOf	guinea-bissau
+kyrgyzstan	neighborOf	kazakhstan	neighborOf	uzbekistan
+maldives	locatedIn	southern_asia	locatedIn	asia
+malta	locatedIn	southern_europe	locatedIn	europe
+saint_lucia	locatedIn	americas	locatedIn	caribbean
+united_states	neighborOf	canada	neighborOf	mexico
+latvia	neighborOf	estonia	neighborOf	russia
+united_states_virgin_islands	locatedIn	caribbean	locatedIn	americas
+bhutan	neighborOf	india	locatedIn	asia
+israel	neighborOf	jordan	neighborOf	lebanon
+qatar	locatedIn	asia	neighborOf	saudi_arabia
+mozambique	locatedIn	africa	neighborOf	swaziland
+iceland	locatedIn	northern_europe	locatedIn	europe
+sint_maarten	neighborOf	saint_martin	locatedIn	caribbean
+mayotte	locatedIn	africa	locatedIn	eastern_africa
+saint_kitts_and_nevis	locatedIn	americas	locatedIn	caribbean
+mali	neighborOf	niger	neighborOf	guinea
+dominican_republic	locatedIn	americas	neighborOf	haiti
+albania	neighborOf	montenegro	locatedIn	southern_europe
+montenegro	neighborOf	albania	locatedIn	southern_europe
+uruguay	locatedIn	americas	neighborOf	brazil
+bosnia_and_herzegovina	neighborOf	montenegro	neighborOf	serbia
+spain	neighborOf	portugal	neighborOf	france
+republic_of_the_congo	locatedIn	middle_africa	neighborOf	central_african_republic
+ireland	locatedIn	northern_europe	neighborOf	united_kingdom
+austria	locatedIn	europe	neighborOf	hungary
+northern_mariana_islands	locatedIn	micronesia	locatedIn	oceania
+bangladesh	locatedIn	asia	locatedIn	southern_asia
+jamaica	locatedIn	caribbean	locatedIn	americas
+argentina	neighborOf	uruguay	neighborOf	brazil
+nigeria	neighborOf	chad	neighborOf	niger
+iran	locatedIn	southern_asia	neighborOf	azerbaijan
+svalbard_and_jan_mayen	locatedIn	europe	locatedIn	northern_europe
+luxembourg	neighborOf	germany	neighborOf	france
+slovenia	locatedIn	europe	locatedIn	southern_europe
+hungary	locatedIn	eastern_europe	neighborOf	romania
+tokelau	locatedIn	oceania	locatedIn	polynesia
+bolivia	neighborOf	argentina	neighborOf	chile
+wallis_and_futuna	locatedIn	oceania	locatedIn	polynesia
+nigeria	neighborOf	cameroon	neighborOf	niger
+malaysia	locatedIn	asia	locatedIn	south-eastern_asia
+kazakhstan	neighborOf	kyrgyzstan	neighborOf	turkmenistan
+portugal	neighborOf	spain	locatedIn	southern_europe
+jersey	locatedIn	northern_europe	locatedIn	europe
+ukraine	locatedIn	europe	neighborOf	belarus
+syria	locatedIn	asia	neighborOf	turkey
+saint_barthelemy	locatedIn	americas	locatedIn	caribbean
