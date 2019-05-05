@@ -10,7 +10,7 @@ from tqdm import tqdm
 GAMMA = 0.5
 WORD_EMB_DIM = 300
 NODE_EMB_DIM = 16
-H_DIM = 16
+H_DIM = 32
 T = 3
 NUM_EPOCH = 100
 SOFT_REWARD_SCALE = 0.01
