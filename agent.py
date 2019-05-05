@@ -8,42 +8,35 @@ from torch.autograd import Variable
 
 
 class Agent():
-    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, gamma, learning_rate, model_param_list):
+    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, word_emb_dim, node_emb_dim, gamma, learning_rate, model_param_list):
         self.gamma = gamma
-        self.action_dim = num_entity * num_rel
-        self.num_entity = num_entity
-        self.policy = Policy(input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel)
+        self.action_dim = word_emb_dim + node_emb_dim
+        self.policy = Policy(input_dim, hidden_dim ,dropout_rate, lstm_num_layers, word_emb_dim, node_emb_dim)
         self.reward_history = []
         self.logprob_history = []
+        self.sm = torch.nn.Softmax(dim=-1)
         params = list(self.policy.parameters()) + model_param_list
         self.optimizer = torch.optim.Adam(params, lr=learning_rate)
 
-    def get_action(self, state, possible_actions):
-        scores = self.policy(state)
-        # zero out all impossible actions
-        possible_index = []
-        for action in possible_actions:
-            r, e = action
-            index = r * self.num_entity + e
-            possible_index.append(index)
-        scores_possible = scores[possible_index]
-        sm = torch.nn.Softmax(dim=-1)
-        scores_possible = sm(scores_possible)
+    def get_action(self, state, possible_actions, possible_actions_emb):
+        out = self.policy(state)
+        At = torch.Tensor(possible_actions_emb)
+        scores = torch.mv(At, out) 
+        scores = self.sm(scores)
 
         # sample an action from the distribution
-        c =  Categorical(scores_possible)
+        c =  Categorical(scores)
         index = c.sample()
-        action = possible_index[index]
-        r = math.floor(action/self.num_entity)
-        e = action%self.num_entity
+        action = possible_actions[index]
+        action_emb = possible_actions_emb[index]
 
         # add log prob to history
         self.logprob_history.append(c.log_prob(index))
 
         # add action to path
-        self.policy.update_path((r,e))
+        self.policy.update_path(action_emb)
 
-        return (r,e)
+        return action
 
     # assign hard reward
     def hard_reward(self, a):

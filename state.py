@@ -83,10 +83,12 @@ class State:
     def generate_all_possible_actions(self):
         neighbors = self.find_all_neighbors()
         actions = []
+        emb_actions = []
         for (_, r, e2) in neighbors:
             if (r, e2) not in actions:
                 actions.append((r, e2))
-        return actions
+                emb_actions.append(np.concatenate((self.rel_embedding[r], self.node_embedding[e2]),axis=None))
+        return actions, emb_actions
 
     # embed nodes: change this
     def init_node_embedding(self, path):

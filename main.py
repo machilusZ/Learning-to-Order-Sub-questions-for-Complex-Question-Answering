@@ -36,7 +36,7 @@ state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention,
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-agent = Agent(input_dim, 10, 0.05, 3, num_entity, num_rel, GAMMA, 0.0001, model_param_list)
+agent = Agent(input_dim, 20, 0.1, 2, WORD_EMB_DIM, NODE_EMB_DIM, GAMMA, 0.0001, model_param_list)
 
 # training loop
 for epoch in range(NUM_EPOCH):
@@ -47,14 +47,16 @@ for epoch in range(NUM_EPOCH):
         # create state from the question
         state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding)
         answer = kg.en_vocab[train[i][0]]
-        e0 = state.subgraphs[0][0]
-        agent.policy.init_path(e0)
+        e0_emb = state.node_embedding[state.subgraphs[0][0]]
+        r0_emb = np.zeros(WORD_EMB_DIM)
+        init_action = np.concatenate((r0_emb,e0_emb),axis=None)
+        agent.policy.init_path(init_action)
         
         # go for T step
         for step in range(T):
             embedded_state = state.get_embedded_state()
-            possible_actions = state.generate_all_possible_actions()
-            action = agent.get_action(embedded_state, possible_actions)
+            possible_actions, possible_actions_emb = state.generate_all_possible_actions()
+            action = agent.get_action(embedded_state, possible_actions, possible_actions_emb)
             r, e = action
             if step < T-1:
                 agent.hard_reward(0)
