@@ -14,6 +14,7 @@ H_DIM = 32
 T = 3
 NUM_EPOCH = 40
 SOFT_REWARD_SCALE = 0
+NUM_ROLL_OUT = 5
 
 parser = argparse.ArgumentParser("main.py")
 parser.add_argument("dataset", help="the name of the dataset", type=str)
@@ -45,39 +46,40 @@ for epoch in range(NUM_EPOCH):
     rewards = []
     correct = 0
     for i in tqdm(range(len(train))):
-        # create state from the question
-        state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding)
-        answer = kg.en_vocab[train[i][0]]
-        e0 = state.subgraphs[0][0]
-        agent.policy.init_path(e0)
-        
-        # go for T step
-        for step in range(T):
-            embedded_state = state.get_embedded_state()
-            possible_actions = state.generate_all_possible_actions()
-            action = agent.get_action(embedded_state, possible_actions)
-            g, r, e = action
-            if step < T-1:
-                agent.hard_reward(0)
-            else:
-                if answer == e:
-                    agent.hard_reward(1)
+        for _ in range(NUM_ROLL_OUT):
+            # create state from the question
+            state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding)
+            answer = kg.en_vocab[train[i][0]]
+            e0 = state.subgraphs[0][0]
+            agent.policy.init_path(e0)
+            
+            # go for T step
+            for step in range(T):
+                embedded_state = state.get_embedded_state()
+                possible_actions = state.generate_all_possible_actions()
+                action = agent.get_action(embedded_state, possible_actions)
+                g, r, e = action
+                if step < T-1:
+                    agent.hard_reward(0)
                 else:
-                    answer_embedding = state.node_embedding[answer]
-                    e_embedding = state.node_embedding[e]
-                    # TODO: add reward for in the same subgraph
-                    agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE)
-            state.update(action)
-            #print("step: " + str(step) + ", take action: " + str(action) + "result_subgraphs:" + str(state.subgraphs))
-        
-        # update the policy net and record loss
-        loss, reward, last_reward = agent.update_policy()
-        if last_reward == 1:
-            correct += 1
-        losses.append(loss)
-        rewards.append(reward)
+                    if answer == e:
+                        agent.hard_reward(1)
+                    else:
+                        answer_embedding = state.node_embedding[answer]
+                        e_embedding = state.node_embedding[e]
+                        # TODO: add reward for in the same subgraph
+                        agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE)
+                state.update(action)
+                #print("step: " + str(step) + ", take action: " + str(action) + "result_subgraphs:" + str(state.subgraphs))
+            
+            # update the policy net and record loss
+            loss, reward, last_reward = agent.update_policy()
+            if last_reward == 1:
+                correct += 1
+            losses.append(loss)
+            rewards.append(reward)
 
-    acc = correct/len(train)
+    acc = correct/(NUM_ROLL_OUT*len(train))
     avg_loss = np.mean(losses)
     avg_reward = np.mean(rewards)
     print("epoch: " + str(epoch) + ", loss: " + str(avg_loss) + ", reward: " + str(avg_reward) + ", acc: " + str(acc))
