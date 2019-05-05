@@ -10,7 +10,7 @@ from torch.autograd import Variable
 class Agent():
     def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, gamma, learning_rate, model_param_list):
         self.gamma = gamma
-        self.action_dim = num_entity * num_rel
+        self.action_dim = num_entity * (num_rel - 1)
         self.num_entity = num_entity
         self.policy = Policy(input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel)
         self.reward_history = []
