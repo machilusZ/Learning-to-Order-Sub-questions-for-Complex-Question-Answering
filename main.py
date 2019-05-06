@@ -6,6 +6,7 @@ from attention import Attention
 import torch.nn as nn
 import numpy as np
 from tqdm import tqdm
+from evaluate import computeF1
 
 GAMMA = 0.5
 WORD_EMB_DIM = 300
@@ -24,10 +25,10 @@ args = parser.parse_args()
 rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM)
 
 # projection from word embedding to node node embedding
-word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False)      
+word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False)
 
-# mutihead self-attention 
-attention = Attention(4, NODE_EMB_DIM, H_DIM, 0.01)                
+# mutihead self-attention
+attention = Attention(4, NODE_EMB_DIM, H_DIM, 0.01)
 
 # list contains all params that need to optimize
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
@@ -44,6 +45,7 @@ for epoch in range(NUM_EPOCH):
     losses = []
     rewards = []
     correct = 0
+    f1 = []
     for i in tqdm(range(len(train))):
         # create state from the question
         for _ in range(NUM_ROLL_OUT):
@@ -51,7 +53,7 @@ for epoch in range(NUM_EPOCH):
             answer = kg.en_vocab[train[i][0]]
             e0 = state.subgraphs[0][0]
             agent.policy.init_path(e0)
-            
+
             # go for T step
             for step in range(T):
                 embedded_state = state.get_embedded_state()
@@ -69,7 +71,9 @@ for epoch in range(NUM_EPOCH):
                         agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE)
                 state.update(action)
                 #print("step: " + str(step) + ", take action: " + str(action) + "result_subgraphs:" + str(state.subgraphs))
-            
+
+            # compute f1
+            f1.append(computeF1(answer, e)[-1])
             # update the policy net and record loss
             loss, reward, last_reward = agent.update_policy()
             if last_reward == 1:
@@ -80,7 +84,8 @@ for epoch in range(NUM_EPOCH):
     acc = correct/(NUM_ROLL_OUT*len(train))
     avg_loss = np.mean(losses)
     avg_reward = np.mean(rewards)
-    print("epoch: " + str(epoch) + ", loss: " + str(avg_loss) + ", reward: " + str(avg_reward) + ", acc: " + str(acc))
+    avg_f1 = np.mean(f1)
+    print("epoch: {}, loss: {}, reward: {}, acc: {}, f1: {}".format(epoch, avg_loss, avg_reward, acc, avg_f1))
 
 
 
