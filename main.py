@@ -6,7 +6,7 @@ from attention import Attention
 import torch.nn as nn
 import numpy as np
 from tqdm import tqdm
-from evaluate import computeF1
+from evaluate import computeF1, evaluate
 
 GAMMA = 0.5
 WORD_EMB_DIM = 300
@@ -86,6 +86,9 @@ for epoch in range(NUM_EPOCH):
     avg_reward = np.mean(rewards)
     avg_f1 = np.mean(f1)
     print("epoch: {}, loss: {}, reward: {}, acc: {}, f1: {}".format(epoch, avg_loss, avg_reward, acc, avg_f1))
+
+    # evaluate on test set
+    evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding)
 
 
 

@@ -28,7 +28,7 @@ def load_questions(file_path, line_parser):
 
 # Parsers, each parser takes in one line of the question file and return (answer, [e1, e2, ..], [r1, r2, ...])
 def countires_parser(line):
-    temp = line[0:-2].decode("utf-8").split("\t")
+    temp = line.decode("utf-8").strip().split("\t")
     if len(temp) != 5:
         return None
     a, r1, e1, r2, e2 = temp
@@ -65,7 +65,7 @@ def init_rel_embedding(path_to_embedding, spliter, word_emb_size, graph):
         else:
             rel_embedding[index] = r_vector/found
     return rel_embedding
-        
+
 # spliters: split the relation into words
 def camel_case_spliter(word):
     matches = re.finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)',word)

@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 import math
-from policy import Policy 
+from policy import Policy
 from scipy.spatial.distance import cosine
 from torch.distributions import Categorical
 from torch.autograd import Variable
@@ -53,14 +53,14 @@ class Agent():
     def soft_reward(self, answer_embedding, last_action_embedding, scale):
         R = 1 - cosine(answer_embedding, last_action_embedding)
         self.reward_history.append(scale*R)
-           
+
     def update_policy(self):
         R = 0
         rewards = []
         for r in self.reward_history[::-1]:
             R = r + self.gamma * R
             rewards.insert(0,R)
-       
+
         # Scale rewards
         rewards = np.array(rewards)
         # if we normalize the reward, the loss don't go down
@@ -77,8 +77,7 @@ class Agent():
         self.optimizer.step()
 
         # reinitialize history
-        self.logprob_history = []
-        self.reward_history = []
+        self.clear_history()
 
         hit = 0
         for i in rewards:
@@ -86,3 +85,8 @@ class Agent():
                 hit += 1
 
         return loss.item(), torch.sum(rewards).item(), hit
+
+    def clear_history(self):
+        # reinitialize history
+        self.logprob_history = []
+        self.reward_history = []

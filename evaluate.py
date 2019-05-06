@@ -2,6 +2,11 @@
 Some helper scripts to quantitatively compute the performance
 of the model
 """
+import numpy as np
+from tqdm import tqdm
+import torch
+from state import State
+
 def computeF1(goldList, predictedList):
     '''
     return a tuple with recall, precision, and f1 for one example. This
@@ -42,3 +47,30 @@ def computeF1(goldList, predictedList):
     if precision + recall > 0:
         f1 = 2 * recall * precision / (precision + recall)
     return (recall, precision, f1)
+
+def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding):
+    """
+    A function to run evaluation on the test set
+    """
+    with torch.no_grad():
+        f1 = []
+
+        for i in tqdm(range(len(test))):
+            state = State((test[i][1],test[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding)
+            answer = kg.en_vocab[test[i][0]]
+            e0 = state.subgraphs[0][0]
+            agent.policy.init_path(e0)
+
+            # go for T step
+            for step in range(T):
+                embedded_state = state.get_embedded_state()
+                possible_actions = state.generate_all_possible_actions()
+                action = agent.get_action(embedded_state, possible_actions)
+                r, e = action
+                state.update(action)
+
+            # compute f1
+            f1.append(computeF1(answer, e)[-1])
+        avg_f1 = np.mean(f1)
+        print("Average test f1: {}".format(avg_f1))
+        agent.clear_history()
