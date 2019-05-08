@@ -16,7 +16,7 @@ class KnowledgeGraph:
         with open(file_path, 'rb') as fp:
             line = fp.readline()
             while line:
-                e1, r, e2 = line[0:-2].decode("utf-8").split("\t")
+                e1, r, e2 = line[0:-1].decode("utf-8").split("\t")
                 # update the text_graph
                 if e2 not in self.text_graph:
                     self.text_graph[e2] = []

@@ -38,7 +38,6 @@ def init_rel_embedding(path_to_embedding, spliter, word_emb_size, graph):
     # read in the embeding
     embeddings_index = {}
     rel_embedding = {}
-    '''
     with open(path_to_embedding) as f:
         for line in tqdm(f):
             try:
@@ -48,7 +47,7 @@ def init_rel_embedding(path_to_embedding, spliter, word_emb_size, graph):
                 embeddings_index[word] = coefs
             except:
                 pass
-    '''
+                
     for r in graph.rel_vocab:
         index = graph.rel_vocab[r]
         words = spliter(r)
@@ -59,9 +58,11 @@ def init_rel_embedding(path_to_embedding, spliter, word_emb_size, graph):
             if embedding_vector is not None:
                 found += 1
                 r_vector += embedding_vector
-        # if all words of a relation are not in our pretrained glove, set to all-zeros
+        
+        # if all words of a relation are not in our pretrained glove, set to ran
         if found == 0:
-            rel_embedding[index] = np.random.randn((word_emb_size))
+            rel_embedding[index] = np.zeros((word_emb_size))
+            rel_embedding[index][index] = 1
         else:
             rel_embedding[index] = r_vector/found
     return rel_embedding

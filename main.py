@@ -12,11 +12,11 @@ import math
 GAMMA = 0.5
 WORD_EMB_DIM = 300
 NODE_EMB_DIM = 16
-H_DIM = 32
+H_DIM = 64
 T = 3
-NUM_EPOCH = 100
+NUM_EPOCH = 25
 SOFT_REWARD_SCALE = 0.01
-NUM_ROLL_OUT = 5
+NUM_ROLL_OUT = 1
 
 parser = argparse.ArgumentParser("main.py")
 parser.add_argument("dataset", help="the name of the dataset", type=str)
@@ -35,11 +35,11 @@ attention = Attention(4, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM))
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
 
 # init agent
-state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding) # init here to calculate the input size
+state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T) # init here to calculate the input size
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-agent = Agent(input_dim, 32, 0.1, 2, num_entity, num_rel, GAMMA, 0.0001, model_param_list)
+agent = Agent(input_dim, 32, 0.5, 2, num_entity, num_rel, GAMMA, 0.0001, model_param_list)
 
 # training loop
 for epoch in range(NUM_EPOCH):
@@ -50,7 +50,7 @@ for epoch in range(NUM_EPOCH):
     for i in tqdm(range(len(train))):
         # create state from the question
         for _ in range(NUM_ROLL_OUT):
-            state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding)
+            state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T)
             answer = kg.en_vocab[train[i][0]]
             e0 = state.subgraphs[0][0]
             agent.policy.init_path(e0)
