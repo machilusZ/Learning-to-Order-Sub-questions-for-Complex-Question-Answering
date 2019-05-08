@@ -7,7 +7,7 @@ import torch
 import re
 
 class State:
-    def __init__(self, question, graph, word_emb_dim, word2node, attention, rel_embedding):
+    def __init__(self, question, graph, word_emb_dim, word2node, attention, rel_embedding, T):
         self.es, self.rs = graph.encode_question(question) # encoded entities and relations in the question
         self.word_emb_size = word_emb_dim  # dimension of word embeding
         self.subgraphs = []                # each element is a vector of format [e1, e2, ... ] representing a subgraph
@@ -20,6 +20,7 @@ class State:
         self.graph = graph                 # knowledge graph object
         self.word2node = word2node         # a fc layer project word embeding to node embedingg
         self.attention = attention         # mutihead self-attention 
+        self.T = T                         # T step
 
         # init all subgraphs from the question
         for e in self.es:
@@ -55,7 +56,7 @@ class State:
             # if Rt is already all zeros, we will not reduce it
             if np.sum(self.Rt[i] != 0) != 0:
                 gamma = 1 - cosine(self.Rt[i], rt_embed)
-                self.Rt[i] -= gamma * rt_embed
+                self.Rt[i] -= (gamma * rt_embed)/self.T
 
         # update Ht
         self.calculate_ht()

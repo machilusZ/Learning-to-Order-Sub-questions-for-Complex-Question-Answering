@@ -56,7 +56,7 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
         f1 = []
 
         for i in tqdm(range(len(test))):
-            state = State((test[i][1],test[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding)
+            state = State((test[i][1],test[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T)
             answer = kg.en_vocab[test[i][0]]
             e0 = state.subgraphs[0][0]
             agent.policy.init_path(e0)

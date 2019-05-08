@@ -16,7 +16,14 @@ class KnowledgeGraph:
         with open(file_path, 'rb') as fp:
             line = fp.readline()
             while line:
-                e1, r, e2 = line[0:-2].decode("utf-8").split("\t")
+                e1, r, e2 = line[0:-1].decode("utf-8").split("\t")
+
+                # for countries
+                if e1[-1] == '\r':
+                    e1 = e1[0:-1]
+                if e2[-1] == "\r":
+                    e2 = e2[0:-1]
+
                 # update the text_graph
                 if e2 not in self.text_graph:
                     self.text_graph[e2] = []
