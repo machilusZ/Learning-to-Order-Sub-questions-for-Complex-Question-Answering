@@ -16,7 +16,7 @@ H_DIM = 64
 T = 3
 NUM_EPOCH = 25
 SOFT_REWARD_SCALE = 0.01
-NUM_ROLL_OUT = 5
+NUM_ROLL_OUT = 1
 
 parser = argparse.ArgumentParser("main.py")
 parser.add_argument("dataset", help="the name of the dataset", type=str)

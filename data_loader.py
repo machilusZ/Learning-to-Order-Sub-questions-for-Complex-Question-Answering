@@ -58,6 +58,7 @@ def init_rel_embedding(path_to_embedding, spliter, word_emb_size, graph):
             if embedding_vector is not None:
                 found += 1
                 r_vector += embedding_vector
+
         # if all words of a relation are not in our pretrained glove, set to ran
         if found == 0:
             rel_embedding[index] = np.zeros((word_emb_size))
