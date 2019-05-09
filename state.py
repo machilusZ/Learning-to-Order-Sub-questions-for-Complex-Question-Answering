@@ -120,7 +120,7 @@ class State:
             if init_ht:
                 self.ht.append(get_hti(gti, projected_Rt))
             else:
-                self.ht[i] = get_hti(gti, projected_Rt)
+                self.ht[i] = get_hti(gti.to(self.device), projected_Rt)
 
     def calculate_Ht(self):
         init_Ht = False
@@ -145,7 +145,7 @@ class State:
 # helper function for calculate hti
 # shape of gti (k+1, embedding_size), shape of Rt(embedding_size, m + 1)
 def get_hti(gti, Rt):
-    L = torch.mm(gti,Rt)
+    L = torch.mm(gti, Rt)
     A_Rt = F.softmax(L, dim=1)
     hti = torch.mm(torch.t(gti),A_Rt)
 
