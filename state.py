@@ -118,7 +118,7 @@ class State:
                 gti.append(self.node_embedding[e])
             gti = torch.Tensor(gti)
             if init_ht:
-                self.ht.append(get_hti(gti, projected_Rt))
+                self.ht.append(get_hti(gti.to(self.device), projected_Rt))
             else:
                 self.ht[i] = get_hti(gti.to(self.device), projected_Rt)
 
