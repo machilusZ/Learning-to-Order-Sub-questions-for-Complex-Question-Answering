@@ -8,13 +8,14 @@ from torch.autograd import Variable
 
 
 class Agent():
-    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, gamma, learning_rate, model_param_list):
+    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, gamma, learning_rate, model_param_list, device):
         self.gamma = gamma
         self.action_dim = num_entity * num_rel
         self.num_entity = num_entity
-        self.policy = Policy(input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel)
+        self.policy = Policy(input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, device).to(device)
         self.reward_history = []
         self.logprob_history = []
+        self.device = device
         params = list(self.policy.parameters()) + model_param_list
         self.optimizer = torch.optim.Adam(params, lr=learning_rate)
 

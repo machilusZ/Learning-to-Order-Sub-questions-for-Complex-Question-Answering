@@ -4,12 +4,13 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 
 class Policy(nn.Module):
-    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel):
+    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, device):
         super(Policy, self).__init__()
         self.num_entity = num_entity
         self.action_dim = num_entity * num_rel
         self.hidden_dim = hidden_dim
         self.lstm_num_layers = lstm_num_layers
+        self.device = device
         self.batch_size = 1             # currently using 1 question per batch
 
         # layers
@@ -32,7 +33,7 @@ class Policy(nn.Module):
         Ht = torch.stack(Ht).view(-1)
         Rt = Rt.view(-1)
         pt = pt.view(-1)
-        X = torch.cat((Ht,pt,Rt), dim=-1)
+        X = torch.cat((Ht,pt,Rt), dim=-1).to(self.device)
 
         X = self.fc1(X)
         X = F.relu(X)

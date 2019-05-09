@@ -38,6 +38,7 @@ def init_rel_embedding(path_to_embedding, spliter, word_emb_size, graph):
     # read in the embeding
     embeddings_index = {}
     rel_embedding = {}
+    '''
     with open(path_to_embedding) as f:
         for line in tqdm(f):
             try:
@@ -47,6 +48,7 @@ def init_rel_embedding(path_to_embedding, spliter, word_emb_size, graph):
                 embeddings_index[word] = coefs
             except:
                 pass
+    '''
                 
     for r in graph.rel_vocab:
         index = graph.rel_vocab[r]

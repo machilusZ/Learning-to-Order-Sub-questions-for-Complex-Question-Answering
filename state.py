@@ -7,7 +7,7 @@ import torch
 import re
 
 class State:
-    def __init__(self, question, graph, word_emb_dim, word2node, attention, rel_embedding, T):
+    def __init__(self, question, graph, word_emb_dim, word2node, attention, rel_embedding, T, device):
         self.es, self.rs = graph.encode_question(question) # encoded entities and relations in the question
         self.word_emb_size = word_emb_dim  # dimension of word embeding
         self.subgraphs = []                # each element is a vector of format [e1, e2, ... ] representing a subgraph
@@ -21,6 +21,7 @@ class State:
         self.word2node = word2node         # a fc layer project word embeding to node embedingg
         self.attention = attention         # mutihead self-attention 
         self.T = T                         # T step
+        self.device = device
 
         # init all subgraphs from the question
         for e in self.es:
@@ -106,7 +107,7 @@ class State:
 
     # calculate ht based on self.subgraphs
     def calculate_ht(self):
-        projected_Rt = torch.t(self.word2node(torch.Tensor(self.Rt)))
+        projected_Rt = torch.t(self.word2node(torch.Tensor(self.Rt).to(self.device)))
         init_ht = False
         if len(self.ht) == 0:
             init_ht = True
@@ -126,7 +127,7 @@ class State:
         if len(self.Ht) == 0:
             init_Ht = True
         for i, hti in enumerate(self.ht):
-            Hti = self.attention(torch.t(hti))
+            Hti = self.attention(torch.t(hti).to(self.device))
             if init_Ht:
                 self.Ht.append(Hti)
             else:

@@ -4,6 +4,7 @@ from data_loader import load_data
 from agent import Agent
 from attention import Attention
 import torch.nn as nn
+import torch
 import numpy as np
 from tqdm import tqdm
 from evaluate import computeF1, evaluate
@@ -18,6 +19,10 @@ NUM_EPOCH = 25
 SOFT_REWARD_SCALE = 0.01
 NUM_ROLL_OUT = 1
 
+# device 
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+# arguemnt parsing
 parser = argparse.ArgumentParser("main.py")
 parser.add_argument("dataset", help="the name of the dataset", type=str)
 args = parser.parse_args()
@@ -26,20 +31,20 @@ args = parser.parse_args()
 rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM)
 
 # projection from word embedding to node node embedding
-word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False)
+word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False).to(device)
 
 # mutihead self-attention
-attention = Attention(4, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM))
+attention = Attention(4, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
 
 # list contains all params that need to optimize
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
 
 # init agent
-state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T) # init here to calculate the input size
+state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T, device) # init here to calculate the input size
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-agent = Agent(input_dim, 32, 0.5, 2, num_entity, num_rel, GAMMA, 0.0001, model_param_list)
+agent = Agent(input_dim, 32, 0.5, 2, num_entity, num_rel, GAMMA, 0.0001, model_param_list, device)
 
 # training loop
 for epoch in range(NUM_EPOCH):
@@ -50,7 +55,7 @@ for epoch in range(NUM_EPOCH):
     for i in tqdm(range(len(train))):
         # create state from the question
         for _ in range(NUM_ROLL_OUT):
-            state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T)
+            state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T, device)
             answer = kg.en_vocab[train[i][0]]
             e0 = state.subgraphs[0][0]
             agent.policy.init_path(e0)
