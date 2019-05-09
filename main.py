@@ -17,7 +17,7 @@ H_DIM = 64
 T = 3
 NUM_EPOCH = 25
 SOFT_REWARD_SCALE = 0.01
-NUM_ROLL_OUT = 1
+NUM_ROLL_OUT = 5
 
 # device 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -44,7 +44,7 @@ state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention,
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-agent = Agent(input_dim, 32, 0.5, 2, num_entity, num_rel, GAMMA, 0.0001, model_param_list, device)
+agent = Agent(input_dim, 32, 0.1, 2, num_entity, num_rel, GAMMA, 0.0001, model_param_list, device)
 
 # training loop
 for epoch in range(NUM_EPOCH):
