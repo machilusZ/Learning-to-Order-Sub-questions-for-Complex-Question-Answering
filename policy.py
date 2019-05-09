@@ -33,7 +33,7 @@ class Policy(nn.Module):
         Ht = torch.stack(Ht).view(-1)
         Rt = Rt.view(-1)
         pt = pt.view(-1)
-        X = torch.cat((Ht,pt,Rt), dim=-1).to(self.device)
+        X = torch.cat((Ht,pt,Rt.to(self.device)), dim=-1)
 
         X = self.fc1(X)
         X = F.relu(X)
@@ -53,13 +53,13 @@ class Policy(nn.Module):
         hidden_b = torch.randn(self.lstm_num_layers, self.batch_size, self.hidden_dim)
         hidden_a = Variable(hidden_a).to(self.device)
         hidden_b = Variable(hidden_b).to(self.device)
-        self.path = [self.lstm_cell(init_action, (hidden_a, hidden_b))[1]]
+        self.path = [self.lstm_cell(init_action.to(self.device), (hidden_a, hidden_b))[1]]
 
     # update path(history) by given an action format (r, e)
     def update_path(self, action):
         one_hot_action = self.one_hot_encode(action)
         one_hot_action = one_hot_action.view(self.batch_size, 1, -1)
-        self.path.append(self.lstm_cell(one_hot_action.to(self,device), self.path[-1])[1])
+        self.path.append(self.lstm_cell(one_hot_action.to(self.device), self.path[-1])[1])
 
     # one hot encode an action
     def one_hot_encode(self, action):

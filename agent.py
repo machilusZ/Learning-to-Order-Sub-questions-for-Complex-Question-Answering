@@ -70,7 +70,7 @@ class Agent():
 
         # Calculate loss
         logprobs = torch.stack(self.logprob_history)
-        loss = (torch.sum(torch.mul(logprobs, Variable(rewards)).mul(-1), -1))
+        loss = (torch.sum(torch.mul(logprobs, Variable(rewards).to(self.device)).mul(-1), -1))
 
         # Update network weights
         self.optimizer.zero_grad()
