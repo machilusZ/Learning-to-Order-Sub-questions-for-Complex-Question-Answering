@@ -10,14 +10,14 @@ from tqdm import tqdm
 from evaluate import computeF1, evaluate
 import math
 
-GAMMA = 0.5
+GAMMA = 0.7
 WORD_EMB_DIM = 300
 NODE_EMB_DIM = 16
 H_DIM = 64
 T = 3
 NUM_EPOCH = 25
 SOFT_REWARD_SCALE = 0.01
-NUM_ROLL_OUT = 5
+NUM_ROLL_OUT = 10
 
 # device 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -34,7 +34,7 @@ rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM)
 word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False).to(device)
 
 # mutihead self-attention
-attention = Attention(4, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
+attention = Attention(8, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
 
 # list contains all params that need to optimize
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
@@ -44,7 +44,7 @@ state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention,
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-agent = Agent(input_dim, 32, 0.1, 2, num_entity, num_rel, GAMMA, 0.0001, model_param_list, device)
+agent = Agent(input_dim, 32, 0.4, 3, num_entity, num_rel, GAMMA, 0.001, model_param_list, device)
 
 # training loop
 for epoch in range(NUM_EPOCH):

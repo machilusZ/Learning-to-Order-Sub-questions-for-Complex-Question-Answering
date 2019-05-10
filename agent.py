@@ -6,6 +6,14 @@ from scipy.spatial.distance import cosine
 from torch.distributions import Categorical
 from torch.autograd import Variable
 
+class ReactiveBaseline():
+    def __init__(self, l):
+        self.l = l
+        self.b = 0.0
+    def get_baseline_value(self):
+        return self.b
+    def update(self, target):
+        self.b = (1-self.l)*self.b + self.l*target
 
 class Agent():
     def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, gamma, learning_rate, model_param_list, device):
@@ -18,6 +26,7 @@ class Agent():
         self.device = device
         params = list(self.policy.parameters()) + model_param_list
         self.optimizer = torch.optim.Adam(params, lr=learning_rate)
+        self.baseline = ReactiveBaseline(l=0.05)
 
     def get_action(self, state, possible_actions):
         scores = self.policy(state)
@@ -71,6 +80,8 @@ class Agent():
         # Calculate loss
         logprobs = torch.stack(self.logprob_history)
         loss = (torch.sum(torch.mul(logprobs, Variable(rewards).to(self.device)).mul(-1), -1))
+        loss = loss - self.baseline.get_baseline_value()
+        self.baseline.update(torch.mean(rewards))
 
         # Update network weights
         self.optimizer.zero_grad()
