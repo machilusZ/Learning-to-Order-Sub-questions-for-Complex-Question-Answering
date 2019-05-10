@@ -10,14 +10,14 @@ from tqdm import tqdm
 from evaluate import computeF1, evaluate
 import math
 
-GAMMA = 0.7
+GAMMA = 0.5
 WORD_EMB_DIM = 300
 NODE_EMB_DIM = 16
 H_DIM = 64
 T = 3
 NUM_EPOCH = 25
 SOFT_REWARD_SCALE = 0.01
-NUM_ROLL_OUT = 10
+NUM_ROLL_OUT = 1
 
 # device 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

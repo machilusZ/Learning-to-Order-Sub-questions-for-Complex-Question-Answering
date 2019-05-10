@@ -14,7 +14,7 @@ class State:
         self.rel_embedding = rel_embedding # mapping from all the relations in vocb to its embeding
         self.node_embedding_size = None    # size of node embeding
         self.node_embedding = {}           # mappin from all nodes to its embeding
-        self.Rt = []                       # Rt in the state (each row is a embedded relation)
+        self.Rs = []                       # Rt for each subgraph
         self.ht = []                       # hti for each of the subgraph
         self.Ht  = []                      # Ht in the state
         self.graph = graph                 # knowledge graph object
@@ -42,22 +42,24 @@ class State:
         # add new node to the graph
         r, e2 = action
         done = False
-        for subgraph in self.subgraphs:
+        subgraph_index = None
+        for i, subgraph in enumerate(self.subgraphs):
             for e in subgraph:
                 if e in self.graph.inv_graph[action]:
                     subgraph.append(e2)
                     done = True
+                    subgraph_index = i
                     break
             if done:
                 break
 
         # update Rt
         rt_embed = self.rel_embedding[r]
-        for i in range(self.Rt.shape[0]):
+        for i in range(self.Rs[subgraph_index].shape[0]):
             # if Rt is already all zeros, we will not reduce it
-            if np.sum(self.Rt[i] != 0) != 0:
-                gamma = 1 - cosine(self.Rt[i], rt_embed)
-                self.Rt[i] -= (gamma * rt_embed)/self.T
+            if np.sum(self.Rs[subgraph_index][i] != 0) != 0:
+                gamma = 1 - cosine(self.Rs[subgraph_index][i], rt_embed)
+                self.Rs[subgraph_index][i] -= (gamma * rt_embed)/self.T
 
         # update Ht
         self.calculate_ht()
@@ -97,22 +99,27 @@ class State:
 
     # get vectors of all relations to build Rt
     def init_Rt(self):
-        for r in self.rs:
-            r_embedding = self.rel_embedding.get(r, [])
-            if len(r_embedding) == 0:
-                print("relation: " + r + " not in vocab")
-                exit
-            self.Rt.append(r_embedding)
-        self.Rt = np.array(self.Rt)
+        for subgraph in self.subgraphs:
+            Rt = []
+            for r in self.rs:
+                r_embedding = self.rel_embedding.get(r, [])
+                if len(r_embedding) == 0:
+                    print("relation: " + r + " not in vocab")
+                    exit
+                Rt.append(r_embedding)
+            Rt = np.array(Rt)
+            self.Rs.append(Rt)
 
     # calculate ht based on self.subgraphs
     def calculate_ht(self):
-        projected_Rt = torch.t(self.word2node(torch.Tensor(self.Rt).to(self.device)))
+        
         init_ht = False
         if len(self.ht) == 0:
             init_ht = True
 
         for i, subgraph in enumerate(self.subgraphs):
+            Rt = self.Rs[i]
+            projected_Rt = torch.t(self.word2node(torch.Tensor(Rt).to(self.device)))
             gti = []
             for e in subgraph:
                 gti.append(self.node_embedding[e])
@@ -134,11 +141,11 @@ class State:
                 self.Ht[i] = Hti
 
     def get_embedded_state(self):
-        return (self.Ht,torch.Tensor(self.Rt).float())
+        return (self.Ht,torch.Tensor(self.Rs).float().view(-1))
 
     def get_input_size(self):
         Ht_len = torch.stack(self.Ht).view(-1).size()[0]
-        Rt_len = torch.Tensor(self.Rt).view(-1).size()[0]
+        Rt_len = torch.Tensor(self.Rs).view(-1).size()[0]
         return Ht_len + Rt_len
 
 
