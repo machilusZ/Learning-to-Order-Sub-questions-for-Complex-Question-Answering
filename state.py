@@ -60,6 +60,12 @@ class State:
             if np.sum(self.Rs[subgraph_index][i] != 0) != 0:
                 gamma = 1 - cosine(self.Rs[subgraph_index][i], rt_embed)
                 self.Rs[subgraph_index][i] -= (gamma * rt_embed)/self.T
+        
+        for t in range(len(self.Rs)):
+            for i in range(self.Rs[i].shape[0]):
+                if np.sum(self.Rs[subgraph_index][i] != 0) != 0:
+                    gamma = 1 - cosine(self.Rs[subgraph_index][i], rt_embed)
+                    self.Rs[subgraph_index][i] -= 0.1*(gamma * rt_embed)/self.T
 
         # update Ht
         self.calculate_ht()

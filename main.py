@@ -9,14 +9,15 @@ import numpy as np
 from tqdm import tqdm
 from evaluate import computeF1, evaluate
 import math
+import random
 
-GAMMA = 0.5
-WORD_EMB_DIM = 300
+GAMMA = 1
+WORD_EMB_DIM = 16
 NODE_EMB_DIM = 16
 H_DIM = 64
 T = 3
-NUM_EPOCH = 25
-SOFT_REWARD_SCALE = 0.01
+NUM_EPOCH = 100
+SOFT_REWARD_SCALE = 0.1
 NUM_ROLL_OUT = 1
 
 # device 
@@ -47,13 +48,16 @@ num_entity = len(kg.en_vocab)
 agent = Agent(input_dim, 32, 0.4, 3, num_entity, num_rel, GAMMA, 0.001, model_param_list, device)
 
 # training loop
+index_list = list(range(len(train)))
 for epoch in range(NUM_EPOCH):
     losses = []
     rewards = []
     correct = 0
     f1 = []
-    for i in tqdm(range(len(train))):
+    random.shuffle(index_list)
+    for n in tqdm(range(len(train))):
         # create state from the question
+        i = index_list[n]
         for _ in range(NUM_ROLL_OUT):
             state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T, device)
             answer = kg.en_vocab[train[i][0]]
