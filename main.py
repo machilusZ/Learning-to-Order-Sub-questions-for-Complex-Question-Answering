@@ -9,6 +9,7 @@ import numpy as np
 from tqdm import tqdm
 from evaluate import computeF1, evaluate
 import math
+import random
 
 GAMMA = 0.7
 WORD_EMB_DIM = 300
@@ -18,6 +19,7 @@ T = 3
 NUM_EPOCH = 25
 SOFT_REWARD_SCALE = 0.01
 NUM_ROLL_OUT = 10
+SHUFFLE = True
 
 # device 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -47,13 +49,17 @@ num_entity = len(kg.en_vocab)
 agent = Agent(input_dim, 32, 0.4, 3, num_entity, num_rel, GAMMA, 0.001, model_param_list, device)
 
 # training loop
+index_list = list(range(len(train)))
 for epoch in range(NUM_EPOCH):
     losses = []
     rewards = []
     correct = 0
     f1 = []
-    for i in tqdm(range(len(train))):
+    if SHUFFLE:
+        random.shuffle(index_list)
+    for n in tqdm(range(len(train))):
         # create state from the question
+        i = index_list[n]
         for _ in range(NUM_ROLL_OUT):
             state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T, device)
             answer = kg.en_vocab[train[i][0]]
