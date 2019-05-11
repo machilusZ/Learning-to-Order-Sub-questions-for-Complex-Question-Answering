@@ -35,7 +35,7 @@ class State:
 
         # init Ht
         self.calculate_ht()
-        self.calculate_Ht()
+        #self.calculate_Ht()
 
     # add a node to one of the subgraph, input format (r, e2)
     def update(self, action):
@@ -61,7 +61,7 @@ class State:
 
         # update Ht
         self.calculate_ht()
-        self.calculate_Ht()
+        #self.calculate_Ht()
 
     # find the neighbors of all subgraphs
     def find_all_neighbors(self):
@@ -134,10 +134,10 @@ class State:
                 self.Ht[i] = Hti
 
     def get_embedded_state(self):
-        return (self.Ht,torch.Tensor(self.Rt).float())
+        return (self.ht,torch.Tensor(self.Rt).float())
 
     def get_input_size(self):
-        Ht_len = torch.stack(self.Ht).view(-1).size()[0]
+        Ht_len = torch.stack(self.ht).view(-1).size()[0]
         Rt_len = torch.Tensor(self.Rt).view(-1).size()[0]
         return Ht_len + Rt_len
 

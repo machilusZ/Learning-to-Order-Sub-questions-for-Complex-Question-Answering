@@ -16,8 +16,6 @@ class Policy(nn.Module):
         # layers
         self.fc1 = nn.Linear(input_dim + hidden_dim, self.action_dim, bias=False)
         self.fc2 = nn.Linear(self.action_dim, self.action_dim, bias=False)
-        self.Dropout1 = nn.Dropout(dropout_rate)
-        #self.Dropout2 = nn.Dropout(dropout_rate)
         self.lstm_cell = nn.LSTM(input_size=self.action_dim,
                             hidden_size=self.hidden_dim,
                             num_layers=self.lstm_num_layers,
@@ -37,7 +35,6 @@ class Policy(nn.Module):
 
         X = self.fc1(X)
         X = F.relu(X)
-        X = self.Dropout1(X)
         X = self.fc2(X)
 
         return X
