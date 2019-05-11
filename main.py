@@ -17,8 +17,9 @@ NODE_EMB_DIM = 16
 H_DIM = 64
 T = 3
 NUM_EPOCH = 100
-SOFT_REWARD_SCALE = 0.1
+SOFT_REWARD_SCALE = 0.01
 NUM_ROLL_OUT = 1
+SHUFFLE = False
 
 # device 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -54,7 +55,8 @@ for epoch in range(NUM_EPOCH):
     rewards = []
     correct = 0
     f1 = []
-    random.shuffle(index_list)
+    if SHUFFLE:
+        random.shuffle(index_list)
     for n in tqdm(range(len(train))):
         # create state from the question
         i = index_list[n]

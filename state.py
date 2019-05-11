@@ -59,13 +59,13 @@ class State:
             # if Rt is already all zeros, we will not reduce it
             if np.sum(self.Rs[subgraph_index][i] != 0) != 0:
                 gamma = 1 - cosine(self.Rs[subgraph_index][i], rt_embed)
-                self.Rs[subgraph_index][i] -= (gamma * rt_embed)/self.T
+                self.Rs[subgraph_index][i] -= (gamma * rt_embed)
         
         for t in range(len(self.Rs)):
             for i in range(self.Rs[i].shape[0]):
-                if np.sum(self.Rs[subgraph_index][i] != 0) != 0:
+                if i != subgraph_index and np.sum(self.Rs[subgraph_index][i] != 0) != 0:
                     gamma = 1 - cosine(self.Rs[subgraph_index][i], rt_embed)
-                    self.Rs[subgraph_index][i] -= 0.1*(gamma * rt_embed)/self.T
+                    self.Rs[subgraph_index][i] -= (gamma * rt_embed)/self.T
 
         # update Ht
         self.calculate_ht()
