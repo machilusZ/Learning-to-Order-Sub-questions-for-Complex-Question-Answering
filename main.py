@@ -11,15 +11,15 @@ from evaluate import computeF1, evaluate
 import math
 import random
 
-GAMMA = 1
+GAMMA = 0.5
 WORD_EMB_DIM = 16
 NODE_EMB_DIM = 16
 H_DIM = 64
 T = 3
-NUM_EPOCH = 100
+NUM_EPOCH = 500
 SOFT_REWARD_SCALE = 0.01
 NUM_ROLL_OUT = 1
-SHUFFLE = False
+SHUFFLE = True
 
 # device 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
