@@ -6,17 +6,9 @@ from scipy.spatial.distance import cosine
 from torch.distributions import Categorical
 from torch.autograd import Variable
 
-class ReactiveBaseline():
-    def __init__(self, l):
-        self.l = l
-        self.b = 0.0
-    def get_baseline_value(self):
-        return self.b
-    def update(self, target):
-        self.b = (1-self.l)*self.b + self.l*target
 
 class Agent():
-    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, gamma, learning_rate, model_param_list, device):
+    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, gamma, learning_rate, model_param_list, baseline, device):
         self.gamma = gamma
         self.action_dim = num_entity * num_rel
         self.num_entity = num_entity
@@ -26,7 +18,7 @@ class Agent():
         self.device = device
         params = list(self.policy.parameters()) + model_param_list
         self.optimizer = torch.optim.Adam(params, lr=learning_rate)
-        self.baseline = ReactiveBaseline(l=0.05)
+        self.baseline = baseline
 
     def get_action(self, state, possible_actions):
         scores = self.policy(state)
@@ -76,11 +68,11 @@ class Agent():
         # if we normalize the reward, the loss don't go down
         # rewards = (rewards - rewards.mean()) / (np.std(rewards) + np.finfo(np.float32).eps)
         rewards = torch.Tensor(rewards)
+        final_rewards = rewards - self.baseline.get_baseline_value() 
 
         # Calculate loss
         logprobs = torch.stack(self.logprob_history)
-        loss = (torch.sum(torch.mul(logprobs, Variable(rewards).to(self.device)).mul(-1), -1))
-        loss = loss - self.baseline.get_baseline_value()
+        loss = (torch.sum(torch.mul(logprobs, Variable(final_rewards).to(self.device)).mul(-1), -1))
         self.baseline.update(torch.mean(rewards))
 
         # Update network weights
