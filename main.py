@@ -46,7 +46,7 @@ rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM)
 word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False).to(device)
 
 # mutihead self-attention
-attention = Attention(4, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
+attention = Attention(1, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
 
 # list contains all params that need to optimize
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
@@ -56,8 +56,8 @@ state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention,
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-baseline = ReactiveBaseline(l=0.05)
-agent = Agent(input_dim, 64, 0, 3, num_entity, num_rel, GAMMA, 0.0005, model_param_list, baseline, device)
+baseline = ReactiveBaseline(l=0.02)
+agent = Agent(input_dim, 16, 0, 2, num_entity, num_rel, GAMMA, 0.0004, model_param_list, baseline, device)
 
 # training loop
 index_list = list(range(len(train)))
