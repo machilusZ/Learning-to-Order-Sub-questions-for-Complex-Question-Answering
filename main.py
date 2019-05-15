@@ -46,7 +46,7 @@ rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM)
 word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False).to(device)
 
 # mutihead self-attention
-attention = Attention(4, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
+attention = Attention(1, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
 
 # list contains all params that need to optimize
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
@@ -56,8 +56,8 @@ state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention,
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-baseline = ReactiveBaseline(l=0.1)
-agent = Agent(input_dim, 64, 0, 3, num_entity, num_rel, GAMMA, 0.001, model_param_list, baseline, device)
+baseline = ReactiveBaseline(l=0.02)
+agent = Agent(input_dim, 16, 0, 2, num_entity, num_rel, GAMMA, 0.0004, model_param_list, baseline, device)
 
 # training loop
 index_list = list(range(len(train)))
@@ -86,12 +86,15 @@ for epoch in range(NUM_EPOCH):
                 if step < T-1:
                     agent.hard_reward(0)
                 else:
+                    nodes = state.get_last_nodes()
+                    max_shortest_path = kg.max_shortest_path(nodes)
                     if answer == e:
                         agent.hard_reward(1)
                     else:
                         answer_embedding = state.node_embedding[answer]
                         e_embedding = state.node_embedding[e]
-                        agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE)
+                        #agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE)
+                        agent.hard_reward(-max_shortest_path/32)
                 state.update(action)
                 #print("step: " + str(step) + ", take action: " + str(action) + "result_subgraphs:" + str(state.subgraphs))
 
@@ -112,7 +115,7 @@ for epoch in range(NUM_EPOCH):
 
     # evaluate on test set
     if epoch%5 == 0:
-        evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, device, 30)
+        evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, device, 15)
 
 
 
