@@ -11,14 +11,24 @@ from evaluate import computeF1, evaluate
 import math
 import random
 
-GAMMA = 0.7
-WORD_EMB_DIM = 300
+class ReactiveBaseline():
+    def __init__(self, l):
+        self.l = l
+        self.b = 0.0
+    def get_baseline_value(self):
+        return self.b
+    def update(self, target):
+        self.b = (1-self.l)*self.b + self.l*target
+
+
+GAMMA = 1
+WORD_EMB_DIM = 4
 NODE_EMB_DIM = 16
-H_DIM = 64
+H_DIM = 16
 T = 3
-NUM_EPOCH = 25
+NUM_EPOCH = 100
 SOFT_REWARD_SCALE = 0.01
-NUM_ROLL_OUT = 10
+NUM_ROLL_OUT = 1
 SHUFFLE = True
 
 # device 
@@ -36,7 +46,7 @@ rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM)
 word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False).to(device)
 
 # mutihead self-attention
-attention = Attention(8, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
+attention = Attention(4, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
 
 # list contains all params that need to optimize
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
@@ -46,7 +56,8 @@ state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention,
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-agent = Agent(input_dim, 32, 0.4, 3, num_entity, num_rel, GAMMA, 0.001, model_param_list, device)
+baseline = ReactiveBaseline(l=0.1)
+agent = Agent(input_dim, 64, 0, 3, num_entity, num_rel, GAMMA, 0.001, model_param_list, baseline, device)
 
 # training loop
 index_list = list(range(len(train)))
@@ -100,7 +111,8 @@ for epoch in range(NUM_EPOCH):
     print("epoch: {}, loss: {}, reward: {}, acc: {}, f1: {}".format(epoch, avg_loss, avg_reward, acc, avg_f1))
 
     # evaluate on test set
-    evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, device)
+    if epoch%5 == 0:
+        evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, device, 30)
 
 
 
