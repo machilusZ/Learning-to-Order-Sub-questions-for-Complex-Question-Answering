@@ -79,3 +79,34 @@ class KnowledgeGraph:
             irels.append(self.rel_vocab[r])
         return (iens, irels)
 
+    def max_shortest_path(self, nodes):
+        max_distance = None
+        for s in nodes:
+            for e in nodes:
+                if s != e:
+                    dist = self.shortest_path(s,e)
+                    if max_distance == None or max_distance < dist:
+                        max_distance = dist
+        if max_distance == None:
+            max_distance = 0
+        return max_distance
+
+    def shortest_path(self, s, e):
+        q = []
+        visited = {}
+        q.append(s)
+        visited[s] = 0 
+        while len(q) != 0:
+            cur = q.pop()
+            if visited[cur] > 4:
+                return 4
+            for r, node in self.graph[cur]:
+                if node == e:
+                    return visited[cur] + 1
+                if node not in visited:
+                    q.append(node)
+                    visited[node] = visited[cur] + 1
+
+        return 4
+
+
