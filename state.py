@@ -141,6 +141,12 @@ class State:
         Rt_len = torch.Tensor(self.Rt).view(-1).size()[0]
         return Ht_len + Rt_len
 
+    def get_last_nodes(self):
+        last_nodes = []
+        for subgraph in self.subgraphs:
+            last_nodes.append(subgraph[-1])
+        return last_nodes
+
 
 # helper function for calculate hti
 # shape of gti (k+1, embedding_size), shape of Rt(embedding_size, m + 1)
@@ -148,6 +154,4 @@ def get_hti(gti, Rt):
     L = torch.mm(gti, Rt)
     A_Rt = F.softmax(L, dim=1)
     hti = torch.mm(torch.t(gti),A_Rt)
-
     return hti
-
