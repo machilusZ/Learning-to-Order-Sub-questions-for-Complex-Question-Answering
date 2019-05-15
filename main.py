@@ -111,7 +111,8 @@ for epoch in range(NUM_EPOCH):
     print("epoch: {}, loss: {}, reward: {}, acc: {}, f1: {}".format(epoch, avg_loss, avg_reward, acc, avg_f1))
 
     # evaluate on test set
-    evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, device)
+    if epoch%5 == 0:
+        evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, device, 30)
 
 
 

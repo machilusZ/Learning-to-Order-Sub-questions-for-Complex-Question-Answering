@@ -46,6 +46,23 @@ class Agent():
         self.policy.update_path((r,e))
 
         return (r,e)
+    
+    def get_probs(self, state, possible_actions):
+        scores = self.policy(state)
+        # zero out all impossible actions
+        possible_index = []
+        for action in possible_actions:
+            r, e = action
+            index = r * self.num_entity + e
+            possible_index.append(index)
+        scores_possible = scores[possible_index]
+        sm = torch.nn.Softmax(dim=-1)
+        scores_possible = sm(scores_possible).numpy()
+        return scores_possible, np.array(possible_index)
+
+    def take_action(self, log_prob, r, e):
+        # add action to path
+        self.policy.update_path((r,e))
 
     # assign hard reward
     def hard_reward(self, a):
