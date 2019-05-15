@@ -57,7 +57,7 @@ class Agent():
             possible_index.append(index)
         scores_possible = scores[possible_index]
         sm = torch.nn.Softmax(dim=-1)
-        scores_possible = sm(scores_possible).numpy()
+        scores_possible = sm(scores_possible).cpu().numpy()
         return scores_possible, np.array(possible_index)
 
     def take_action(self, log_prob, r, e):
