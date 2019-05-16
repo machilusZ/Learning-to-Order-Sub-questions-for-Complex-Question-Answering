@@ -28,7 +28,7 @@ class State:
             self.subgraphs.append([e])
 
         # get node embeding for each entity
-        self.init_node_embedding("./data/wc/wc_embed.npy")
+        self.init_node_embedding("./data/countries/countries_new_embed_transE.npy")
 
         # init Rt from the relations in the question
         self.init_Rt()
