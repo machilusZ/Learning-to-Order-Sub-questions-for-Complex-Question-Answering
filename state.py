@@ -42,20 +42,21 @@ class State:
         # add new node to the graph
         g, r, e2 = action
         done = False
-        for e in self.subgraphs[g]:
-	            if e in self.graph.inv_graph[(r, e2)]:
-	                done = True
-	                break
-        assert(done)
-        self.subgraphs[g].append(e2)
+        if r != 1:
+            for e in self.subgraphs[g]:
+	                if e in self.graph.inv_graph[(r, e2)]:
+	                    done = True
+	                    break
+            assert(done)
+            self.subgraphs[g].append(e2)
 
-        # update Rt
-        rt_embed = self.rel_embedding[r]
-        for i in range(self.Rt.shape[0]):
-            # if Rt is already all zeros, we will not reduce it
-            if np.sum(self.Rt[i] != 0) != 0:
-                gamma = 1 - cosine(self.Rt[i], rt_embed)
-                self.Rt[i] -= (gamma * rt_embed)/self.T
+            # update Rt
+            rt_embed = self.rel_embedding[r]
+            for i in range(self.Rt.shape[0]):
+                # if Rt is already all zeros, we will not reduce it
+                if np.sum(self.Rt[i] != 0) != 0:
+                    gamma = 1 - cosine(self.Rt[i], rt_embed)
+                    self.Rt[i] -= (gamma * rt_embed)/self.T
 
         # update Ht
         self.calculate_ht()
@@ -73,6 +74,7 @@ class State:
     def find_subgraph_neighbors(self, subgraph, subgraph_index):
         ret = []
         for e1 in subgraph:
+            ret.append((subgraph_index, 1, e1))
             neighbors = self.graph.graph.get(e1, [])
             for (r, e2) in neighbors:
                 if e2 not in subgraph:

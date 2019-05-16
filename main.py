@@ -26,9 +26,9 @@ WORD_EMB_DIM = 4
 NODE_EMB_DIM = 30
 H_DIM = 16
 T = 3
-NUM_EPOCH = 100
+NUM_EPOCH = 1000
 SOFT_REWARD_SCALE = 0.1
-NUM_ROLL_OUT = 5
+NUM_ROLL_OUT = 1
 SHUFFLE = True
 
 # device 
@@ -58,8 +58,8 @@ num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
 num_subgraph = len(state.subgraphs)
 emb_dim = WORD_EMB_DIM + NODE_EMB_DIM
-baseline = ReactiveBaseline(l=0.05)
-agent = Agent(input_dim, 32, emb_dim, 0, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.0001, model_param_list, baseline, device)
+baseline = ReactiveBaseline(l=0)
+agent = Agent(input_dim, 10, emb_dim, 0, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.0001, model_param_list, baseline, device)
 
 # training loop
 index_list = list(range(len(train)))
@@ -89,12 +89,15 @@ for epoch in range(NUM_EPOCH):
                     nodes = state.get_last_nodes()
                     max_shortest_path = kg.max_shortest_path(nodes)
                     if answer == e and max_shortest_path == 0:
-                        print("yes")
-                        agent.hard_reward(10)
+                        correct += 1
+                        agent.hard_reward(30)
+                    elif answer == e:
+                        agent.hard_reward(1)
                     else:
-                        answer_embedding = state.node_embedding[answer]
-                        e_embedding = state.node_embedding[e]
-                        agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE, -max_shortest_path)
+                        agent.hard_reward(1-max_shortest_path)
+                        #answer_embedding = state.node_embedding[answer]
+                        #e_embedding = state.node_embedding[e]
+                        #agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE, -max_shortest_path)
                 state.update(action)
                 #print("step: " + str(step) + ", take action: " + str(action) + "result_subgraphs:" + str(state.subgraphs))
 
@@ -102,8 +105,6 @@ for epoch in range(NUM_EPOCH):
             f1.append(computeF1(answer, e)[-1])
             # update the policy net and record loss
             loss, reward, last_reward = agent.update_policy()
-            if last_reward == 1:
-                correct += 1
             losses.append(loss)
             rewards.append(reward)
 
@@ -111,11 +112,11 @@ for epoch in range(NUM_EPOCH):
     avg_loss = np.mean(losses)
     avg_reward = np.mean(rewards)
     avg_f1 = np.mean(f1)
-    print("epoch: {}, loss: {}, reward: {}, acc: {}, f1: {}".format(epoch, avg_loss, avg_reward, acc, avg_f1))
+    print("epoch: {}, loss: {}, reward: {}, correct: {}, f1: {}".format(epoch, avg_loss, avg_reward, correct, avg_f1))
 
     # evaluate on test set
-    if (epoch+1)%5 == 0:
-        evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, device, 15)
+    if (epoch+1)%20 == 0:
+       evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, device, 15)
 
 
 
