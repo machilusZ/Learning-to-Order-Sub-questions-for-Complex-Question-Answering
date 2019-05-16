@@ -16,9 +16,9 @@ class Policy(nn.Module):
         self.batch_size = 1             # currently using 1 question per batch
 
         # layers
-        self.fc1 = nn.Linear(input_dim + hidden_dim, self.action_dim, bias=False)
-        self.fc2 = nn.Linear(self.action_dim, self.action_dim, bias=False)
-        self.Dropout1 = nn.Dropout(dropout_rate)
+        self.fc1 = nn.Linear(input_dim + hidden_dim, input_dim + hidden_dim, bias=False)
+        self.fc2 = nn.Linear(input_dim + hidden_dim, self.action_dim, bias=False)
+        #self.Dropout1 = nn.Dropout(dropout_rate)
         #self.Dropout2 = nn.Dropout(dropout_rate)
         self.lstm_cell = nn.LSTM(input_size=emb_dim + num_subgraph,
                             hidden_size=self.hidden_dim,
@@ -39,7 +39,7 @@ class Policy(nn.Module):
 
         X = self.fc1(X)
         X = F.relu(X)
-        X = self.Dropout1(X)
+        #X = self.Dropout1(X)
         X = self.fc2(X)
 
         return X
