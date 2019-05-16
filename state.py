@@ -40,16 +40,14 @@ class State:
     # add a node to one of the subgraph, input format (r, e2)
     def update(self, action):
         # add new node to the graph
-        r, e2 = action
+        g, r, e2 = action
         done = False
-        for subgraph in self.subgraphs:
-            for e in subgraph:
-                if e in self.graph.inv_graph[action]:
-                    subgraph.append(e2)
-                    done = True
-                    break
-            if done:
-                break
+        for e in self.subgraphs[g]:
+	            if e in self.graph.inv_graph[(r, e2)]:
+	                done = True
+	                break
+        assert(done)
+        self.subgraphs[g].append(e2)
 
         # update Rt
         rt_embed = self.rel_embedding[r]
@@ -66,19 +64,19 @@ class State:
     # find the neighbors of all subgraphs
     def find_all_neighbors(self):
         neighbors = []
-        for subgraph in self.subgraphs:
-            ret = self.find_subgraph_neighbors(subgraph)
-            neighbors += ret
+        for i, subgraph in enumerate(self.subgraphs):
+	        ret = self.find_subgraph_neighbors(subgraph, i)
+	        neighbors += ret
         return neighbors
 
     # helper function: find the neighbor edge (e1, r, e2) of a subgraph
-    def find_subgraph_neighbors(self, subgraph):
+    def find_subgraph_neighbors(self, subgraph, subgraph_index):
         ret = []
         for e1 in subgraph:
             neighbors = self.graph.graph.get(e1, [])
             for (r, e2) in neighbors:
                 if e2 not in subgraph:
-                    ret.append((e1, r, e2))
+                    ret.append((subgraph_index, r, e2))
         return ret
 
     # generate all possible actions (r, e) according given all the current neighbors
@@ -88,7 +86,7 @@ class State:
         for (_, r, e2) in neighbors:
             if (r, e2) not in actions:
                 actions.append((r, e2))
-        return actions
+        return self.find_all_neighbors()
 
     # embed nodes: change this
     def init_node_embedding(self, path):

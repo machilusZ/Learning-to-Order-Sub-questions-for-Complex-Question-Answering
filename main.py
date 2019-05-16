@@ -27,8 +27,8 @@ NODE_EMB_DIM = 30
 H_DIM = 16
 T = 3
 NUM_EPOCH = 100
-SOFT_REWARD_SCALE = 0.01
-NUM_ROLL_OUT = 1
+SOFT_REWARD_SCALE = 0.1
+NUM_ROLL_OUT = 5
 SHUFFLE = True
 
 # device 
@@ -56,8 +56,10 @@ state = State((train[0][1],train[0][2]), kg, WORD_EMB_DIM, word2node, attention,
 input_dim = state.get_input_size()
 num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
-baseline = ReactiveBaseline(l=0.02)
-agent = Agent(input_dim, 16, 0, 2, num_entity, num_rel, GAMMA, 0.0004, model_param_list, baseline, device)
+num_subgraph = len(state.subgraphs)
+emb_dim = WORD_EMB_DIM + NODE_EMB_DIM
+baseline = ReactiveBaseline(l=0.05)
+agent = Agent(input_dim, 32, emb_dim, 0, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.0001, model_param_list, baseline, device)
 
 # training loop
 index_list = list(range(len(train)))
@@ -75,26 +77,24 @@ for epoch in range(NUM_EPOCH):
             state = State((train[i][1],train[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T, device)
             answer = kg.en_vocab[train[i][0]]
             e0 = state.subgraphs[0][0]
-            agent.policy.init_path(e0)
+            agent.policy.init_path(e0, state)
 
             # go for T step
             for step in range(T):
-                embedded_state = state.get_embedded_state()
-                possible_actions = state.generate_all_possible_actions()
-                action = agent.get_action(embedded_state, possible_actions)
-                r, e = action
+                action = agent.get_action(state)
+                g, r, e = action
                 if step < T-1:
                     agent.hard_reward(0)
                 else:
                     nodes = state.get_last_nodes()
                     max_shortest_path = kg.max_shortest_path(nodes)
-                    if answer == e:
-                        agent.hard_reward(1)
+                    if answer == e and max_shortest_path == 0:
+                        print("yes")
+                        agent.hard_reward(10)
                     else:
                         answer_embedding = state.node_embedding[answer]
                         e_embedding = state.node_embedding[e]
-                        #agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE)
-                        agent.hard_reward(-max_shortest_path/32)
+                        agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE, -max_shortest_path)
                 state.update(action)
                 #print("step: " + str(step) + ", take action: " + str(action) + "result_subgraphs:" + str(state.subgraphs))
 
@@ -114,7 +114,7 @@ for epoch in range(NUM_EPOCH):
     print("epoch: {}, loss: {}, reward: {}, acc: {}, f1: {}".format(epoch, avg_loss, avg_reward, acc, avg_f1))
 
     # evaluate on test set
-    if epoch%5 == 0:
+    if (epoch+1)%5 == 0:
         evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, device, 15)
 
 

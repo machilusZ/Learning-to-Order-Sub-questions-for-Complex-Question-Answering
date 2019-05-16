@@ -4,10 +4,12 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 
 class Policy(nn.Module):
-    def __init__(self, input_dim, hidden_dim ,dropout_rate, lstm_num_layers, num_entity, num_rel, device):
+    def __init__(self, input_dim, hidden_dim, emb_dim, dropout_rate, lstm_num_layers, num_entity, num_rel, num_subgraph, device):
         super(Policy, self).__init__()
         self.num_entity = num_entity
-        self.action_dim = num_entity * num_rel
+        self.action_dim = num_subgraph * num_entity * num_rel
+        self.num_subgraph = num_subgraph
+        self.num_rel = num_rel
         self.hidden_dim = hidden_dim
         self.lstm_num_layers = lstm_num_layers
         self.device = device
@@ -18,7 +20,7 @@ class Policy(nn.Module):
         self.fc2 = nn.Linear(self.action_dim, self.action_dim, bias=False)
         self.Dropout1 = nn.Dropout(dropout_rate)
         #self.Dropout2 = nn.Dropout(dropout_rate)
-        self.lstm_cell = nn.LSTM(input_size=self.action_dim,
+        self.lstm_cell = nn.LSTM(input_size=emb_dim + num_subgraph,
                             hidden_size=self.hidden_dim,
                             num_layers=self.lstm_num_layers,
                             batch_first=True)
@@ -43,10 +45,10 @@ class Policy(nn.Module):
         return X
 
     # init the first cell of LSTM
-    def init_path(self, e0):
+    def init_path(self, e0, state):
         # initial value for action with one hot encoding of (r0,e0)
         # where r0 is the DUMMY_START_RELATION (encoded as 0) and e0 is one entity from the question
-        init_action = self.one_hot_encode((0,e0))
+        init_action = self.encode((0,0,e0), state)
         init_action = init_action.view(self.batch_size, 1, -1)
 
         hidden_a = torch.randn(self.lstm_num_layers, self.batch_size, self.hidden_dim)
@@ -56,18 +58,19 @@ class Policy(nn.Module):
         self.path = [self.lstm_cell(init_action.to(self.device), (hidden_a, hidden_b))[1]]
 
     # update path(history) by given an action format (r, e)
-    def update_path(self, action):
-        one_hot_action = self.one_hot_encode(action)
+    def update_path(self, action, state):
+        one_hot_action = self.encode(action, state)
         one_hot_action = one_hot_action.view(self.batch_size, 1, -1)
         self.path.append(self.lstm_cell(one_hot_action.to(self.device), self.path[-1])[1])
 
     # one hot encode an action
-    def one_hot_encode(self, action):
-        r, e = action
-        one_hot_action = torch.zeros(self.action_dim)
-        index = r * self.num_entity + e
-        one_hot_action[int(index)] = 1
-        return one_hot_action
+    def encode(self, action, state):
+        g, r, e = action
+        one_hot_g = torch.zeros(self.num_subgraph)
+        one_hot_g[int(g)] = 1
+        rel_emb = torch.Tensor(state.rel_embedding[r])
+        en_emb = torch.Tensor(state.node_embedding[e])
+        return torch.cat((one_hot_g,rel_emb,en_emb), dim=-1)
 
 
 

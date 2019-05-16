@@ -71,7 +71,7 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
             
             answer = kg.en_vocab[test[i][0]]
             e0 = state.subgraphs[0][0]
-            agent.policy.init_path(e0)
+            agent.policy.init_path(e0, state)
 
             # the first step
             embedded_state = states[0].get_embedded_state()
@@ -83,10 +83,12 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
             top_path = []
 
             for index, i in enumerate(top_index):
-                r = math.floor(i/agent.num_entity)
+                g = math.floor(i/(agent.num_entity*agent.num_rel))
+                rest = i%(agent.num_entity*agent.num_rel)
+                r = math.floor(rest/agent.num_entity)
                 e = i%agent.num_entity
-                top_path.append([(r,e)])
-                states[index].update((r,e))
+                top_path.append([(g,r,e)])
+                states[index].update((g,r,e))
         
             # go for T - 1 step
             for step in range(1, T):
@@ -94,11 +96,11 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
             
             final_entities = []
             for path in top_path:
-                temp = path[-1][1]
+                temp = path[-1][2]
                 final_entities.append(temp)
             
             final_entities += [-1]*10
-            ranked_1  = top_path[0][-1][1]
+            ranked_1  = top_path[0][-1][-1]
             ranked_10 = final_entities[0:10]
             ranked_2  = final_entities[0:2]
             ranked_3  = final_entities[0:3]
@@ -136,9 +138,9 @@ def get_tops(agent, top_path, top_path_probs, states, e0, beam_size):
     next_top_path = []
     new_states = []
     for index, actions in enumerate(top_path):
-        agent.policy.init_path(e0)
+        agent.policy.init_path(e0, states[index])
         for action in actions:
-            agent.policy.update_path(action)
+            agent.policy.update_path(action, states[index])
         embedded_state = states[index].get_embedded_state()
         possible_actions = states[index].generate_all_possible_actions()
         probs, possible_index = agent.get_probs(embedded_state, possible_actions)
@@ -146,21 +148,23 @@ def get_tops(agent, top_path, top_path_probs, states, e0, beam_size):
         top_probs = probs[top_index]
         top_index = possible_index[top_index]
         for i, value  in enumerate(top_index):
-            r = math.floor(value/agent.num_entity)
+            g = math.floor(value/(agent.num_entity*agent.num_rel))
+            rest = value%(agent.num_entity*agent.num_rel)
+            r = math.floor(rest/agent.num_entity)
             e = value%agent.num_entity
             prob = top_probs[i] * top_path_probs[index]
             all_probs.append(prob)
-            prob2action[prob] = (index,r,e)
+            prob2action[prob] = (index,g,r,e)
     top_index = np.argsort(all_probs)[::-1][0:beam_size]
     for i in top_index:
         prob = all_probs[i]
         next_path_probs.append(prob)
-        index, r, e = prob2action[prob]
+        index, g, r, e = prob2action[prob]
         path = copy.deepcopy(top_path[index])
-        path = path + [(r,e)]
+        path = path + [(g,r,e)]
         next_top_path.append(path)
         state = copy.deepcopy(states[index])
-        state.update((r,e))
+        state.update((g,r,e))
         new_states.append(state)
     return next_top_path, next_path_probs, new_states
 
