@@ -99,6 +99,7 @@ neoplastic_process	result_of	environmental_effect_of_humans
 hormone	causes	cell_or_molecular_dysfunction
 biologically_active_substance	affects	cell_or_molecular_dysfunction
 eicosanoid	causes	pathologic_function
+reptile	exhibits	behavior
 family_group	exhibits	behavior
 clinical_attribute	result_of	experimental_model_of_disease
 therapeutic_or_preventive_procedure	treats	sign_or_symptom
@@ -153,6 +154,7 @@ virus	causes	disease_or_syndrome
 molecular_function	affects	natural_phenomenon_or_process
 sign_or_symptom	manifestation_of	biologic_function
 laboratory_procedure	assesses_effect_of	molecular_function
+therapeutic_or_preventive_procedure	method_of	occupation_or_discipline
 animal	interacts_with	fish
 body_part_organ_or_organ_component	isa	physical_object
 genetic_function	process_of	natural_phenomenon_or_process
@@ -178,6 +180,7 @@ cell	location_of	cell_or_molecular_dysfunction
 disease_or_syndrome	process_of	bacterium
 patient_or_disabled_group	performs	activity
 intellectual_product	conceptual_part_of	diagnostic_procedure
+organism_function	result_of	organ_or_tissue_function
 population_group	performs	occupational_activity
 disease_or_syndrome	degree_of	neoplastic_process
 diagnostic_procedure	analyzes	chemical
@@ -336,6 +339,7 @@ mental_or_behavioral_dysfunction	issue_in	biomedical_occupation_or_discipline
 research_activity	measures	receptor
 organism_attribute	property_of	human
 behavior	associated_with	family_group
+geographic_area	associated_with	congenital_abnormality
 embryonic_structure	part_of	organism
 environmental_effect_of_humans	result_of	phenomenon_or_process
 antibiotic	complicates	mental_or_behavioral_dysfunction
@@ -365,6 +369,7 @@ clinical_attribute	result_of	disease_or_syndrome
 drug_delivery_device	causes	anatomical_abnormality
 population_group	performs	behavior
 biologically_active_substance	complicates	cell_function
+educational_activity	method_of	occupation_or_discipline
 neuroreactive_substance_or_biogenic_amine	complicates	cell_or_molecular_dysfunction
 organism_function	affects	natural_phenomenon_or_process
 biologically_active_substance	disrupts	fully_formed_anatomical_structure
@@ -388,6 +393,7 @@ receptor	complicates	anatomical_abnormality
 lipid	affects	disease_or_syndrome
 immunologic_factor	interacts_with	receptor
 chemical	affects	molecular_function
+research_activity	measures	organism_function
 vitamin	affects	molecular_function
 population_group	performs	individual_behavior
 vitamin	complicates	organism_function
@@ -516,6 +522,7 @@ biomedical_or_dental_material	affects	mental_process
 neoplastic_process	complicates	cell_or_molecular_dysfunction
 cell_or_molecular_dysfunction	complicates	experimental_model_of_disease
 biologically_active_substance	interacts_with	hormone
+governmental_or_regulatory_activity	associated_with	experimental_model_of_disease
 experimental_model_of_disease	associated_with	pathologic_function
 enzyme	complicates	molecular_function
 biologic_function	process_of	rickettsia_or_chlamydia
@@ -523,6 +530,7 @@ finding	manifestation_of	biologic_function
 individual_behavior	associated_with	biomedical_occupation_or_discipline
 experimental_model_of_disease	result_of	pathologic_function
 mental_or_behavioral_dysfunction	associated_with	experimental_model_of_disease
+behavior	associated_with	population_group
 hormone	interacts_with	chemical
 fully_formed_anatomical_structure	produces	amino_acid_peptide_or_protein
 steroid	issue_in	occupation_or_discipline
@@ -599,6 +607,7 @@ chemical_viewed_structurally	interacts_with	biomedical_or_dental_material
 gene_or_genome	affects	organism_function
 therapeutic_or_preventive_procedure	associated_with	pathologic_function
 patient_or_disabled_group	isa	group
+mental_or_behavioral_dysfunction	affects	neoplastic_process
 individual_behavior	affects	mental_process
 pharmacologic_substance	treats	congenital_abnormality
 disease_or_syndrome	result_of	behavior
@@ -737,8 +746,10 @@ biomedical_or_dental_material	isa	substance
 fully_formed_anatomical_structure	produces	neuroreactive_substance_or_biogenic_amine
 organism_attribute	result_of	genetic_function
 acquired_abnormality	manifestation_of	organism_function
+population_group	issue_in	occupation_or_discipline
 diagnostic_procedure	analyzes	body_substance
 organ_or_tissue_function	affects	fungus
+professional_or_occupational_group	interacts_with	patient_or_disabled_group
 natural_phenomenon_or_process	process_of	molecular_function
 individual_behavior	isa	activity
 mental_or_behavioral_dysfunction	degree_of	pathologic_function
@@ -787,6 +798,7 @@ experimental_model_of_disease	result_of	molecular_function
 mental_process	process_of	cell_function
 population_group	performs	laboratory_procedure
 enzyme	complicates	mental_process
+quantitative_concept	measurement_of	cell_function
 research_activity	measures	physiologic_function
 virus	interacts_with	amphibian
 molecular_function	process_of	amphibian
@@ -813,6 +825,7 @@ patient_or_disabled_group	produces	regulation_or_law
 pathologic_function	process_of	mental_or_behavioral_dysfunction
 body_part_organ_or_organ_component	part_of	mammal
 patient_or_disabled_group	performs	diagnostic_procedure
+biologically_active_substance	disrupts	molecular_function
 fungus	isa	entity
 receptor	affects	neoplastic_process
 cell_component	produces	amino_acid_peptide_or_protein
@@ -981,6 +994,7 @@ pharmacologic_substance	affects	pathologic_function
 steroid	causes	injury_or_poisoning
 human_caused_phenomenon_or_process	result_of	congenital_abnormality
 acquired_abnormality	result_of	therapeutic_or_preventive_procedure
+conceptual_entity	issue_in	occupation_or_discipline
 biologically_active_substance	complicates	disease_or_syndrome
 diagnostic_procedure	associated_with	disease_or_syndrome
 bird	isa	organism
@@ -1027,6 +1041,7 @@ vitamin	complicates	experimental_model_of_disease
 genetic_function	process_of	vertebrate
 amino_acid_peptide_or_protein	causes	acquired_abnormality
 cell	location_of	disease_or_syndrome
+animal	exhibits	individual_behavior
 hazardous_or_poisonous_substance	affects	neoplastic_process
 amino_acid_sequence	isa	spatial_concept
 cell_component	location_of	acquired_abnormality
@@ -1112,6 +1127,7 @@ natural_phenomenon_or_process	result_of	cell_or_molecular_dysfunction
 medical_device	causes	pathologic_function
 cell_component	part_of	archaeon
 natural_phenomenon_or_process	affects	cell_or_molecular_dysfunction
+spatial_concept	result_of	mental_process
 age_group	exhibits	individual_behavior
 pathologic_function	complicates	cell_or_molecular_dysfunction
 disease_or_syndrome	produces	neuroreactive_substance_or_biogenic_amine
@@ -1271,6 +1287,7 @@ food	affects	organ_or_tissue_function
 mental_or_behavioral_dysfunction	precedes	disease_or_syndrome
 organ_or_tissue_function	issue_in	biomedical_occupation_or_discipline
 population_group	associated_with	experimental_model_of_disease
+nucleotide_sequence	issue_in	occupation_or_discipline
 family_group	produces	clinical_drug
 laboratory_procedure	diagnoses	experimental_model_of_disease
 phenomenon_or_process	result_of	pathologic_function
@@ -1305,6 +1322,7 @@ laboratory_or_test_result	measurement_of	molecular_function
 pharmacologic_substance	interacts_with	hazardous_or_poisonous_substance
 therapeutic_or_preventive_procedure	prevents	cell_or_molecular_dysfunction
 family_group	produces	regulation_or_law
+biologic_function	affects	organism
 family_group	uses	classification
 pathologic_function	affects	vertebrate
 molecular_function	affects	invertebrate
@@ -1357,6 +1375,7 @@ congenital_abnormality	result_of	therapeutic_or_preventive_procedure
 tissue	location_of	physiologic_function
 cell_function	process_of	reptile
 pathologic_function	produces	enzyme
+enzyme	affects	disease_or_syndrome
 alga	location_of	immunologic_factor
 anatomical_structure	part_of	rickettsia_or_chlamydia
 clinical_attribute	manifestation_of	genetic_function
@@ -1393,6 +1412,7 @@ pharmacologic_substance	diagnoses	cell_or_molecular_dysfunction
 invertebrate	isa	physical_object
 cell_or_molecular_dysfunction	affects	organism
 neoplastic_process	affects	mammal
+disease_or_syndrome	affects	cell_function
 cell_or_molecular_dysfunction	result_of	genetic_function
 organ_or_tissue_function	result_of	human_caused_phenomenon_or_process
 body_part_organ_or_organ_component	part_of	reptile
@@ -1488,6 +1508,7 @@ rickettsia_or_chlamydia	interacts_with	invertebrate
 body_part_organ_or_organ_component	part_of	amphibian
 congenital_abnormality	affects	mental_process
 pathologic_function	degree_of	experimental_model_of_disease
+drug_delivery_device	treats	congenital_abnormality
 tissue	location_of	molecular_function
 genetic_function	affects	mental_process
 molecular_biology_research_technique	measures	steroid
@@ -1670,6 +1691,7 @@ pharmacologic_substance	complicates	anatomical_abnormality
 bacterium	interacts_with	mammal
 invertebrate	interacts_with	human
 organ_or_tissue_function	result_of	natural_phenomenon_or_process
+congenital_abnormality	part_of	animal
 organ_or_tissue_function	produces	biologically_active_substance
 eicosanoid	issue_in	occupation_or_discipline
 cell_function	process_of	neoplastic_process
@@ -1885,6 +1907,7 @@ immunologic_factor	disrupts	cell_function
 organism_function	isa	event
 congenital_abnormality	manifestation_of	experimental_model_of_disease
 hormone	complicates	pathologic_function
+research_device	causes	neoplastic_process
 alga	location_of	enzyme
 pharmacologic_substance	affects	natural_phenomenon_or_process
 laboratory_or_test_result	evaluation_of	organism_function
@@ -2012,6 +2035,7 @@ group_attribute	property_of	age_group
 mental_process	affects	fungus
 family_group	produces	drug_delivery_device
 clinical_attribute	property_of	archaeon
+body_part_organ_or_organ_component	location_of	disease_or_syndrome
 pharmacologic_substance	affects	mental_process
 antibiotic	prevents	neoplastic_process
 organization	isa	conceptual_entity
@@ -2122,6 +2146,7 @@ physiologic_function	result_of	organism_function
 experimental_model_of_disease	affects	disease_or_syndrome
 anatomical_abnormality	part_of	invertebrate
 laboratory_procedure	assesses_effect_of	mental_process
+hazardous_or_poisonous_substance	causes	neoplastic_process
 professional_society	carries_out	governmental_or_regulatory_activity
 therapeutic_or_preventive_procedure	affects	physiologic_function
 organism_function	process_of	mental_or_behavioral_dysfunction
@@ -2277,6 +2302,7 @@ mental_or_behavioral_dysfunction	complicates	congenital_abnormality
 molecular_sequence	issue_in	occupation_or_discipline
 plant	interacts_with	rickettsia_or_chlamydia
 hazardous_or_poisonous_substance	affects	natural_phenomenon_or_process
+molecular_sequence	result_of	mental_process
 food	causes	pathologic_function
 receptor	complicates	cell_or_molecular_dysfunction
 congenital_abnormality	result_of	cell_function
@@ -2322,6 +2348,7 @@ indicator_reagent_or_diagnostic_aid	affects	neoplastic_process
 laboratory_or_test_result	co-occurs_with	finding
 antibiotic	interacts_with	hormone
 diagnostic_procedure	measures	mental_or_behavioral_dysfunction
+carbohydrate	affects	experimental_model_of_disease
 disease_or_syndrome	complicates	injury_or_poisoning
 chemical	affects	cell_or_molecular_dysfunction
 occupational_activity	method_of	occupation_or_discipline
@@ -2354,6 +2381,7 @@ laboratory_or_test_result	measurement_of	immunologic_factor
 anatomical_abnormality	manifestation_of	pathologic_function
 clinical_attribute	measurement_of	organism_function
 steroid	causes	acquired_abnormality
+body_system	result_of	mental_process
 classification	isa	entity
 congenital_abnormality	affects	rickettsia_or_chlamydia
 molecular_function	co-occurs_with	genetic_function
@@ -2362,6 +2390,7 @@ genetic_function	process_of	mammal
 organ_or_tissue_function	issue_in	occupation_or_discipline
 molecular_biology_research_technique	measures	biologically_active_substance
 laboratory_procedure	assesses_effect_of	indicator_reagent_or_diagnostic_aid
+patient_or_disabled_group	issue_in	biomedical_occupation_or_discipline
 drug_delivery_device	causes	pathologic_function
 disease_or_syndrome	associated_with	mental_or_behavioral_dysfunction
 laboratory_or_test_result	evaluation_of	mental_or_behavioral_dysfunction
@@ -2375,6 +2404,7 @@ eicosanoid	causes	mental_or_behavioral_dysfunction
 gene_or_genome	part_of	mammal
 clinical_attribute	property_of	fungus
 organism_function	precedes	genetic_function
+immunologic_factor	issue_in	occupation_or_discipline
 laboratory_procedure	assesses_effect_of	lipid
 medical_device	isa	manufactured_object
 anatomical_abnormality	part_of	reptile
@@ -2418,6 +2448,7 @@ chemical_viewed_functionally	interacts_with	receptor
 gene_or_genome	location_of	mental_or_behavioral_dysfunction
 organism_attribute	property_of	virus
 neoplastic_process	affects	mental_or_behavioral_dysfunction
+organophosphorus_compound	issue_in	biomedical_occupation_or_discipline
 cell_function	affects	fungus
 biologic_function	process_of	natural_phenomenon_or_process
 acquired_abnormality	manifestation_of	biologic_function
@@ -2475,6 +2506,7 @@ laboratory_procedure	associated_with	cell_or_molecular_dysfunction
 disease_or_syndrome	result_of	laboratory_procedure
 biologically_active_substance	issue_in	occupation_or_discipline
 cell_function	result_of	pathologic_function
+fully_formed_anatomical_structure	isa	entity
 nucleic_acid_nucleoside_or_nucleotide	issue_in	biomedical_occupation_or_discipline
 language	issue_in	occupation_or_discipline
 medical_device	issue_in	biomedical_occupation_or_discipline
@@ -2665,6 +2697,7 @@ drug_delivery_device	treats	pathologic_function
 enzyme	complicates	pathologic_function
 laboratory_procedure	measures	disease_or_syndrome
 biologic_function	process_of	invertebrate
+element_ion_or_isotope	causes	congenital_abnormality
 biomedical_or_dental_material	interacts_with	enzyme
 laboratory_procedure	assesses_effect_of	natural_phenomenon_or_process
 patient_or_disabled_group	interacts_with	group
@@ -2960,6 +2993,7 @@ educational_activity	associated_with	cell_or_molecular_dysfunction
 steroid	isa	physical_object
 biologically_active_substance	isa	physical_object
 organic_chemical	issue_in	occupation_or_discipline
+self_help_or_relief_organization	location_of	occupational_activity
 vitamin	causes	acquired_abnormality
 gene_or_genome	produces	receptor
 vitamin	issue_in	occupation_or_discipline
@@ -3033,6 +3067,7 @@ organ_or_tissue_function	process_of	bacterium
 therapeutic_or_preventive_procedure	associated_with	congenital_abnormality
 fully_formed_anatomical_structure	produces	vitamin
 cell_or_molecular_dysfunction	process_of	vertebrate
+organism	issue_in	occupation_or_discipline
 carbohydrate	interacts_with	neuroreactive_substance_or_biogenic_amine
 cell_or_molecular_dysfunction	co-occurs_with	acquired_abnormality
 population_group	associated_with	neoplastic_process
@@ -3040,6 +3075,7 @@ health_care_related_organization	carries_out	therapeutic_or_preventive_procedure
 experimental_model_of_disease	manifestation_of	disease_or_syndrome
 natural_phenomenon_or_process	affects	pathologic_function
 disease_or_syndrome	manifestation_of	cell_function
+social_behavior	associated_with	age_group
 finding	associated_with	cell_or_molecular_dysfunction
 phenomenon_or_process	result_of	cell_or_molecular_dysfunction
 clinical_attribute	result_of	organ_or_tissue_function
@@ -3104,6 +3140,7 @@ congenital_abnormality	part_of	reptile
 organophosphorus_compound	interacts_with	inorganic_chemical
 age_group	uses	medical_device
 molecular_function	process_of	vertebrate
+laboratory_or_test_result	manifestation_of	congenital_abnormality
 inorganic_chemical	affects	organ_or_tissue_function
 anatomical_structure	part_of	bacterium
 organization	carries_out	laboratory_procedure
@@ -3114,6 +3151,7 @@ occupation_or_discipline	isa	entity
 cell_function	result_of	mental_or_behavioral_dysfunction
 experimental_model_of_disease	affects	vertebrate
 research_activity	measures	body_substance
+neuroreactive_substance_or_biogenic_amine	complicates	biologic_function
 acquired_abnormality	result_of	anatomical_abnormality
 physiologic_function	affects	bacterium
 molecular_function	isa	biologic_function
@@ -3195,6 +3233,7 @@ clinical_attribute	property_of	alga
 drug_delivery_device	isa	physical_object
 professional_or_occupational_group	exhibits	social_behavior
 research_activity	measures	nucleic_acid_nucleoside_or_nucleotide
+cell_component	produces	biologically_active_substance
 body_substance	causes	injury_or_poisoning
 nucleic_acid_nucleoside_or_nucleotide	affects	biologic_function
 fully_formed_anatomical_structure	location_of	cell_function
@@ -3260,6 +3299,7 @@ rickettsia_or_chlamydia	causes	pathologic_function
 eicosanoid	ingredient_of	clinical_drug
 receptor	affects	natural_phenomenon_or_process
 gene_or_genome	part_of	cell
+health_care_activity	associated_with	disease_or_syndrome
 cell	location_of	cell_function
 disease_or_syndrome	affects	organism
 congenital_abnormality	manifestation_of	neoplastic_process
@@ -3276,6 +3316,7 @@ chemical_viewed_structurally	interacts_with	steroid
 tissue	part_of	archaeon
 educational_activity	method_of	biomedical_occupation_or_discipline
 injury_or_poisoning	occurs_in	group
+occupational_activity	associated_with	pathologic_function
 finding	evaluation_of	biologic_function
 biomedical_or_dental_material	affects	disease_or_syndrome
 drug_delivery_device	prevents	injury_or_poisoning
@@ -3461,6 +3502,7 @@ neoplastic_process	manifestation_of	molecular_function
 medical_device	prevents	cell_or_molecular_dysfunction
 genetic_function	result_of	experimental_model_of_disease
 anatomical_abnormality	affects	genetic_function
+gene_or_genome	location_of	pathologic_function
 physiologic_function	process_of	rickettsia_or_chlamydia
 spatial_concept	isa	entity
 pathologic_function	process_of	human
@@ -3565,6 +3607,7 @@ anatomical_abnormality	complicates	congenital_abnormality
 biologically_active_substance	affects	experimental_model_of_disease
 experimental_model_of_disease	affects	organ_or_tissue_function
 patient_or_disabled_group	performs	health_care_activity
+finding	evaluation_of	cell_function
 anatomical_abnormality	result_of	biologic_function
 physiologic_function	produces	body_substance
 chemical_viewed_structurally	interacts_with	element_ion_or_isotope
@@ -3627,6 +3670,7 @@ pathologic_function	produces	vitamin
 biologically_active_substance	isa	entity
 antibiotic	interacts_with	hazardous_or_poisonous_substance
 organophosphorus_compound	affects	cell_function
+anatomical_abnormality	affects	organism
 neoplastic_process	affects	genetic_function
 patient_or_disabled_group	exhibits	social_behavior
 hormone	complicates	organ_or_tissue_function
@@ -3696,6 +3740,7 @@ experimental_model_of_disease	affects	animal
 vitamin	interacts_with	indicator_reagent_or_diagnostic_aid
 organism_function	result_of	anatomical_abnormality
 laboratory_or_test_result	indicates	physiologic_function
+medical_device	issue_in	occupation_or_discipline
 pathologic_function	degree_of	disease_or_syndrome
 body_part_organ_or_organ_component	location_of	bacterium
 fish	exhibits	behavior
@@ -3721,6 +3766,7 @@ lipid	affects	neoplastic_process
 experimental_model_of_disease	result_of	injury_or_poisoning
 cell_function	process_of	mammal
 tissue	location_of	injury_or_poisoning
+molecular_biology_research_technique	issue_in	biomedical_occupation_or_discipline
 lipid	affects	molecular_function
 alga	location_of	receptor
 family_group	performs	occupational_activity
@@ -3746,6 +3792,7 @@ finding	evaluation_of	neoplastic_process
 steroid	interacts_with	hazardous_or_poisonous_substance
 cell_or_molecular_dysfunction	process_of	organ_or_tissue_function
 organ_or_tissue_function	process_of	invertebrate
+professional_society	issue_in	occupation_or_discipline
 tissue	produces	amino_acid_peptide_or_protein
 disease_or_syndrome	process_of	fungus
 physiologic_function	affects	disease_or_syndrome
@@ -3861,6 +3908,7 @@ medical_device	prevents	disease_or_syndrome
 family_group	performs	activity
 vitamin	interacts_with	hazardous_or_poisonous_substance
 pathologic_function	result_of	natural_phenomenon_or_process
+tissue	location_of	pathologic_function
 pathologic_function	process_of	biologic_function
 acquired_abnormality	location_of	cell_or_molecular_dysfunction
 regulation_or_law	affects	professional_or_occupational_group
@@ -3944,6 +3992,7 @@ anatomical_abnormality	manifestation_of	mental_or_behavioral_dysfunction
 body_part_organ_or_organ_component	isa	entity
 rickettsia_or_chlamydia	interacts_with	animal
 plant	location_of	receptor
+age_group	isa	entity
 diagnostic_procedure	assesses_effect_of	organic_chemical
 natural_phenomenon_or_process	affects	mental_or_behavioral_dysfunction
 inorganic_chemical	affects	experimental_model_of_disease
@@ -3992,6 +4041,7 @@ experimental_model_of_disease	manifestation_of	cell_or_molecular_dysfunction
 embryonic_structure	part_of	reptile
 vertebrate	interacts_with	bird
 neoplastic_process	produces	body_substance
+body_space_or_junction	location_of	experimental_model_of_disease
 organ_or_tissue_function	affects	cell_or_molecular_dysfunction
 organophosphorus_compound	isa	substance
 pharmacologic_substance	complicates	disease_or_syndrome
@@ -4014,6 +4064,7 @@ laboratory_or_test_result	measurement_of	amino_acid_peptide_or_protein
 antibiotic	affects	disease_or_syndrome
 pathologic_function	process_of	vertebrate
 cell_or_molecular_dysfunction	result_of	behavior
+invertebrate	interacts_with	bird
 anatomical_abnormality	affects	bacterium
 cell_component	part_of	plant
 laboratory_procedure	assesses_effect_of	vitamin
@@ -4084,6 +4135,7 @@ laboratory_procedure	measures	hazardous_or_poisonous_substance
 disease_or_syndrome	result_of	pathologic_function
 genetic_function	process_of	organism_function
 organism_attribute	result_of	phenomenon_or_process
+temporal_concept	result_of	mental_process
 gene_or_genome	produces	hormone
 population_group	associated_with	mental_or_behavioral_dysfunction
 lipid	affects	cell_function
@@ -4095,6 +4147,7 @@ disease_or_syndrome	result_of	experimental_model_of_disease
 biomedical_or_dental_material	interacts_with	hazardous_or_poisonous_substance
 organophosphorus_compound	interacts_with	eicosanoid
 genetic_function	produces	immunologic_factor
+hormone	affects	natural_phenomenon_or_process
 diagnostic_procedure	analyzes	organic_chemical
 disease_or_syndrome	result_of	molecular_function
 immunologic_factor	affects	cell_or_molecular_dysfunction
@@ -4120,6 +4173,7 @@ mental_or_behavioral_dysfunction	co-occurs_with	neoplastic_process
 receptor	affects	organism_function
 alga	location_of	vitamin
 enzyme	complicates	biologic_function
+cell	location_of	neoplastic_process
 finding	issue_in	biomedical_occupation_or_discipline
 tissue	location_of	body_space_or_junction
 gene_or_genome	issue_in	biomedical_occupation_or_discipline
@@ -4136,6 +4190,7 @@ eicosanoid	causes	injury_or_poisoning
 hazardous_or_poisonous_substance	affects	experimental_model_of_disease
 pathologic_function	affects	plant
 cell	location_of	injury_or_poisoning
+mammal	issue_in	biomedical_occupation_or_discipline
 disease_or_syndrome	result_of	individual_behavior
 mental_or_behavioral_dysfunction	process_of	genetic_function
 organism_attribute	property_of	archaeon
@@ -4303,6 +4358,7 @@ neoplastic_process	affects	cell_function
 laboratory_or_test_result	measurement_of	antibiotic
 inorganic_chemical	affects	genetic_function
 molecular_function	affects	bacterium
+injury_or_poisoning	result_of	organism_function
 indicator_reagent_or_diagnostic_aid	affects	molecular_function
 organism_function	result_of	genetic_function
 disease_or_syndrome	process_of	mental_process
@@ -4361,6 +4417,7 @@ organic_chemical	interacts_with	lipid
 physiologic_function	result_of	genetic_function
 organ_or_tissue_function	affects	experimental_model_of_disease
 patient_or_disabled_group	uses	drug_delivery_device
+inorganic_chemical	isa	entity
 organism_function	process_of	natural_phenomenon_or_process
 disease_or_syndrome	process_of	organism
 biologic_function	affects	animal
@@ -4515,6 +4572,7 @@ organ_or_tissue_function	occurs_in	organism_function
 eicosanoid	affects	biologic_function
 geographic_area	issue_in	occupation_or_discipline
 element_ion_or_isotope	interacts_with	biomedical_or_dental_material
+steroid	affects	organism_function
 laboratory_procedure	affects	cell_function
 research_activity	issue_in	biomedical_occupation_or_discipline
 chemical_viewed_structurally	interacts_with	nucleic_acid_nucleoside_or_nucleotide
@@ -4586,6 +4644,7 @@ pharmacologic_substance	disrupts	mental_process
 vitamin	complicates	molecular_function
 population_group	performs	therapeutic_or_preventive_procedure
 cell_component	part_of	reptile
+carbohydrate_sequence	issue_in	occupation_or_discipline
 neuroreactive_substance_or_biogenic_amine	interacts_with	immunologic_factor
 organism_function	affects	virus
 laboratory_or_test_result	manifestation_of	neoplastic_process
@@ -4645,6 +4704,7 @@ cell	produces	nucleic_acid_nucleoside_or_nucleotide
 phenomenon_or_process	result_of	natural_phenomenon_or_process
 hazardous_or_poisonous_substance	disrupts	physiologic_function
 experimental_model_of_disease	process_of	genetic_function
+chemical_viewed_structurally	isa	entity
 group_attribute	issue_in	biomedical_occupation_or_discipline
 eicosanoid	isa	chemical_viewed_structurally
 immunologic_factor	indicates	cell_or_molecular_dysfunction
@@ -4657,6 +4717,7 @@ drug_delivery_device	issue_in	occupation_or_discipline
 organ_or_tissue_function	affects	archaeon
 physiologic_function	affects	mental_or_behavioral_dysfunction
 organism_function	affects	organism_attribute
+biomedical_or_dental_material	isa	physical_object
 therapeutic_or_preventive_procedure	complicates	organism_function
 health_care_related_organization	carries_out	diagnostic_procedure
 molecular_biology_research_technique	measures	carbohydrate
@@ -4741,6 +4802,7 @@ cell_or_molecular_dysfunction	result_of	congenital_abnormality
 organic_chemical	affects	disease_or_syndrome
 indicator_reagent_or_diagnostic_aid	affects	mental_process
 anatomical_abnormality	part_of	fungus
+body_location_or_region	result_of	mental_process
 phenomenon_or_process	result_of	injury_or_poisoning
 health_care_activity	associated_with	cell_or_molecular_dysfunction
 research_activity	associated_with	acquired_abnormality
@@ -4763,6 +4825,8 @@ neuroreactive_substance_or_biogenic_amine	affects	organ_or_tissue_function
 anatomical_abnormality	location_of	disease_or_syndrome
 anatomical_abnormality	affects	amphibian
 cell_function	affects	cell_or_molecular_dysfunction
+receptor	issue_in	occupation_or_discipline
+genetic_function	process_of	organism
 nucleic_acid_nucleoside_or_nucleotide	affects	natural_phenomenon_or_process
 cell	produces	organic_chemical
 laboratory_or_test_result	manifestation_of	genetic_function
@@ -4796,6 +4860,7 @@ organophosphorus_compound	isa	physical_object
 food	isa	substance
 medical_device	causes	acquired_abnormality
 molecular_function	produces	vitamin
+entity	issue_in	biomedical_occupation_or_discipline
 alga	interacts_with	fish
 natural_phenomenon_or_process	result_of	mental_or_behavioral_dysfunction
 cell_or_molecular_dysfunction	process_of	invertebrate
