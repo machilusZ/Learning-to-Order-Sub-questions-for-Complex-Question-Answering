@@ -5,13 +5,14 @@ from policy import Policy
 from scipy.spatial.distance import cosine
 from torch.distributions import Categorical
 from torch.autograd import Variable
+import torch.nn.functional as F
 
 
 class Agent():
     def __init__(self, input_dim, hidden_dim, emb_dim, dropout_rate, lstm_num_layers, num_entity, num_rel, num_subgraph, gamma, learning_rate, model_param_list, baseline, device):
         self.gamma = gamma
         self.num_subgraph = num_subgraph
-        self.action_dim = num_subgraph * num_entity * num_rel
+        self.action_dim = emb_dim + num_subgraph
         self.num_entity = num_entity
         self.policy = Policy(input_dim, hidden_dim, emb_dim, dropout_rate, lstm_num_layers, num_entity, num_rel, num_subgraph, device).to(device)
         self.num_rel = num_rel
@@ -25,51 +26,51 @@ class Agent():
     def get_action(self, state):
         embedded_state = state.get_embedded_state()
         possible_actions = state.generate_all_possible_actions()
-        scores = self.policy(embedded_state)
-        # zero out all impossible actions
-        possible_index = []
+        out = self.policy(embedded_state)
+        
+        # build At (tsacked embeding of all possible actions)
+        At = []
         for action in possible_actions:
-            g, r, e = action
-            index = g * self.num_rel * self.num_entity + r * self.num_entity + e
-            possible_index.append(index)
-        scores_possible = scores[possible_index]
-        sm = torch.nn.Softmax(dim=-1)
-        scores_possible = sm(scores_possible)
+            At.append(self.policy.encode(action, state))
+        
+        At = torch.stack(At).to(self.device)
+        scores = torch.mv(At, out)
+        scores = F.softmax(scores, dim=-1)
 
         # sample an action from the distribution
-        c =  Categorical(scores_possible)
+        c =  Categorical(scores)
         index = c.sample()
-        action = possible_index[index]
-        g = math.floor(action/(self.num_entity*self.num_rel))
-        rest = action%(self.num_entity*self.num_rel)
-        r = math.floor(rest/self.num_entity)
-        e = action%self.num_entity
+        action = possible_actions[index]
+        g, r, e = action
 
         # add log prob to history
         self.logprob_history.append(c.log_prob(index))
 
         # add action to path
         self.policy.update_path((g,r,e), state)
-        
 
         return (g,r,e)
     
     def get_probs(self, state, possible_actions):
-        scores = self.policy(state)
-        # zero out all impossible actions
-        possible_index = []
+        embedded_state = state.get_embedded_state()
+        possible_actions = state.generate_all_possible_actions()
+        out = self.policy(embedded_state)
+        
+        # build At (tsacked embeding of all possible actions)
+        At = []
         for action in possible_actions:
-            g, r, e = action
-            index = g * self.num_rel * self.num_entity + r * self.num_entity + e
-            possible_index.append(index)
-        scores_possible = scores[possible_index]
-        sm = torch.nn.Softmax(dim=-1)
-        scores_possible = sm(scores_possible)
-        c =  Categorical(scores_possible)
-        probs = np.zeros(len(possible_index))
-        for i, index in enumerate(possible_index):
+            At.append(self.policy.encode(action, state))
+        
+        At = torch.stack(At).to(self.device)
+        scores = torch.mv(At, out)
+        scores = F.softmax(scores, dim=-1)
+
+        # sample an action from the distribution
+        c =  Categorical(scores)
+        probs = np.zeros(len(possible_actions))
+        for i, action in enumerate(possible_actions):
             probs[i] = math.exp(c.log_prob(torch.tensor([i])))
-        return probs, np.array(possible_index)
+        return probs
 
     # assign hard reward
     def hard_reward(self, a):

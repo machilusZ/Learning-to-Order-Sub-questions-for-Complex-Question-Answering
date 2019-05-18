@@ -7,7 +7,7 @@ class Policy(nn.Module):
     def __init__(self, input_dim, hidden_dim, emb_dim, dropout_rate, lstm_num_layers, num_entity, num_rel, num_subgraph, device):
         super(Policy, self).__init__()
         self.num_entity = num_entity
-        self.action_dim = num_subgraph * num_entity * num_rel
+        self.action_dim = emb_dim + num_subgraph
         self.num_subgraph = num_subgraph
         self.num_rel = num_rel
         self.hidden_dim = hidden_dim
@@ -16,11 +16,11 @@ class Policy(nn.Module):
         self.batch_size = 1             # currently using 1 question per batch
 
         # layers
-        self.fc1 = nn.Linear(input_dim + hidden_dim, input_dim + hidden_dim, bias=False)
-        self.fc2 = nn.Linear(input_dim + hidden_dim, self.action_dim, bias=False)
-        #self.Dropout1 = nn.Dropout(dropout_rate)
-        #self.Dropout2 = nn.Dropout(dropout_rate)
-        self.lstm_cell = nn.LSTM(input_size=emb_dim + num_subgraph,
+        self.fc1 = nn.Linear(input_dim + hidden_dim, self.action_dim, bias=False)
+        self.fc2 = nn.Linear(self.action_dim, self.action_dim, bias=False)
+        self.Dropout1 = nn.Dropout(dropout_rate)
+        self.Dropout2 = nn.Dropout(dropout_rate) 
+        self.lstm_cell = nn.LSTM(input_size=self.action_dim,
                             hidden_size=self.hidden_dim,
                             num_layers=self.lstm_num_layers,
                             batch_first=True)
@@ -39,8 +39,9 @@ class Policy(nn.Module):
 
         X = self.fc1(X)
         X = F.relu(X)
-        #X = self.Dropout1(X)
+        X = self.Dropout1(X)
         X = self.fc2(X)
+        X = self.Dropout2(X)
 
         return X
 

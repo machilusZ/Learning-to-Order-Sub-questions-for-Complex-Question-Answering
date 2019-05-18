@@ -22,13 +22,13 @@ class ReactiveBaseline():
 
 
 GAMMA = 1
-WORD_EMB_DIM = 4
+WORD_EMB_DIM = 300
 NODE_EMB_DIM = 30
 H_DIM = 64
 T = 3
 NUM_EPOCH = 1000
 SOFT_REWARD_SCALE = 0.1
-NUM_ROLL_OUT = 1
+NUM_ROLL_OUT = 20
 SHUFFLE = True
 
 # device 
@@ -59,8 +59,8 @@ num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
 num_subgraph = len(state.subgraphs)
 emb_dim = WORD_EMB_DIM + NODE_EMB_DIM
-baseline = ReactiveBaseline(l = 0.02)
-agent = Agent(input_dim, 32, emb_dim, 0, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.00005, model_param_list, baseline, device)
+baseline = ReactiveBaseline(l = 0.05)
+agent = Agent(input_dim, 32, emb_dim, 0.5, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.0003, model_param_list, baseline, device)
 
 # training loop
 index_list = list(range(len(train)))
@@ -95,7 +95,7 @@ for epoch in range(NUM_EPOCH):
                         true_positive += 1
                         agent.hard_reward(10)
                     elif e in answers:
-                        agent.hard_reward(1)
+                        agent.hard_reward(2)
                         correct += 1
                     else:
                         agent.hard_reward(1-max_shortest_path)
@@ -116,7 +116,7 @@ for epoch in range(NUM_EPOCH):
     print("epoch: {}, loss: {}, reward: {}, true_positive: {}, acc: {}".format(epoch, avg_loss, avg_reward, true_positive/NUM_ROLL_OUT, acc))
 
     # evaluate on test set
-    if (epoch)%10 == 0:
+    if (epoch+1)%20 == 0:
         evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, node_embedding, device, 15)
 
 
