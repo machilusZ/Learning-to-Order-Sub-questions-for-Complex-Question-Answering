@@ -60,6 +60,12 @@ class KnowledgeGraph:
         with open(vocab_path + "relation_vocab.json") as json_file:
             self.rel_vocab = json.load(json_file)
 
+    def encode_answers(self, answers):
+        res = []
+        for answer in answers:
+            res.append(self.en_vocab[answer])
+        return res
+    
     # encode an edge
     def encode_edge(self, edge):
         e1, r, e2 = edge

@@ -50,7 +50,7 @@ def computeF1(goldList, predictedList):
         f1 = 2 * recall * precision / (precision + recall)
     return (recall, precision, f1)
 
-def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, device, beam_size):
+def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, node_embedding, device, beam_size):
     """
     A function to run evaluation on the test set
     """
@@ -60,16 +60,18 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
     hit_5 = 0
     hit_10 = 0
     with torch.no_grad():
-        f1 = []
+        entropies = {}
+        for i in range(T):
+            entropies[i] = []
         for i in tqdm(range(len(test))):
             # for each test question
             # create beam size # of state and agents
             states = []
             for _ in range(beam_size):
-                state = State((test[i][1],test[i][2]), kg, WORD_EMB_DIM, word2node, attention, rel_embedding, T, device)
+                state = State((test[i][1],test[i][2]), kg, node_embedding, WORD_EMB_DIM, word2node, attention, rel_embedding, T, device)
                 states.append(state)
             
-            answer = kg.en_vocab[test[i][0]]
+            answers = kg.encode_answers(test[i][0])
             e0 = state.subgraphs[0][0]
             agent.policy.init_path(e0, state)
 
@@ -89,10 +91,16 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
                 e = i%agent.num_entity
                 top_path.append([(g,r,e)])
                 states[index].update((g,r,e))
+
+            # caclulate entropy for the current step
+            entropy = -np.sum(np.log(top_path_probs)*top_path_probs)
+            entropies[0].append(entropy)
         
             # go for T - 1 step
             for step in range(1, T):
                 top_path, top_path_probs, states = get_tops(agent, top_path, top_path_probs, states, e0, beam_size)
+                entropy = -np.sum(np.log(top_path_probs)*top_path_probs)
+                entropies[step].append(entropy)
             
             final_entities = []
             for path in top_path:
@@ -106,24 +114,29 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
             ranked_3  = final_entities[0:3]
             ranked_5  = final_entities[0:5]
 
-            if answer == ranked_1:
+            if ranked_1 in answers:
                 hit_1 += 1
-            if answer in ranked_10:
+            if correct(ranked_10, answers):
                 hit_10 += 1
-            if answer in ranked_5:
+            if correct(ranked_5, answers):
                 hit_5 += 1
-            if answer in ranked_3:
+            if correct(ranked_3, answers):
                 hit_3 += 1
-            if answer in ranked_2:
+            if correct(ranked_2, answers):
                 hit_2 += 1
         
         hit_1 /= len(test)
         hit_10/= len(test)
         hit_5/= len(test)
         hit_3/= len(test)
-        hit_2/= len(test)
+        hit_2/= len(test)      
+
         print("hit@1: " + str(hit_1) + ", hit@2: " + str(hit_2)+ ", hit@3: " + str(hit_3) + ", hit@5: " + str(hit_5) + ", hit@10: " + str(hit_10))
-        # compute f1
+        # calculate avg entropy
+        for i in entropies:
+            avg = np.mean(np.array(entropies[i]))
+            print("avg entropy for step " + str(i+1) + " is " + str(avg))
+        
         '''    
             f1.append(computeF1(answer, e)[-1])
         avg_f1 = np.mean(f1)
@@ -167,6 +180,14 @@ def get_tops(agent, top_path, top_path_probs, states, e0, beam_size):
         state.update((g,r,e))
         new_states.append(state)
     return next_top_path, next_path_probs, new_states
+
+def correct(pred_list, answers):
+    for a in answers:
+        if a in pred_list:
+            return True
+
+    return False
+
 
         
 
