@@ -64,8 +64,12 @@ class Agent():
             possible_index.append(index)
         scores_possible = scores[possible_index]
         sm = torch.nn.Softmax(dim=-1)
-        scores_possible = sm(scores_possible).cpu().numpy()
-        return scores_possible, np.array(possible_index)
+        scores_possible = sm(scores_possible)
+        c =  Categorical(scores_possible)
+        probs = np.zeros(len(possible_index))
+        for i, index in enumerate(possible_index):
+            probs[i] = math.exp(c.log_prob(torch.tensor([i])))
+        return probs, np.array(possible_index)
 
     # assign hard reward
     def hard_reward(self, a):
