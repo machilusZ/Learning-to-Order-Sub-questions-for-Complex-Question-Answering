@@ -7,28 +7,25 @@ import torch
 import re
 
 class State:
-    def __init__(self, question, graph, word_emb_dim, word2node, attention, rel_embedding, T, device):
+    def __init__(self, question, graph, node_embedding, word_emb_dim, word2node, attention, rel_embedding, T, device):
         self.es, self.rs = graph.encode_question(question) # encoded entities and relations in the question
-        self.word_emb_size = word_emb_dim  # dimension of word embeding
-        self.subgraphs = []                # each element is a vector of format [e1, e2, ... ] representing a subgraph
-        self.rel_embedding = rel_embedding # mapping from all the relations in vocb to its embeding
-        self.node_embedding_size = None    # size of node embeding
-        self.node_embedding = {}           # mappin from all nodes to its embeding
-        self.Rt = []                       # Rt in the state (each row is a embedded relation)
-        self.ht = []                       # hti for each of the subgraph
-        self.Ht  = []                      # Ht in the state
-        self.graph = graph                 # knowledge graph object
-        self.word2node = word2node         # a fc layer project word embeding to node embedingg
-        self.attention = attention         # mutihead self-attention 
-        self.T = T                         # T step
+        self.word_emb_size = word_emb_dim    # dimension of word embeding
+        self.subgraphs = []                  # each element is a vector of format [e1, e2, ... ] representing a subgraph
+        self.rel_embedding = rel_embedding   # mapping from all the relations in vocb to its embeding
+        self.node_embedding_size = None      # size of node embeding
+        self.node_embedding = node_embedding # mappin from all nodes to its embeding
+        self.Rt = []                         # Rt in the state (each row is a embedded relation)
+        self.ht = []                         # hti for each of the subgraph
+        self.Ht  = []                        # Ht in the state
+        self.graph = graph                   # knowledge graph object
+        self.word2node = word2node           # a fc layer project word embeding to node embedingg
+        self.attention = attention           # mutihead self-attention 
+        self.T = T                           # T step
         self.device = device
 
         # init all subgraphs from the question
         for e in self.es:
             self.subgraphs.append([e])
-
-        # get node embeding for each entity
-        self.init_node_embedding("./data/countries/countries_new_embed_transE.npy")
 
         # init Rt from the relations in the question
         self.init_Rt()
@@ -40,24 +37,23 @@ class State:
     # add a node to one of the subgraph, input format (r, e2)
     def update(self, action):
         # add new node to the graph
-        r, e2 = action
+        g, r, e2 = action
         done = False
-        for subgraph in self.subgraphs:
-            for e in subgraph:
-                if e in self.graph.inv_graph[action]:
-                    subgraph.append(e2)
-                    done = True
-                    break
-            if done:
-                break
+        if r != 1:
+            for e in self.subgraphs[g]:
+	                if e in self.graph.inv_graph[(r, e2)]:
+	                    done = True
+	                    break
+            assert(done)
+            self.subgraphs[g].append(e2)
 
-        # update Rt
-        rt_embed = self.rel_embedding[r]
-        for i in range(self.Rt.shape[0]):
-            # if Rt is already all zeros, we will not reduce it
-            if np.sum(self.Rt[i] != 0) != 0:
-                gamma = 1 - cosine(self.Rt[i], rt_embed)
-                self.Rt[i] -= (gamma * rt_embed)/self.T
+            # update Rt
+            rt_embed = self.rel_embedding[r]
+            for i in range(self.Rt.shape[0]):
+                # if Rt is already all zeros, we will not reduce it
+                if np.sum(self.Rt[i] != 0) != 0:
+                    gamma = 1 - cosine(self.Rt[i], rt_embed)
+                    self.Rt[i] -= (gamma * rt_embed)/self.T
 
         # update Ht
         self.calculate_ht()
@@ -66,19 +62,20 @@ class State:
     # find the neighbors of all subgraphs
     def find_all_neighbors(self):
         neighbors = []
-        for subgraph in self.subgraphs:
-            ret = self.find_subgraph_neighbors(subgraph)
-            neighbors += ret
+        for i, subgraph in enumerate(self.subgraphs):
+	        ret = self.find_subgraph_neighbors(subgraph, i)
+	        neighbors += ret
         return neighbors
 
     # helper function: find the neighbor edge (e1, r, e2) of a subgraph
-    def find_subgraph_neighbors(self, subgraph):
+    def find_subgraph_neighbors(self, subgraph, subgraph_index):
         ret = []
         for e1 in subgraph:
+            # ret.append((subgraph_index, 1, e1))
             neighbors = self.graph.graph.get(e1, [])
             for (r, e2) in neighbors:
                 if e2 not in subgraph:
-                    ret.append((e1, r, e2))
+                    ret.append((subgraph_index, r, e2))
         return ret
 
     # generate all possible actions (r, e) according given all the current neighbors
@@ -88,21 +85,21 @@ class State:
         for (_, r, e2) in neighbors:
             if (r, e2) not in actions:
                 actions.append((r, e2))
-        return actions
-
-    # embed nodes: change this
-    def init_node_embedding(self, path):
-        # load pretrained embedding directly
-        self.node_embedding = np.load(path)
+        return self.find_all_neighbors()
 
     # get vectors of all relations to build Rt
     def init_Rt(self):
+        r_dict = {}
         for r in self.rs:
+            if r not in r_dict:
+                r_dict[r] = 0
+            r_dict[r] += 1
+        for r in r_dict:
             r_embedding = self.rel_embedding.get(r, [])
             if len(r_embedding) == 0:
                 print("relation: " + r + " not in vocab")
                 exit
-            self.Rt.append(r_embedding)
+            self.Rt.append(r_embedding*r_dict[r])
         self.Rt = np.array(self.Rt)
 
     # calculate ht based on self.subgraphs
