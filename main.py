@@ -40,7 +40,7 @@ parser.add_argument("dataset", help="the name of the dataset", type=str)
 args = parser.parse_args()
 
 # load dataset
-node_embedding, rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM, "ComplEx")
+node_embedding, rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM, "ComplEX")
 
 
 # projection from word embedding to node node embedding
