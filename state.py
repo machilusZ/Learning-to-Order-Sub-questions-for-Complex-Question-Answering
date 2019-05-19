@@ -100,6 +100,8 @@ class State:
                 print("relation: " + r + " not in vocab")
                 exit
             self.Rt.append(r_embedding*r_dict[r])
+        for _ in range(len(self.rs)- len(r_dict)):
+	        self.Rt.append(np.zeros(len(self.rel_embedding[0])))
         self.Rt = np.array(self.Rt)
 
     # calculate ht based on self.subgraphs
