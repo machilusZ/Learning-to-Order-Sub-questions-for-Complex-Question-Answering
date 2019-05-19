@@ -22,13 +22,13 @@ class ReactiveBaseline():
 
 
 GAMMA = 1
-WORD_EMB_DIM = 94
+WORD_EMB_DIM = 128
 NODE_EMB_DIM = 30
 H_DIM = 64
 T = 3
 NUM_EPOCH = 1000
 SOFT_REWARD_SCALE = 0.1
-NUM_ROLL_OUT = 1
+NUM_ROLL_OUT = 20
 SHUFFLE = True
 
 # device 
@@ -47,7 +47,7 @@ node_embedding, rel_embedding, kg, train, test = load_data(args.dataset, WORD_EM
 word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False).to(device)
 
 # mutihead self-attention
-attention = Attention(4, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
+attention = Attention(8, NODE_EMB_DIM, H_DIM, math.sqrt(H_DIM)).to(device)
 
 # list contains all params that need to optimize
 model_param_list = list(word2node.parameters()) + list(attention.parameters())
@@ -59,8 +59,8 @@ num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
 num_subgraph = len(state.subgraphs)
 emb_dim = WORD_EMB_DIM + NODE_EMB_DIM
-baseline = ReactiveBaseline(l = 0.05)
-agent = Agent(input_dim, 32, emb_dim, 0.1, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.0001, model_param_list, baseline, device)
+baseline = ReactiveBaseline(l = 0.02)
+agent = Agent(input_dim, 64, emb_dim, 0.1, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.0001, model_param_list, baseline, device)
 
 # training loop
 index_list = list(range(len(train)))
@@ -93,7 +93,7 @@ for epoch in range(NUM_EPOCH):
                     if e in answers and max_shortest_path == 0:
                         correct += 1
                         true_positive += 1
-                        agent.hard_reward(100)
+                        agent.hard_reward(10)
                     elif e in answers:
                         agent.hard_reward(10)
                         correct += 1
@@ -116,7 +116,7 @@ for epoch in range(NUM_EPOCH):
     print("epoch: {}, loss: {}, reward: {}, true_positive: {}, acc: {}".format(epoch, avg_loss, avg_reward, true_positive/NUM_ROLL_OUT, acc))
 
     # evaluate on test set
-    if (epoch+1)%10 == 0:
+    if (epoch+1)%2 and acc > 40 == 0:
         evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, node_embedding, device, 15)
 
 
