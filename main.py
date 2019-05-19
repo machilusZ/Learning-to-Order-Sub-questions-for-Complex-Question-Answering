@@ -22,8 +22,8 @@ class ReactiveBaseline():
 
 
 GAMMA = 1
-WORD_EMB_DIM = 128
-NODE_EMB_DIM = 30
+WORD_EMB_DIM = 500
+NODE_EMB_DIM = 100
 H_DIM = 64
 T = 3
 NUM_EPOCH = 1000
