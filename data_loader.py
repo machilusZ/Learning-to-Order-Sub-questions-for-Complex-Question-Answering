@@ -39,6 +39,14 @@ def parser(line):
     answers = answer.split("\t")[1:]
     return (answers, [e1,e2], [r1,r2,r3])
 
+def wc_parser(line):
+    temp = line.decode("utf-8").strip().split(";")
+    question = temp[0]
+    answer = temp[1]
+    r1, e1, r2, e2 = question.split("\t")
+    answers = answer.split("\t")[1:]
+    return (answers, [e1,e2], [r1,r2])
+
 def init_rel_embedding(path_to_embedding, spliter, word_emb_size, graph):
     # read in the embeding
     embeddings_index = {}
