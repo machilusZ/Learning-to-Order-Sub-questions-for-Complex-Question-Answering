@@ -28,7 +28,7 @@ H_DIM = 64
 T = 3
 NUM_EPOCH = 1000
 SOFT_REWARD_SCALE = 0.1
-NUM_ROLL_OUT = 20
+NUM_ROLL_OUT = 10
 SHUFFLE = True
 
 # device 
@@ -59,9 +59,9 @@ num_rel = len(kg.rel_vocab)
 num_entity = len(kg.en_vocab)
 num_subgraph = len(state.subgraphs)
 emb_dim = WORD_EMB_DIM + NODE_EMB_DIM
-baseline = ReactiveBaseline(l = 0.02)
+baseline = ReactiveBaseline(l = 0.05)
 
-agent = Agent(input_dim, 64, emb_dim, 0.1, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.001, model_param_list, baseline, device)
+agent = Agent(input_dim, 64, emb_dim, 0.1, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.0003, model_param_list, baseline, device)
 # training loop
 index_list = list(range(len(train)))
 for epoch in range(NUM_EPOCH):
@@ -85,6 +85,7 @@ for epoch in range(NUM_EPOCH):
             for step in range(T):
                 action = agent.get_action(state)
                 g, r, e = action
+                state.update(action)
                 if step < T-1:
                     agent.hard_reward(0)
                 else:
@@ -93,7 +94,7 @@ for epoch in range(NUM_EPOCH):
                     if e in answers and max_shortest_path == 0:
                         correct += 1
                         true_positive += 1
-                        agent.hard_reward(10)
+                        agent.hard_reward(50)
                     elif e in answers:
                         agent.hard_reward(10)
                         correct += 1
@@ -101,8 +102,7 @@ for epoch in range(NUM_EPOCH):
                         agent.hard_reward(0)
                         #answer_embedding = state.node_embedding[answer]
                         #e_embedding = state.node_embedding[e]
-                        #agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE, -max_shortest_path)
-                state.update(action)
+                        #agent.soft_reward(answer_embedding, e_embedding, SOFT_REWARD_SCALE, -max_shortest_path)state.update(action)
                 #print("step: " + str(step) + ", take action: " + str(action) + "result_subgraphs:" + str(state.subgraphs))
 
             # update the policy net and record loss
@@ -116,7 +116,7 @@ for epoch in range(NUM_EPOCH):
     print("epoch: {}, loss: {}, reward: {}, true_positive: {}, acc: {}".format(epoch, avg_loss, avg_reward, true_positive/NUM_ROLL_OUT, acc))
 
     # evaluate on test set
-    if (epoch+1)%2 and acc > 40 == 0:
+    if (epoch+1)%5 == 0 and acc > 20:
         evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, node_embedding, device, 15)
 
 
