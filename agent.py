@@ -69,7 +69,7 @@ class Agent():
         c =  Categorical(scores)
         probs = np.zeros(len(possible_actions))
         for i, action in enumerate(possible_actions):
-            probs[i] = math.exp(c.log_prob(torch.tensor([i])))
+            probs[i] = math.exp(c.log_prob(torch.tensor([i]).to(self.device)))
         return probs
 
     # assign hard reward

@@ -60,8 +60,8 @@ num_entity = len(kg.en_vocab)
 num_subgraph = len(state.subgraphs)
 emb_dim = WORD_EMB_DIM + NODE_EMB_DIM
 baseline = ReactiveBaseline(l = 0.02)
-agent = Agent(input_dim, 64, emb_dim, 0.1, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.0001, model_param_list, baseline, device)
 
+agent = Agent(input_dim, 64, emb_dim, 0.1, 2, num_entity, num_rel,num_subgraph, GAMMA, 0.001, model_param_list, baseline, device)
 # training loop
 index_list = list(range(len(train)))
 for epoch in range(NUM_EPOCH):
