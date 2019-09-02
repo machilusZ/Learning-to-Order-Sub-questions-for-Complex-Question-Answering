@@ -1,434 +1,434 @@
-locatedIn	eastern_europe	neighborOf	neighborOf	latvia;	poland	ukraine	belarus	russia;belarus
-neighborOf	honduras	locatedIn	locatedIn	americas;	nicaragua	el_salvador	guatemala;central_america
-locatedIn	europe	neighborOf	neighborOf	turkmenistan;	russia;kazakhstan
-neighborOf	rwanda	locatedIn	locatedIn	africa;	dr_congo	burundi	tanzania	uganda;middle_africa
-locatedIn	africa	neighborOf	neighborOf	france;	morocco;spain
-locatedIn	south-eastern_asia	neighborOf	neighborOf	afghanistan;	myanmar	vietnam	laos;china
-locatedIn	western_africa	neighborOf	neighborOf	egypt;	niger;libya
-locatedIn	caribbean	neighborOf	neighborOf	saint_martin;	saint_martin;sint_maarten
-locatedIn	western_asia	neighborOf	neighborOf	afghanistan;	turkey	armenia	iraq	azerbaijan;iran
-locatedIn	central_europe	neighborOf	neighborOf	italy;	slovakia;austria
-locatedIn	western_asia	neighborOf	neighborOf	kazakhstan;	georgia	azerbaijan;russia
-locatedIn	southern_asia	neighborOf	neighborOf	georgia;	iran;turkey
-locatedIn	northern_africa	neighborOf	locatedIn	middle_africa;	sudan	libya;chad
-locatedIn	eastern_asia	neighborOf	neighborOf	sri_lanka;	china;india
-locatedIn	northern_africa	neighborOf	neighborOf	dr_congo;	sudan;central_african_republic
-locatedIn	central_asia	neighborOf	locatedIn	eastern_asia;	kazakhstan	kyrgyzstan	tajikistan;china
-locatedIn	southern_asia	neighborOf	neighborOf	kuwait;	iran;iraq
-locatedIn	middle_africa	neighborOf	locatedIn	southern_africa;	angola;namibia
-locatedIn	central_europe	neighborOf	neighborOf	poland;	slovakia;czechia
-neighborOf	norway	locatedIn	locatedIn	europe;	finland	sweden	russia;northern_europe
-locatedIn	central_america	neighborOf	neighborOf	costa_rica;	costa_rica	honduras;panama
-neighborOf	georgia	locatedIn	locatedIn	europe;	russia;eastern_europe
-neighborOf	kuwait	locatedIn	locatedIn	asia;	saudi_arabia	iraq;western_asia
-locatedIn	eastern_asia	neighborOf	locatedIn	southern_asia;	china;bhutan
-locatedIn	western_europe	neighborOf	neighborOf	russia;	germany;poland
-locatedIn	eastern_europe	neighborOf	locatedIn	western_asia;	bulgaria	russia;turkey
-locatedIn	oceania	neighborOf	locatedIn	asia;	papua_new_guinea;indonesia
-locatedIn	southern_europe	neighborOf	neighborOf	iran;	greece;turkey
-locatedIn	central_america	neighborOf	neighborOf	panama;	panama	nicaragua;costa_rica
-locatedIn	central_america	neighborOf	neighborOf	belize;	belize	guatemala	el_salvador	honduras;mexico
-locatedIn	central_america	neighborOf	locatedIn	northern_america;	belize	guatemala;mexico
-locatedIn	northern_europe	neighborOf	neighborOf	denmark;	denmark;germany
-locatedIn	eastern_asia	neighborOf	neighborOf	thailand;	china;myanmar
-locatedIn	southern_europe	neighborOf	neighborOf	algeria;	spain;morocco
-neighborOf	western_sahara	locatedIn	locatedIn	africa;	mauritania	morocco	algeria;western_africa
-locatedIn	africa	neighborOf	neighborOf	spain;	western_sahara	algeria;morocco
-locatedIn	southern_africa	neighborOf	neighborOf	tanzania;	namibia	botswana	swaziland	south_africa;zambia
-locatedIn	western_asia	neighborOf	neighborOf	serbia;	turkey;bulgaria
-locatedIn	western_asia	neighborOf	neighborOf	romania;	turkey;bulgaria
-locatedIn	eastern_europe	neighborOf	neighborOf	myanmar;	russia;china
-neighborOf	albania	locatedIn	locatedIn	europe;	greece	macedonia	montenegro	kosovo;eastern_europe
-locatedIn	central_europe	neighborOf	neighborOf	hungary;	slovakia;austria
-locatedIn	eastern_europe	neighborOf	neighborOf	north_korea;	poland	ukraine	belarus	russia;russia
-locatedIn	western_europe	neighborOf	locatedIn	eastern_europe;	germany	austria;czechia
-locatedIn	eastern_asia	neighborOf	neighborOf	bangladesh;	china;myanmar
-neighborOf	portugal	locatedIn	locatedIn	europe;	spain;southern_europe
-locatedIn	eastern_asia	neighborOf	neighborOf	macau;	macau	north_korea	hong_kong	mongolia;china
-neighborOf	united_kingdom	locatedIn	locatedIn	europe;	ireland	cyprus;eastern_europe
-locatedIn	central_asia	neighborOf	neighborOf	hong_kong;	kazakhstan	kyrgyzstan	tajikistan;china
-locatedIn	middle_africa	neighborOf	neighborOf	niger;	cameroon	chad	central_african_republic;libya
-locatedIn	northern_america	neighborOf	neighborOf	mexico;	mexico	canada;united_states
-neighborOf	gibraltar	locatedIn	locatedIn	europe;	spain;southern_europe
-locatedIn	northern_europe	neighborOf	locatedIn	western_europe;	denmark;germany
-neighborOf	suriname	locatedIn	locatedIn	americas;	guyana	brazil	french_guiana;south_america
-locatedIn	south_america	neighborOf	neighborOf	panama;	ecuador	brazil	peru	venezuela;colombia
-neighborOf	north_korea	locatedIn	locatedIn	asia;	south_korea	china;eastern_asia
-locatedIn	southern_europe	neighborOf	neighborOf	turkey;	serbia	greece	macedonia	albania;bulgaria
-locatedIn	south-eastern_asia	neighborOf	neighborOf	india;	laos	thailand	myanmar	vietnam;myanmar
-locatedIn	western_asia	neighborOf	neighborOf	finland;	georgia	azerbaijan;russia
-locatedIn	western_africa	neighborOf	neighborOf	tunisia;	niger	mauritania	mali;algeria
-locatedIn	northern_africa	neighborOf	locatedIn	western_africa;	western_sahara	algeria	libya;niger
-neighborOf	saint_martin	locatedIn	locatedIn	americas;	sint_maarten;caribbean
-locatedIn	eastern_africa	neighborOf	neighborOf	chad;	ethiopia	eritrea;sudan
-locatedIn	oceania	neighborOf	locatedIn	south-eastern_asia;	papua_new_guinea;indonesia
-locatedIn	western_asia	neighborOf	neighborOf	turkmenistan;	turkey	armenia	iraq	azerbaijan;iran
-locatedIn	western_africa	neighborOf	neighborOf	gabon;	nigeria;cameroon
-locatedIn	southern_europe	neighborOf	neighborOf	slovakia;	italy	slovenia	serbia	croatia;hungary
-neighborOf	vatican_city	locatedIn	locatedIn	europe;	italy;southern_europe
-locatedIn	middle_africa	neighborOf	locatedIn	northern_africa;	central_african_republic	south_sudan	chad;libya
-locatedIn	central_europe	neighborOf	neighborOf	belarus;	slovakia;ukraine
-locatedIn	europe	neighborOf	neighborOf	algeria;	spain;morocco
-neighborOf	benin	locatedIn	locatedIn	africa;	nigeria	burkina_faso	togo	niger;western_africa
-locatedIn	western_africa	neighborOf	neighborOf	morocco;	mauritania	niger	mali;western_sahara
-locatedIn	western_europe	neighborOf	neighborOf	croatia;	austria;slovenia
-neighborOf	nigeria	locatedIn	locatedIn	africa;	cameroon	chad	niger	benin;middle_africa
-locatedIn	southern_europe	neighborOf	neighborOf	luxembourg;	spain	italy	andorra;france
-locatedIn	western_africa	neighborOf	neighborOf	western_sahara;	senegal	mali	mauritania	niger;mauritania
-locatedIn	western_europe	neighborOf	locatedIn	northern_europe;	germany;denmark
-locatedIn	northern_africa	neighborOf	neighborOf	eritrea;	egypt	libya	sudan;sudan
-locatedIn	western_asia	neighborOf	neighborOf	pakistan;	turkey	armenia	iraq	azerbaijan;iran
-locatedIn	southern_africa	neighborOf	neighborOf	lesotho;	swaziland	namibia	botswana	lesotho;south_africa
-neighborOf	lesotho	locatedIn	locatedIn	africa;	south_africa;southern_africa
-locatedIn	northern_america	neighborOf	neighborOf	canada;	canada	mexico;united_states
-locatedIn	europe	neighborOf	neighborOf	india;	russia;china
-neighborOf	greece	locatedIn	locatedIn	europe;	macedonia	albania	bulgaria;eastern_europe
-locatedIn	central_asia	neighborOf	neighborOf	estonia;	kazakhstan;russia
-neighborOf	turkey	locatedIn	locatedIn	europe;	greece	bulgaria;eastern_europe
-locatedIn	northern_europe	neighborOf	neighborOf	ireland;	ireland;united_kingdom
-locatedIn	eastern_europe	neighborOf	neighborOf	bhutan;	russia;china
-locatedIn	middle_africa	neighborOf	neighborOf	benin;	cameroon	chad;niger
-locatedIn	middle_africa	neighborOf	neighborOf	burkina_faso;	chad;niger
-locatedIn	americas	neighborOf	neighborOf	dominican_republic;	dominican_republic;haiti
-locatedIn	central_europe	neighborOf	neighborOf	slovenia;	slovakia;hungary
-locatedIn	southern_asia	neighborOf	neighborOf	greece;	iran;turkey
-neighborOf	united_states	locatedIn	locatedIn	americas;	canada	mexico;northern_america
-neighborOf	luxembourg	locatedIn	locatedIn	europe;	germany	belgium	france;western_europe
-locatedIn	eastern_asia	neighborOf	neighborOf	poland;	north_korea	china	mongolia;russia
-locatedIn	eastern_europe	neighborOf	neighborOf	mongolia;	poland	ukraine	belarus	russia;russia
-locatedIn	northern_europe	neighborOf	neighborOf	france;	denmark;germany
-neighborOf	estonia	locatedIn	locatedIn	europe;	latvia	russia;northern_europe
-neighborOf	sierra_leone	locatedIn	locatedIn	africa;	guinea	liberia;western_africa
-locatedIn	central_asia	neighborOf	locatedIn	eastern_europe;	kazakhstan;russia
-locatedIn	asia	neighborOf	locatedIn	africa;	israel	palestine;egypt
-locatedIn	northern_africa	neighborOf	locatedIn	europe;	morocco;spain
-locatedIn	middle_africa	neighborOf	neighborOf	libya;	central_african_republic	south_sudan	cameroon	chad;niger
-neighborOf	north_korea	locatedIn	locatedIn	europe;	russia;eastern_europe
-locatedIn	southern_europe	neighborOf	locatedIn	asia;	greece;turkey
-neighborOf	lithuania	locatedIn	locatedIn	europe;	latvia	poland	russia	belarus;northern_europe
-locatedIn	eastern_europe	neighborOf	neighborOf	belgium;	poland	czechia;germany
-locatedIn	western_europe	neighborOf	neighborOf	morocco;	france;spain
-locatedIn	asia	neighborOf	locatedIn	oceania;	indonesia;papua_new_guinea
-neighborOf	armenia	locatedIn	locatedIn	asia;	iran	turkey	georgia	azerbaijan;western_asia
-locatedIn	central_asia	neighborOf	neighborOf	poland;	kazakhstan;russia
-locatedIn	northern_africa	neighborOf	neighborOf	republic_of_the_congo;	sudan;central_african_republic
-locatedIn	europe	neighborOf	neighborOf	armenia;	bulgaria	greece	russia;turkey
-locatedIn	western_asia	neighborOf	neighborOf	belarus;	georgia	azerbaijan;russia
-locatedIn	central_europe	neighborOf	neighborOf	romania;	slovakia;hungary
-locatedIn	southern_asia	neighborOf	neighborOf	saudi_arabia;	iran;iraq
-locatedIn	oceania	neighborOf	neighborOf	timor-leste;	papua_new_guinea;indonesia
-locatedIn	northern_africa	neighborOf	locatedIn	eastern_africa;	sudan;eritrea
-locatedIn	central_asia	neighborOf	locatedIn	europe;	kazakhstan;russia
-neighborOf	ghana	locatedIn	locatedIn	africa;	ivory_coast	burkina_faso	togo;western_africa
-locatedIn	eastern_asia	neighborOf	neighborOf	turkmenistan;	china;kazakhstan
-neighborOf	oman	locatedIn	locatedIn	asia;	saudi_arabia	united_arab_emirates	yemen;western_asia
-locatedIn	southern_europe	neighborOf	neighborOf	vatican_city;	vatican_city	san_marino	slovenia;italy
-locatedIn	middle_africa	neighborOf	neighborOf	egypt;	central_african_republic	south_sudan	chad;libya
-locatedIn	southern_africa	neighborOf	neighborOf	south_africa;	south_africa	swaziland	botswana	namibia;botswana
-locatedIn	europe	neighborOf	neighborOf	western_sahara;	spain;morocco
-neighborOf	sint_maarten	locatedIn	locatedIn	americas;	saint_martin;caribbean
-locatedIn	northern_africa	neighborOf	locatedIn	western_asia;	egypt;israel
-locatedIn	eastern_asia	neighborOf	neighborOf	south_korea;	south_korea	china;north_korea
-locatedIn	eastern_europe	neighborOf	locatedIn	southern_europe;	bulgaria	romania	kosovo	hungary;montenegro
-locatedIn	southern_europe	neighborOf	neighborOf	san_marino;	vatican_city	san_marino	slovenia;italy
-locatedIn	western_africa	neighborOf	neighborOf	central_african_republic;	nigeria	niger;chad
-locatedIn	eastern_europe	neighborOf	locatedIn	central_europe;	poland	czechia	ukraine	hungary;slovakia
-locatedIn	northern_america	neighborOf	locatedIn	americas;	united_states	mexico	canada;mexico
-neighborOf	malaysia	locatedIn	locatedIn	asia;	brunei	thailand	indonesia;south-eastern_asia
-locatedIn	melanesia	neighborOf	neighborOf	timor-leste;	papua_new_guinea;indonesia
-locatedIn	central_asia	neighborOf	neighborOf	vietnam;	kazakhstan	kyrgyzstan	tajikistan;china
-locatedIn	western_africa	neighborOf	neighborOf	south_sudan;	nigeria	niger;chad
-locatedIn	western_europe	neighborOf	neighborOf	portugal;	france;spain
-locatedIn	central_america	neighborOf	neighborOf	peru;	panama;colombia
-locatedIn	northern_africa	neighborOf	neighborOf	israel;	sudan	libya;egypt
-locatedIn	southern_africa	neighborOf	neighborOf	dr_congo;	namibia	botswana;zambia
-locatedIn	asia	neighborOf	neighborOf	sudan;	israel	palestine;egypt
-locatedIn	europe	neighborOf	neighborOf	vietnam;	russia;china
-neighborOf	french_guiana	locatedIn	locatedIn	americas;	suriname	brazil;south_america
-locatedIn	americas	neighborOf	neighborOf	costa_rica;	costa_rica	honduras	colombia;panama
-locatedIn	central_america	neighborOf	locatedIn	south_america;	panama;colombia
-neighborOf	djibouti	locatedIn	locatedIn	africa;	ethiopia	somalia	eritrea;eastern_africa
-neighborOf	bulgaria	locatedIn	locatedIn	asia;	turkey;western_asia
-locatedIn	northern_europe	neighborOf	neighborOf	luxembourg;	denmark;germany
-neighborOf	liechtenstein	locatedIn	locatedIn	europe;	switzerland	austria;western_europe
-neighborOf	san_marino	locatedIn	locatedIn	europe;	italy;southern_europe
-locatedIn	central_europe	neighborOf	neighborOf	croatia;	slovakia;hungary
-locatedIn	europe	neighborOf	neighborOf	iraq;	bulgaria	greece;turkey
-locatedIn	western_africa	neighborOf	neighborOf	cameroon;	niger	benin	nigeria;nigeria
-locatedIn	central_europe	neighborOf	locatedIn	europe;	slovakia;hungary
-locatedIn	eastern_europe	neighborOf	neighborOf	syria;	bulgaria;turkey
-locatedIn	eastern_europe	neighborOf	neighborOf	china;	russia	poland	ukraine	belarus;russia
-locatedIn	eastern_europe	neighborOf	neighborOf	luxembourg;	poland	czechia;germany
-locatedIn	western_europe	neighborOf	neighborOf	belarus;	germany;poland
-locatedIn	southern_europe	neighborOf	neighborOf	syria;	greece;turkey
-locatedIn	northern_europe	neighborOf	neighborOf	belgium;	denmark;germany
-locatedIn	caribbean	neighborOf	locatedIn	americas;	saint_martin	sint_maarten	haiti	dominican_republic;saint_martin
-locatedIn	eastern_europe	neighborOf	neighborOf	pakistan;	russia;china
-locatedIn	asia	neighborOf	neighborOf	albania;	turkey;greece
-neighborOf	tajikistan	locatedIn	locatedIn	asia;	afghanistan	china	uzbekistan	kyrgyzstan;central_asia
-locatedIn	south-eastern_asia	neighborOf	locatedIn	oceania;	indonesia;papua_new_guinea
-locatedIn	western_asia	neighborOf	locatedIn	southern_asia;	turkey	armenia	iraq	azerbaijan;iran
-locatedIn	central_asia	neighborOf	neighborOf	laos;	kazakhstan	kyrgyzstan	tajikistan;china
-locatedIn	southern_europe	neighborOf	neighborOf	spain;	spain	italy	andorra;france
-locatedIn	africa	neighborOf	neighborOf	portugal;	morocco;spain
-locatedIn	middle_africa	neighborOf	neighborOf	botswana;	angola	dr_congo;namibia
-locatedIn	northern_africa	neighborOf	neighborOf	gibraltar;	morocco;spain
-locatedIn	asia	neighborOf	neighborOf	libya;	israel	palestine;egypt
-locatedIn	southern_europe	neighborOf	locatedIn	northern_africa;	spain;morocco
-locatedIn	western_asia	neighborOf	locatedIn	northern_africa;	israel	palestine;egypt
-locatedIn	northern_africa	neighborOf	neighborOf	spain;	western_sahara	algeria;morocco
-locatedIn	south-eastern_asia	neighborOf	neighborOf	russia;	vietnam	laos	myanmar;china
-locatedIn	eastern_europe	neighborOf	locatedIn	northern_europe;	russia	belarus	cyprus	poland;united_kingdom
-locatedIn	central_europe	neighborOf	neighborOf	serbia;	slovakia;hungary
-neighborOf	guatemala	locatedIn	locatedIn	americas;	el_salvador	belize	honduras	mexico;central_america
-locatedIn	western_asia	neighborOf	neighborOf	mongolia;	georgia	azerbaijan;russia
-locatedIn	europe	neighborOf	locatedIn	western_asia;	bulgaria	greece	russia;turkey
-locatedIn	europe	neighborOf	locatedIn	asia;	bulgaria	greece	russia;turkey
-locatedIn	eastern_asia	neighborOf	neighborOf	azerbaijan;	north_korea	china	mongolia;russia
-locatedIn	asia	neighborOf	neighborOf	macedonia;	turkey;bulgaria
-locatedIn	southern_europe	neighborOf	neighborOf	armenia;	greece;turkey
-locatedIn	northern_america	neighborOf	neighborOf	united_states;	united_states;mexico
-locatedIn	south-eastern_asia	neighborOf	locatedIn	southern_asia;	myanmar;india
-locatedIn	eastern_europe	neighborOf	neighborOf	italy;	czechia	hungary;slovenia
-locatedIn	europe	neighborOf	neighborOf	myanmar;	russia;china
-neighborOf	netherlands	locatedIn	locatedIn	europe;	germany	belgium;western_europe
-locatedIn	central_asia	neighborOf	neighborOf	finland;	kazakhstan;russia
-locatedIn	central_asia	neighborOf	neighborOf	azerbaijan;	kazakhstan	turkmenistan;russia
-locatedIn	middle_africa	neighborOf	neighborOf	namibia;	republic_of_the_congo	dr_congo	angola;zambia
-locatedIn	europe	neighborOf	neighborOf	portugal;	portugal	gibraltar	andorra	france;spain
-neighborOf	panama	locatedIn	locatedIn	americas;	colombia	costa_rica;south_america
-locatedIn	southern_asia	neighborOf	neighborOf	armenia;	iran	pakistan	afghanistan;iran
-neighborOf	ireland	locatedIn	locatedIn	europe;	united_kingdom;northern_europe
-locatedIn	south-eastern_asia	neighborOf	neighborOf	north_korea;	vietnam	laos	myanmar;china
-locatedIn	south-eastern_asia	neighborOf	neighborOf	papua_new_guinea;	timor-leste	malaysia;indonesia
-locatedIn	northern_africa	neighborOf	neighborOf	burkina_faso;	libya	algeria;niger
-locatedIn	eastern_europe	neighborOf	neighborOf	ireland;	cyprus;united_kingdom
-locatedIn	central_america	neighborOf	neighborOf	venezuela;	panama;colombia
-locatedIn	southern_europe	neighborOf	neighborOf	georgia;	greece;turkey
-locatedIn	southern_asia	neighborOf	neighborOf	thailand;	india	bangladesh;myanmar
-locatedIn	south-eastern_asia	neighborOf	neighborOf	brunei;	brunei	thailand	indonesia;malaysia
-locatedIn	eastern_europe	neighborOf	neighborOf	norway;	poland	ukraine	belarus	russia;russia
-locatedIn	south-eastern_asia	neighborOf	neighborOf	timor-leste;	timor-leste	malaysia;indonesia
-neighborOf	mongolia	locatedIn	locatedIn	asia;	china;eastern_asia
-neighborOf	turkmenistan	locatedIn	locatedIn	asia;	iran	afghanistan	kazakhstan	uzbekistan;central_asia
-neighborOf	equatorial_guinea	locatedIn	locatedIn	africa;	cameroon	gabon;middle_africa
-neighborOf	denmark	locatedIn	locatedIn	europe;	germany;western_europe
-locatedIn	eastern_europe	neighborOf	neighborOf	macedonia;	bulgaria	romania	kosovo	hungary;albania
-neighborOf	spain	locatedIn	locatedIn	europe;	portugal	gibraltar	andorra	france;southern_europe
-locatedIn	europe	neighborOf	locatedIn	central_asia;	russia;kazakhstan
-locatedIn	eastern_asia	neighborOf	neighborOf	belarus;	north_korea	china	mongolia;russia
-locatedIn	south-eastern_asia	neighborOf	neighborOf	bhutan;	myanmar	vietnam	laos;china
-locatedIn	europe	neighborOf	neighborOf	south_korea;	russia;north_korea
-locatedIn	europe	neighborOf	neighborOf	syria;	bulgaria	greece;turkey
-locatedIn	southern_asia	neighborOf	locatedIn	south-eastern_asia;	india	bangladesh;myanmar
-locatedIn	middle_africa	neighborOf	neighborOf	malawi;	angola	dr_congo;zambia
-locatedIn	western_asia	neighborOf	neighborOf	macedonia;	turkey;bulgaria
-locatedIn	europe	neighborOf	neighborOf	gibraltar;	portugal	gibraltar	andorra	france;spain
-locatedIn	western_africa	neighborOf	locatedIn	northern_africa;	mauritania	niger	mali;western_sahara
-neighborOf	czechia	locatedIn	locatedIn	europe;	germany	austria	poland	slovakia;western_europe
-locatedIn	northern_africa	neighborOf	neighborOf	andorra;	morocco;spain
-locatedIn	southern_europe	neighborOf	neighborOf	liechtenstein;	italy	slovenia;austria
-locatedIn	europe	neighborOf	neighborOf	kyrgyzstan;	russia;kazakhstan
-locatedIn	eastern_europe	neighborOf	locatedIn	asia;	bulgaria	russia;turkey
-neighborOf	mongolia	locatedIn	locatedIn	europe;	russia;eastern_europe
-locatedIn	western_asia	neighborOf	neighborOf	russia;	turkey	armenia	azerbaijan	georgia;georgia
-locatedIn	eastern_asia	neighborOf	neighborOf	latvia;	north_korea	china	mongolia;russia
-locatedIn	southern_europe	neighborOf	neighborOf	belgium;	spain	italy	andorra;france
-locatedIn	south_america	neighborOf	neighborOf	costa_rica;	colombia;panama
-locatedIn	melanesia	neighborOf	neighborOf	malaysia;	papua_new_guinea;indonesia
-locatedIn	western_asia	neighborOf	locatedIn	southern_europe;	turkey;greece
-locatedIn	western_asia	neighborOf	locatedIn	eastern_europe;	turkey	georgia	azerbaijan;russia
-locatedIn	middle_africa	neighborOf	neighborOf	djibouti;	south_sudan;ethiopia
-neighborOf	hong_kong	locatedIn	locatedIn	asia;	china;eastern_asia
-locatedIn	africa	neighborOf	locatedIn	western_asia;	egypt;israel
-neighborOf	macau	locatedIn	locatedIn	asia;	china;eastern_asia
-locatedIn	northern_africa	neighborOf	neighborOf	jordan;	egypt;israel
-locatedIn	middle_africa	neighborOf	neighborOf	somalia;	south_sudan;ethiopia
-locatedIn	south-eastern_asia	neighborOf	neighborOf	mongolia;	vietnam	laos	myanmar;china
-neighborOf	timor-leste	locatedIn	locatedIn	asia;	indonesia;south-eastern_asia
-locatedIn	eastern_europe	neighborOf	neighborOf	hong_kong;	russia;china
-locatedIn	caribbean	neighborOf	locatedIn	caribbean;	saint_martin	sint_maarten	haiti	dominican_republic;saint_martin
-locatedIn	europe	neighborOf	neighborOf	ireland;	cyprus	ireland;united_kingdom
-neighborOf	gabon	locatedIn	locatedIn	africa;	republic_of_the_congo	cameroon	equatorial_guinea;middle_africa
-locatedIn	central_europe	neighborOf	locatedIn	eastern_europe;	slovakia;hungary
-neighborOf	bosnia_and_herzegovina	locatedIn	locatedIn	europe;	serbia	montenegro	croatia;southern_europe
-locatedIn	oceania	neighborOf	neighborOf	malaysia;	papua_new_guinea;indonesia
-locatedIn	americas	neighborOf	locatedIn	caribbean;	saint_martin	sint_maarten	haiti	dominican_republic;saint_martin
-neighborOf	sweden	locatedIn	locatedIn	europe;	norway	finland;northern_europe
-locatedIn	eastern_africa	neighborOf	neighborOf	egypt;	ethiopia	eritrea;sudan
-locatedIn	central_europe	neighborOf	neighborOf	russia;	slovakia;ukraine
-neighborOf	indonesia	locatedIn	locatedIn	oceania;	papua_new_guinea;melanesia
-locatedIn	northern_america	neighborOf	neighborOf	el_salvador;	mexico;guatemala
-locatedIn	eastern_asia	neighborOf	neighborOf	china;	china	north_korea	mongolia	south_korea;russia
-locatedIn	europe	neighborOf	neighborOf	laos;	russia;china
-locatedIn	northern_africa	neighborOf	neighborOf	kenya;	sudan;south_sudan
-neighborOf	egypt	locatedIn	locatedIn	asia;	israel	palestine;western_asia
-locatedIn	northern_africa	neighborOf	neighborOf	guinea;	algeria;mali
-locatedIn	northern_europe	neighborOf	neighborOf	sweden;	finland	sweden	norway;finland
-locatedIn	melanesia	neighborOf	neighborOf	papua_new_guinea;	papua_new_guinea;indonesia
-neighborOf	sri_lanka	locatedIn	locatedIn	asia;	india;southern_asia
-locatedIn	europe	neighborOf	neighborOf	united_kingdom;	united_kingdom;ireland
-locatedIn	central_europe	neighborOf	neighborOf	germany;	slovakia;czechia
-locatedIn	middle_africa	neighborOf	neighborOf	kenya;	dr_congo	central_african_republic	chad	south_sudan;south_sudan
-locatedIn	americas	neighborOf	neighborOf	canada;	canada	mexico;united_states
-locatedIn	central_asia	neighborOf	neighborOf	lithuania;	kazakhstan;russia
-neighborOf	morocco	locatedIn	locatedIn	africa;	western_sahara	algeria;northern_africa
-locatedIn	southern_africa	neighborOf	neighborOf	malawi;	namibia	botswana	swaziland	south_africa;zambia
-neighborOf	mauritania	locatedIn	locatedIn	africa;	senegal	mali	western_sahara	algeria;western_africa
-locatedIn	western_europe	neighborOf	neighborOf	gibraltar;	france;spain
-neighborOf	united_arab_emirates	locatedIn	locatedIn	asia;	saudi_arabia	oman;western_asia
-locatedIn	southern_europe	neighborOf	neighborOf	iraq;	greece;turkey
-neighborOf	andorra	locatedIn	locatedIn	europe;	spain	france;western_europe
-locatedIn	middle_africa	neighborOf	neighborOf	eritrea;	central_african_republic	south_sudan;sudan
-neighborOf	bhutan	locatedIn	locatedIn	asia;	india	china;eastern_asia
-locatedIn	northern_africa	neighborOf	neighborOf	djibouti;	sudan;eritrea
-locatedIn	asia	neighborOf	neighborOf	romania;	turkey;bulgaria
-locatedIn	northern_europe	neighborOf	neighborOf	germany;	lithuania;poland
-locatedIn	western_africa	neighborOf	neighborOf	sudan;	niger;libya
-locatedIn	africa	neighborOf	neighborOf	jordan;	egypt;israel
-neighborOf	papua_new_guinea	locatedIn	locatedIn	asia;	indonesia;south-eastern_asia
-locatedIn	western_africa	neighborOf	locatedIn	middle_africa;	nigeria	niger;chad
-locatedIn	southern_europe	neighborOf	neighborOf	czechia;	italy	slovenia;austria
-locatedIn	eastern_asia	neighborOf	neighborOf	hong_kong;	macau	north_korea	hong_kong	mongolia;china
-locatedIn	caribbean	neighborOf	neighborOf	haiti;	haiti;dominican_republic
-locatedIn	eastern_africa	neighborOf	locatedIn	southern_africa;	mozambique	zambia	zimbabwe;namibia
-neighborOf	malawi	locatedIn	locatedIn	africa;	zambia	mozambique	tanzania;eastern_africa
-locatedIn	central_europe	neighborOf	neighborOf	switzerland;	slovakia;austria
-neighborOf	haiti	locatedIn	locatedIn	americas;	dominican_republic;caribbean
-locatedIn	northern_africa	neighborOf	locatedIn	asia;	egypt;israel
-locatedIn	western_asia	neighborOf	locatedIn	africa;	israel	palestine;egypt
-locatedIn	central_asia	neighborOf	neighborOf	armenia;	turkmenistan;iran
-locatedIn	northern_africa	neighborOf	neighborOf	somalia;	sudan;ethiopia
-locatedIn	south-eastern_asia	neighborOf	locatedIn	melanesia;	indonesia;papua_new_guinea
-locatedIn	middle_africa	neighborOf	neighborOf	mali;	chad;niger
-locatedIn	eastern_europe	neighborOf	locatedIn	eastern_asia;	russia;north_korea
-locatedIn	eastern_europe	neighborOf	neighborOf	sweden;	russia;norway
-locatedIn	eastern_europe	neighborOf	neighborOf	kosovo;	bulgaria	romania	kosovo	hungary;montenegro
-locatedIn	northern_europe	neighborOf	neighborOf	czechia;	lithuania	denmark;poland
-locatedIn	western_asia	neighborOf	neighborOf	sudan;	israel	palestine;egypt
-neighborOf	china	locatedIn	locatedIn	europe;	russia;eastern_europe
-locatedIn	southern_europe	neighborOf	neighborOf	gibraltar;	portugal	gibraltar	andorra;spain
-neighborOf	yemen	locatedIn	locatedIn	asia;	saudi_arabia	oman;western_asia
-locatedIn	africa	neighborOf	locatedIn	southern_europe;	morocco;spain
-locatedIn	western_europe	neighborOf	neighborOf	hungary;	austria	germany	switzerland	liechtenstein;austria
-locatedIn	northern_africa	neighborOf	neighborOf	syria;	egypt;israel
-locatedIn	asia	neighborOf	neighborOf	timor-leste;	timor-leste	malaysia;indonesia
-locatedIn	southern_asia	neighborOf	neighborOf	jordan;	iran;iraq
-neighborOf	somalia	locatedIn	locatedIn	africa;	kenya	ethiopia	djibouti;eastern_africa
-neighborOf	lebanon	locatedIn	locatedIn	asia;	syria	israel;western_asia
-locatedIn	eastern_europe	neighborOf	neighborOf	montenegro;	bulgaria	romania	kosovo	hungary;albania
-neighborOf	belgium	locatedIn	locatedIn	europe;	netherlands	germany	luxembourg	france;western_europe
-locatedIn	southern_europe	neighborOf	neighborOf	moldova;	serbia;romania
-locatedIn	western_europe	neighborOf	neighborOf	slovakia;	germany	austria	switzerland	liechtenstein;austria
-locatedIn	middle_africa	neighborOf	neighborOf	mozambique;	angola	dr_congo;zambia
-locatedIn	central_europe	neighborOf	neighborOf	moldova;	slovakia;ukraine
-locatedIn	eastern_asia	neighborOf	neighborOf	estonia;	north_korea	china	mongolia;russia
-locatedIn	americas	neighborOf	neighborOf	nicaragua;	nicaragua	panama	el_salvador	guatemala;honduras
-locatedIn	eastern_europe	neighborOf	neighborOf	netherlands;	poland	czechia;germany
-locatedIn	africa	neighborOf	locatedIn	asia;	egypt;israel
-locatedIn	south-eastern_asia	neighborOf	neighborOf	nepal;	myanmar;india
-locatedIn	central_europe	neighborOf	neighborOf	czechia;	slovakia;austria
-locatedIn	western_asia	neighborOf	neighborOf	ukraine;	georgia	azerbaijan;russia
-locatedIn	eastern_asia	neighborOf	neighborOf	norway;	north_korea	china	mongolia;russia
-locatedIn	central_asia	neighborOf	neighborOf	north_korea;	kazakhstan	kyrgyzstan	tajikistan;china
-neighborOf	nepal	locatedIn	locatedIn	asia;	india;southern_asia
-locatedIn	eastern_europe	neighborOf	neighborOf	bosnia_and_herzegovina;	bulgaria	romania	kosovo	hungary;montenegro
-locatedIn	central_europe	neighborOf	neighborOf	ukraine;	slovakia;hungary
-neighborOf	georgia	locatedIn	locatedIn	asia;	turkey	armenia	azerbaijan;western_asia
-locatedIn	southern_europe	neighborOf	neighborOf	germany;	italy	slovenia	spain	andorra;france
-locatedIn	northern_america	neighborOf	locatedIn	northern_america;	united_states	canada	mexico;mexico
-locatedIn	central_asia	neighborOf	neighborOf	iran;	kazakhstan	uzbekistan	tajikistan	turkmenistan;turkmenistan
-neighborOf	israel	locatedIn	locatedIn	asia;	syria	lebanon	jordan	palestine;western_asia
-neighborOf	togo	locatedIn	locatedIn	africa;	burkina_faso	ghana	benin;western_africa
-locatedIn	western_europe	neighborOf	neighborOf	romania;	austria;hungary
-locatedIn	northern_africa	neighborOf	neighborOf	senegal;	western_sahara	algeria;mauritania
-locatedIn	northern_africa	neighborOf	neighborOf	benin;	libya	algeria;niger
-locatedIn	eastern_europe	neighborOf	neighborOf	india;	russia;china
-locatedIn	northern_america	neighborOf	neighborOf	guatemala;	mexico	united_states;mexico
-neighborOf	kosovo	locatedIn	locatedIn	europe;	serbia	macedonia	montenegro	albania;southern_europe
-locatedIn	south-eastern_asia	neighborOf	neighborOf	bangladesh;	laos	thailand	myanmar;myanmar
-neighborOf	kyrgyzstan	locatedIn	locatedIn	asia;	china	kazakhstan	uzbekistan	tajikistan;central_asia
-locatedIn	europe	neighborOf	locatedIn	eastern_asia;	russia;north_korea
-locatedIn	northern_america	neighborOf	neighborOf	belize;	united_states	mexico;mexico
-locatedIn	europe	neighborOf	neighborOf	iran;	bulgaria	greece	russia;turkey
-neighborOf	costa_rica	locatedIn	locatedIn	americas;	nicaragua	panama;central_america
-locatedIn	western_asia	neighborOf	neighborOf	lithuania;	georgia	azerbaijan;russia
-locatedIn	asia	neighborOf	neighborOf	egypt;	syria	lebanon	jordan	palestine;israel
-neighborOf	bangladesh	locatedIn	locatedIn	asia;	india	myanmar;south-eastern_asia
-neighborOf	greece	locatedIn	locatedIn	asia;	turkey;western_asia
-neighborOf	liberia	locatedIn	locatedIn	africa;	ivory_coast	sierra_leone	guinea;western_africa
-locatedIn	central_america	neighborOf	neighborOf	united_states;	belize	guatemala;mexico
-locatedIn	eastern_asia	neighborOf	neighborOf	georgia;	north_korea	china	mongolia;russia
-locatedIn	eastern_africa	neighborOf	locatedIn	northern_africa;	ethiopia	eritrea;sudan
-neighborOf	morocco	locatedIn	locatedIn	europe;	spain;southern_europe
-locatedIn	europe	neighborOf	neighborOf	afghanistan;	russia;china
-locatedIn	southern_asia	neighborOf	neighborOf	azerbaijan;	iran	pakistan	afghanistan;iran
-neighborOf	qatar	locatedIn	locatedIn	asia;	saudi_arabia;western_asia
-locatedIn	central_europe	neighborOf	locatedIn	western_europe;	slovakia;austria
-neighborOf	monaco	locatedIn	locatedIn	europe;	france;western_europe
-neighborOf	zimbabwe	locatedIn	locatedIn	africa;	zambia	mozambique	botswana	south_africa;eastern_africa
-locatedIn	eastern_europe	neighborOf	locatedIn	western_europe;	poland	czechia	hungary;austria
-neighborOf	canada	locatedIn	locatedIn	americas;	united_states;northern_america
-locatedIn	oceania	neighborOf	neighborOf	papua_new_guinea;	papua_new_guinea;indonesia
-neighborOf	cambodia	locatedIn	locatedIn	asia;	vietnam	laos	thailand;south-eastern_asia
-locatedIn	northern_africa	neighborOf	neighborOf	portugal;	morocco;spain
-locatedIn	southern_asia	neighborOf	neighborOf	turkmenistan;	afghanistan	pakistan	india	iran;iran
-locatedIn	western_europe	neighborOf	neighborOf	serbia;	austria;hungary
-locatedIn	eastern_europe	neighborOf	neighborOf	macau;	russia;china
-locatedIn	south-eastern_asia	neighborOf	neighborOf	kazakhstan;	vietnam	laos	myanmar;china
-locatedIn	asia	neighborOf	neighborOf	brunei;	brunei	thailand	indonesia;malaysia
-locatedIn	americas	neighborOf	neighborOf	sint_maarten;	sint_maarten;saint_martin
-locatedIn	western_europe	neighborOf	neighborOf	san_marino;	switzerland	austria	france;italy
-neighborOf	paraguay	locatedIn	locatedIn	americas;	argentina	bolivia	brazil;south_america
-locatedIn	southern_asia	neighborOf	neighborOf	syria;	iran;turkey
-locatedIn	eastern_asia	neighborOf	neighborOf	nepal;	china;india
-locatedIn	eastern_europe	neighborOf	neighborOf	finland;	russia	poland	ukraine	belarus;russia
-locatedIn	southern_europe	neighborOf	locatedIn	western_asia;	greece;turkey
-locatedIn	northern_africa	neighborOf	neighborOf	cameroon;	sudan	libya;chad
-locatedIn	americas	neighborOf	neighborOf	haiti;	haiti;dominican_republic
-neighborOf	slovenia	locatedIn	locatedIn	europe;	croatia	italy	austria	hungary;southern_europe
-locatedIn	eastern_asia	neighborOf	neighborOf	iran;	china;pakistan
-locatedIn	southern_asia	neighborOf	locatedIn	central_asia;	afghanistan	iran;turkmenistan
-neighborOf	eritrea	locatedIn	locatedIn	africa;	ethiopia	djibouti	sudan;eastern_africa
-locatedIn	western_europe	neighborOf	neighborOf	ukraine;	germany	austria;slovakia
-locatedIn	eastern_europe	neighborOf	neighborOf	iran;	bulgaria	russia;turkey
-locatedIn	eastern_europe	neighborOf	locatedIn	central_asia;	russia;kazakhstan
-locatedIn	south-eastern_asia	neighborOf	locatedIn	eastern_asia;	vietnam	laos	myanmar;china
-locatedIn	asia	neighborOf	neighborOf	papua_new_guinea;	timor-leste	malaysia;indonesia
-locatedIn	southern_africa	neighborOf	neighborOf	angola;	namibia	botswana	south_africa;zambia
-neighborOf	namibia	locatedIn	locatedIn	africa;	angola	zambia	botswana	south_africa;eastern_africa
-locatedIn	eastern_europe	neighborOf	neighborOf	turkmenistan;	russia;kazakhstan
-locatedIn	europe	neighborOf	locatedIn	northern_africa;	spain;morocco
-locatedIn	western_europe	neighborOf	locatedIn	southern_europe;	france	switzerland	austria;italy
-locatedIn	eastern_europe	neighborOf	neighborOf	greece;	bulgaria	romania	kosovo;albania
-locatedIn	northern_america	neighborOf	neighborOf	honduras;	mexico;guatemala
-neighborOf	belize	locatedIn	locatedIn	americas;	guatemala	mexico;central_america
-locatedIn	middle_africa	neighborOf	neighborOf	tunisia;	chad;libya
-locatedIn	south-eastern_asia	neighborOf	neighborOf	sri_lanka;	myanmar;india
-locatedIn	southern_europe	neighborOf	locatedIn	western_europe;	italy	slovenia	spain	andorra;france
-locatedIn	western_asia	neighborOf	neighborOf	norway;	georgia	azerbaijan;russia
-locatedIn	central_america	neighborOf	neighborOf	brazil;	panama;colombia
-locatedIn	eastern_europe	neighborOf	neighborOf	france;	poland	czechia;germany
-neighborOf	kazakhstan	locatedIn	locatedIn	asia;	china	uzbekistan	kyrgyzstan	turkmenistan;central_asia
-locatedIn	eastern_europe	neighborOf	neighborOf	estonia;	poland	ukraine	belarus	russia;russia
-locatedIn	western_asia	neighborOf	neighborOf	poland;	georgia	azerbaijan;russia
-neighborOf	dominican_republic	locatedIn	locatedIn	americas;	haiti;caribbean
-neighborOf	latvia	locatedIn	locatedIn	europe;	estonia	lithuania	russia	belarus;northern_europe
-neighborOf	azerbaijan	locatedIn	locatedIn	europe;	russia;eastern_europe
-locatedIn	northern_africa	neighborOf	locatedIn	southern_europe;	morocco;spain
-locatedIn	asia	neighborOf	locatedIn	southern_europe;	turkey;greece
-locatedIn	northern_africa	neighborOf	neighborOf	nigeria;	sudan	libya	algeria;niger
-locatedIn	africa	neighborOf	neighborOf	lebanon;	egypt;israel
-locatedIn	western_asia	neighborOf	neighborOf	estonia;	georgia	azerbaijan;russia
-neighborOf	el_salvador	locatedIn	locatedIn	americas;	guatemala	honduras;central_america
-locatedIn	south-eastern_asia	neighborOf	neighborOf	kyrgyzstan;	vietnam	laos	myanmar;china
-locatedIn	eastern_europe	neighborOf	neighborOf	kyrgyzstan;	russia;kazakhstan
-neighborOf	venezuela	locatedIn	locatedIn	americas;	colombia	guyana	brazil;south_america
-locatedIn	western_asia	neighborOf	locatedIn	europe;	turkey	georgia	azerbaijan;russia
-locatedIn	central_asia	neighborOf	neighborOf	bhutan;	kazakhstan	kyrgyzstan	tajikistan;china
-locatedIn	caribbean	neighborOf	neighborOf	sint_maarten;	sint_maarten;saint_martin
-neighborOf	guyana	locatedIn	locatedIn	americas;	suriname	brazil	venezuela;south_america
-locatedIn	asia	neighborOf	neighborOf	indonesia;	indonesia	brunei	thailand;malaysia
-locatedIn	central_europe	neighborOf	neighborOf	austria;	slovakia;hungary
-locatedIn	eastern_europe	neighborOf	neighborOf	tajikistan;	russia;china
-neighborOf	tunisia	locatedIn	locatedIn	africa;	libya	algeria;northern_africa
+locatedIn	eastern_europe	neighborOf	neighborOf	armenia;	bulgaria	russia;	turkey	georgia	azerbaijan
+neighborOf	sweden	locatedIn	locatedIn	europe;	norway	finland;	northern_europe
+locatedIn	southern_asia	neighborOf	neighborOf	georgia;	iran;	turkey	armenia	azerbaijan
+locatedIn	south-eastern_asia	neighborOf	neighborOf	nepal;	myanmar;	india
+locatedIn	eastern_europe	neighborOf	neighborOf	mongolia;	poland	ukraine	belarus	russia;	russia	china
+neighborOf	brunei	locatedIn	locatedIn	asia;	malaysia;	south-eastern_asia
+locatedIn	southern_asia	neighborOf	neighborOf	greece;	iran;	turkey
+locatedIn	eastern_europe	neighborOf	neighborOf	uzbekistan;	russia;	kazakhstan
+neighborOf	tunisia	locatedIn	locatedIn	africa;	libya	algeria;	northern_africa
+locatedIn	southern_europe	neighborOf	neighborOf	azerbaijan;	greece;	turkey
+locatedIn	northern_europe	neighborOf	neighborOf	luxembourg;	denmark;	germany
+locatedIn	northern_america	neighborOf	neighborOf	honduras;	mexico;	guatemala
+locatedIn	northern_europe	neighborOf	neighborOf	belgium;	denmark;	germany
+locatedIn	northern_africa	neighborOf	locatedIn	southern_europe;	morocco;	spain
+locatedIn	south-eastern_asia	neighborOf	neighborOf	india;	laos	thailand	myanmar	vietnam;	myanmar	bangladesh	china
+locatedIn	western_asia	neighborOf	locatedIn	europe;	turkey	georgia	azerbaijan;	bulgaria	russia	greece
+locatedIn	middle_africa	neighborOf	neighborOf	algeria;	chad;	libya	niger
+locatedIn	western_africa	neighborOf	neighborOf	central_african_republic;	nigeria	niger;	cameroon	chad
+locatedIn	eastern_europe	neighborOf	locatedIn	asia;	bulgaria	russia;	turkey	kazakhstan	north_korea	georgia	azerbaijan	china	mongolia
+neighborOf	estonia	locatedIn	locatedIn	europe;	latvia	russia;	northern_europe	eastern_europe
+locatedIn	southern_africa	neighborOf	locatedIn	middle_africa;	namibia;	angola
+locatedIn	western_europe	neighborOf	neighborOf	vatican_city;	switzerland	austria	france;	italy
+locatedIn	western_africa	neighborOf	neighborOf	morocco;	mauritania	niger	mali;	western_sahara	algeria
+locatedIn	central_europe	neighborOf	neighborOf	austria;	slovakia;	czechia	hungary
+locatedIn	asia	neighborOf	neighborOf	serbia;	turkey;	bulgaria
+neighborOf	bangladesh	locatedIn	locatedIn	asia;	india	myanmar;	southern_asia	south-eastern_asia
+neighborOf	papua_new_guinea	locatedIn	locatedIn	asia;	indonesia;	south-eastern_asia
+locatedIn	asia	neighborOf	neighborOf	brunei;	brunei	thailand	indonesia;	malaysia
+locatedIn	caribbean	neighborOf	locatedIn	americas;	saint_martin	sint_maarten	haiti	dominican_republic;	sint_maarten	saint_martin	dominican_republic	haiti
+locatedIn	eastern_asia	neighborOf	neighborOf	iran;	china;	pakistan	afghanistan
+neighborOf	indonesia	locatedIn	locatedIn	asia;	timor-leste	malaysia;	south-eastern_asia
+locatedIn	eastern_africa	neighborOf	neighborOf	egypt;	ethiopia	eritrea;	sudan
+locatedIn	central_europe	neighborOf	locatedIn	europe;	slovakia;	poland	czechia	ukraine	austria	hungary
+locatedIn	south-eastern_asia	neighborOf	neighborOf	north_korea;	vietnam	laos	myanmar;	china
+locatedIn	western_africa	neighborOf	neighborOf	gabon;	nigeria;	cameroon
+locatedIn	northern_africa	neighborOf	neighborOf	eritrea;	egypt	libya	sudan;	sudan	ethiopia
+locatedIn	southern_asia	neighborOf	neighborOf	turkmenistan;	afghanistan	pakistan	india	iran;	uzbekistan	iran	afghanistan
+locatedIn	europe	neighborOf	locatedIn	northern_africa;	spain;	morocco
+locatedIn	eastern_asia	neighborOf	neighborOf	poland;	north_korea	china	mongolia;	russia
+locatedIn	europe	neighborOf	neighborOf	south_korea;	russia;	north_korea
+locatedIn	europe	neighborOf	locatedIn	eastern_asia;	russia;	north_korea	china	mongolia
+locatedIn	western_asia	neighborOf	neighborOf	albania;	turkey;	greece
+locatedIn	western_europe	neighborOf	neighborOf	romania;	austria;	hungary
+neighborOf	lithuania	locatedIn	locatedIn	europe;	latvia	poland	russia	belarus;	northern_europe	eastern_europe
+locatedIn	southern_europe	neighborOf	locatedIn	asia;	greece;	turkey
+locatedIn	central_america	neighborOf	locatedIn	northern_america;	belize	guatemala;	mexico
+locatedIn	eastern_asia	neighborOf	neighborOf	sri_lanka;	china;	india
+locatedIn	southern_europe	neighborOf	neighborOf	liechtenstein;	italy	slovenia;	switzerland	austria
+locatedIn	southern_asia	neighborOf	neighborOf	saudi_arabia;	iran;	iraq
+locatedIn	eastern_asia	neighborOf	neighborOf	bangladesh;	china;	myanmar	india
+locatedIn	southern_europe	neighborOf	neighborOf	san_marino;	vatican_city	san_marino	slovenia;	italy
+locatedIn	asia	neighborOf	locatedIn	oceania;	indonesia;	papua_new_guinea
+locatedIn	south-eastern_asia	neighborOf	neighborOf	timor-leste;	timor-leste	malaysia;	indonesia
+locatedIn	eastern_europe	neighborOf	neighborOf	latvia;	poland	ukraine	belarus	russia;	russia	estonia	belarus	lithuania
+locatedIn	eastern_asia	neighborOf	neighborOf	belarus;	north_korea	china	mongolia;	russia
+neighborOf	morocco	locatedIn	locatedIn	africa;	western_sahara	algeria;	northern_africa
+locatedIn	africa	neighborOf	locatedIn	asia;	egypt;	israel
+locatedIn	central_europe	neighborOf	neighborOf	serbia;	slovakia;	hungary
+locatedIn	central_asia	neighborOf	neighborOf	lithuania;	kazakhstan;	russia
+locatedIn	middle_africa	neighborOf	neighborOf	mali;	chad;	niger
+locatedIn	northern_america	neighborOf	neighborOf	belize;	united_states	mexico;	mexico	guatemala
+locatedIn	northern_europe	neighborOf	neighborOf	slovakia;	lithuania;	poland
+locatedIn	europe	neighborOf	neighborOf	gibraltar;	portugal	gibraltar	andorra	france;	spain
+locatedIn	eastern_asia	neighborOf	neighborOf	macau;	macau	north_korea	hong_kong	mongolia;	china
+locatedIn	eastern_asia	neighborOf	neighborOf	china;	china	north_korea	mongolia	south_korea;	kazakhstan	pakistan	vietnam	laos	myanmar	kyrgyzstan	india	tajikistan	bhutan	macau	russia	north_korea	hong_kong	afghanistan	mongolia
+neighborOf	andorra	locatedIn	locatedIn	europe;	spain	france;	southern_europe	western_europe
+locatedIn	melanesia	neighborOf	neighborOf	timor-leste;	papua_new_guinea;	indonesia
+locatedIn	melanesia	neighborOf	locatedIn	south-eastern_asia;	papua_new_guinea;	indonesia
+locatedIn	eastern_europe	neighborOf	neighborOf	netherlands;	poland	czechia;	germany
+locatedIn	europe	neighborOf	neighborOf	turkmenistan;	russia;	kazakhstan
+locatedIn	eastern_europe	neighborOf	neighborOf	denmark;	poland	czechia;	germany
+neighborOf	portugal	locatedIn	locatedIn	europe;	spain;	southern_europe
+locatedIn	asia	neighborOf	locatedIn	melanesia;	indonesia;	papua_new_guinea
+locatedIn	northern_europe	neighborOf	neighborOf	sweden;	finland	sweden	norway;	norway	finland
+locatedIn	asia	neighborOf	neighborOf	indonesia;	indonesia	brunei	thailand;	papua_new_guinea	timor-leste	malaysia
+locatedIn	southern_europe	neighborOf	neighborOf	ukraine;	serbia	croatia	slovenia;	romania	hungary
+neighborOf	united_kingdom	locatedIn	locatedIn	europe;	ireland	cyprus;	northern_europe	eastern_europe
+locatedIn	central_asia	neighborOf	neighborOf	armenia;	turkmenistan;	iran
+locatedIn	central_asia	neighborOf	neighborOf	myanmar;	kazakhstan	kyrgyzstan	tajikistan;	china
+locatedIn	western_asia	neighborOf	locatedIn	eastern_europe;	turkey	georgia	azerbaijan;	bulgaria	russia
+neighborOf	guatemala	locatedIn	locatedIn	americas;	el_salvador	belize	honduras	mexico;	central_america	northern_america
+locatedIn	eastern_asia	neighborOf	locatedIn	europe;	north_korea	china	mongolia;	russia
+neighborOf	vatican_city	locatedIn	locatedIn	europe;	italy;	southern_europe
+locatedIn	central_europe	neighborOf	neighborOf	croatia;	slovakia;	hungary
+locatedIn	south_america	neighborOf	locatedIn	central_america;	colombia;	panama
+locatedIn	western_europe	neighborOf	neighborOf	portugal;	france;	spain
+neighborOf	el_salvador	locatedIn	locatedIn	americas;	guatemala	honduras;	central_america
+locatedIn	europe	neighborOf	neighborOf	pakistan;	russia;	china
+locatedIn	northern_europe	neighborOf	neighborOf	france;	denmark;	germany
+locatedIn	western_europe	neighborOf	locatedIn	southern_europe;	france	switzerland	austria;	spain	italy	slovenia	andorra
+neighborOf	namibia	locatedIn	locatedIn	africa;	angola	zambia	botswana	south_africa;	middle_africa	eastern_africa	southern_africa
+locatedIn	northern_america	neighborOf	neighborOf	el_salvador;	mexico;	guatemala
+locatedIn	northern_america	neighborOf	locatedIn	central_america;	mexico;	belize	guatemala
+neighborOf	panama	locatedIn	locatedIn	americas;	colombia	costa_rica;	south_america	central_america
+locatedIn	americas	neighborOf	locatedIn	caribbean;	saint_martin	sint_maarten	haiti	dominican_republic;	sint_maarten	saint_martin	dominican_republic	haiti
+neighborOf	oman	locatedIn	locatedIn	asia;	saudi_arabia	united_arab_emirates	yemen;	western_asia
+locatedIn	caribbean	neighborOf	locatedIn	caribbean;	saint_martin	sint_maarten	haiti	dominican_republic;	sint_maarten	saint_martin	dominican_republic	haiti
+locatedIn	eastern_europe	neighborOf	neighborOf	kazakhstan;	poland	ukraine	belarus	russia;	russia	china
+neighborOf	belize	locatedIn	locatedIn	americas;	guatemala	mexico;	central_america	northern_america
+locatedIn	middle_africa	neighborOf	neighborOf	zimbabwe;	angola	dr_congo;	zambia
+locatedIn	africa	neighborOf	neighborOf	gibraltar;	morocco;	spain
+locatedIn	southern_europe	neighborOf	neighborOf	spain;	spain	italy	andorra;	portugal	morocco	gibraltar	andorra	france
+neighborOf	lebanon	locatedIn	locatedIn	asia;	syria	israel;	western_asia
+locatedIn	northern_america	neighborOf	neighborOf	canada;	canada	mexico;	united_states
+locatedIn	central_asia	neighborOf	neighborOf	finland;	kazakhstan;	russia
+locatedIn	central_asia	neighborOf	locatedIn	southern_asia;	turkmenistan	uzbekistan	tajikistan;	iran	afghanistan
+neighborOf	french_guiana	locatedIn	locatedIn	americas;	suriname	brazil;	south_america
+neighborOf	indonesia	locatedIn	locatedIn	oceania;	papua_new_guinea;	melanesia
+neighborOf	norway	locatedIn	locatedIn	europe;	finland	sweden	russia;	northern_europe	eastern_europe
+locatedIn	asia	neighborOf	locatedIn	northern_africa;	israel	palestine;	egypt
+locatedIn	central_america	neighborOf	neighborOf	nicaragua;	nicaragua	panama	el_salvador	guatemala;	costa_rica	honduras
+locatedIn	southern_europe	neighborOf	neighborOf	armenia;	greece;	turkey
+locatedIn	northern_africa	neighborOf	neighborOf	guinea;	algeria;	mali
+locatedIn	eastern_europe	neighborOf	neighborOf	slovenia;	czechia	hungary	romania	ukraine;	austria	hungary	croatia
+locatedIn	central_europe	neighborOf	neighborOf	hungary;	slovakia;	ukraine	austria
+locatedIn	central_asia	neighborOf	neighborOf	poland;	kazakhstan;	russia
+locatedIn	northern_africa	neighborOf	neighborOf	dr_congo;	sudan;	central_african_republic	south_sudan
+locatedIn	eastern_europe	neighborOf	neighborOf	greece;	bulgaria	romania	kosovo;	turkey	bulgaria	macedonia	albania
+locatedIn	europe	neighborOf	neighborOf	algeria;	spain;	morocco
+locatedIn	southern_asia	neighborOf	neighborOf	turkey;	iran	pakistan	afghanistan;	armenia	iraq	iran	azerbaijan
+locatedIn	europe	neighborOf	neighborOf	iran;	bulgaria	greece	russia;	turkey	azerbaijan
+locatedIn	central_asia	neighborOf	locatedIn	eastern_asia;	kazakhstan	kyrgyzstan	tajikistan;	china
+locatedIn	eastern_asia	neighborOf	locatedIn	eastern_europe;	north_korea	china	mongolia;	russia
+locatedIn	southern_asia	neighborOf	locatedIn	south-eastern_asia;	india	bangladesh;	myanmar
+locatedIn	northern_europe	neighborOf	neighborOf	denmark;	denmark;	germany
+locatedIn	southern_africa	neighborOf	neighborOf	malawi;	namibia	botswana	swaziland	south_africa;	zambia	mozambique
+locatedIn	central_america	neighborOf	neighborOf	venezuela;	panama;	colombia
+locatedIn	northern_europe	neighborOf	neighborOf	austria;	denmark;	germany
+neighborOf	bhutan	locatedIn	locatedIn	asia;	india	china;	southern_asia	eastern_asia
+locatedIn	northern_africa	neighborOf	neighborOf	syria;	egypt;	israel
+locatedIn	eastern_asia	neighborOf	neighborOf	thailand;	china;	laos	myanmar
+locatedIn	europe	neighborOf	neighborOf	bhutan;	russia;	china
+locatedIn	southern_europe	neighborOf	neighborOf	morocco;	portugal	gibraltar	andorra;	spain
+neighborOf	benin	locatedIn	locatedIn	africa;	nigeria	burkina_faso	togo	niger;	western_africa
+neighborOf	south_korea	locatedIn	locatedIn	asia;	north_korea;	eastern_asia
+locatedIn	melanesia	neighborOf	neighborOf	malaysia;	papua_new_guinea;	indonesia
+locatedIn	africa	neighborOf	neighborOf	jordan;	egypt;	israel
+locatedIn	southern_africa	neighborOf	neighborOf	zambia;	namibia	swaziland	south_africa	botswana;	angola	mozambique	namibia	botswana	zimbabwe
+locatedIn	south-eastern_asia	neighborOf	neighborOf	hong_kong;	vietnam	laos	myanmar;	china
+locatedIn	northern_africa	neighborOf	neighborOf	spain;	western_sahara	algeria;	morocco
+locatedIn	eastern_africa	neighborOf	neighborOf	libya;	ethiopia	eritrea;	sudan
+locatedIn	western_europe	neighborOf	neighborOf	morocco;	france;	spain
+neighborOf	gabon	locatedIn	locatedIn	africa;	republic_of_the_congo	cameroon	equatorial_guinea;	middle_africa
+locatedIn	americas	neighborOf	neighborOf	sint_maarten;	sint_maarten;	saint_martin
+locatedIn	southern_europe	neighborOf	neighborOf	luxembourg;	spain	italy	andorra;	france
+locatedIn	south-eastern_asia	neighborOf	neighborOf	kazakhstan;	vietnam	laos	myanmar;	china
+neighborOf	kyrgyzstan	locatedIn	locatedIn	asia;	china	kazakhstan	uzbekistan	tajikistan;	eastern_asia	central_asia
+neighborOf	liberia	locatedIn	locatedIn	africa;	ivory_coast	sierra_leone	guinea;	western_africa
+locatedIn	central_europe	neighborOf	neighborOf	lithuania;	slovakia;	poland
+locatedIn	western_europe	neighborOf	neighborOf	serbia;	austria;	hungary
+locatedIn	eastern_europe	neighborOf	neighborOf	switzerland;	poland	czechia	hungary;	germany	austria
+locatedIn	southern_europe	neighborOf	locatedIn	africa;	spain;	morocco
+neighborOf	macau	locatedIn	locatedIn	asia;	china;	eastern_asia
+locatedIn	western_asia	neighborOf	neighborOf	norway;	georgia	azerbaijan;	russia
+locatedIn	middle_africa	neighborOf	locatedIn	northern_africa;	central_african_republic	south_sudan	chad;	sudan	libya
+locatedIn	central_asia	neighborOf	neighborOf	norway;	kazakhstan;	russia
+locatedIn	africa	neighborOf	locatedIn	southern_europe;	morocco;	spain
+locatedIn	central_asia	neighborOf	neighborOf	north_korea;	kazakhstan	kyrgyzstan	tajikistan;	russia	china
+locatedIn	asia	neighborOf	neighborOf	timor-leste;	timor-leste	malaysia;	indonesia
+neighborOf	venezuela	locatedIn	locatedIn	americas;	colombia	guyana	brazil;	south_america
+locatedIn	southern_asia	neighborOf	locatedIn	western_asia;	iran;	turkey	armenia	iraq	azerbaijan
+locatedIn	asia	neighborOf	neighborOf	south_korea;	south_korea	china;	north_korea
+locatedIn	eastern_europe	neighborOf	neighborOf	north_korea;	poland	ukraine	belarus	russia;	russia	china
+locatedIn	western_africa	neighborOf	locatedIn	middle_africa;	nigeria	niger;	cameroon	chad
+locatedIn	oceania	neighborOf	neighborOf	malaysia;	papua_new_guinea;	indonesia
+neighborOf	sri_lanka	locatedIn	locatedIn	asia;	india;	southern_asia
+locatedIn	eastern_asia	neighborOf	neighborOf	lithuania;	north_korea	china	mongolia;	russia
+neighborOf	kosovo	locatedIn	locatedIn	europe;	serbia	macedonia	montenegro	albania;	southern_europe
+locatedIn	western_africa	neighborOf	neighborOf	tunisia;	niger	mauritania	mali;	libya	algeria
+neighborOf	slovenia	locatedIn	locatedIn	europe;	croatia	italy	austria	hungary;	southern_europe	western_europe	eastern_europe
+locatedIn	southern_africa	neighborOf	locatedIn	eastern_africa;	namibia	botswana	swaziland	south_africa;	zambia	mozambique	zimbabwe
+locatedIn	central_asia	neighborOf	neighborOf	laos;	kazakhstan	kyrgyzstan	tajikistan;	china
+locatedIn	central_america	neighborOf	neighborOf	costa_rica;	costa_rica	honduras;	nicaragua	panama
+locatedIn	middle_africa	neighborOf	neighborOf	somalia;	south_sudan;	kenya	ethiopia
+locatedIn	western_europe	neighborOf	neighborOf	gibraltar;	france;	spain
+locatedIn	eastern_asia	neighborOf	locatedIn	central_asia;	china;	kazakhstan	kyrgyzstan	tajikistan
+locatedIn	northern_africa	neighborOf	neighborOf	ethiopia;	sudan	egypt	libya;	south_sudan	sudan	eritrea
+neighborOf	bosnia_and_herzegovina	locatedIn	locatedIn	europe;	serbia	montenegro	croatia;	southern_europe
+locatedIn	south-eastern_asia	neighborOf	locatedIn	melanesia;	indonesia;	papua_new_guinea
+locatedIn	western_africa	neighborOf	neighborOf	western_sahara;	senegal	mali	mauritania	niger;	mauritania	algeria
+neighborOf	mexico	locatedIn	locatedIn	americas;	belize	guatemala	united_states;	central_america	northern_america
+locatedIn	central_asia	neighborOf	neighborOf	iran;	kazakhstan	uzbekistan	tajikistan	turkmenistan;	turkmenistan	afghanistan
+locatedIn	europe	neighborOf	neighborOf	hong_kong;	russia;	china
+locatedIn	middle_africa	neighborOf	neighborOf	kenya;	dr_congo	central_african_republic	chad	south_sudan;	tanzania	south_sudan	ethiopia	uganda
+locatedIn	middle_africa	neighborOf	neighborOf	malawi;	angola	dr_congo;	zambia	tanzania
+neighborOf	ireland	locatedIn	locatedIn	europe;	united_kingdom;	northern_europe
+locatedIn	caribbean	neighborOf	neighborOf	saint_martin;	saint_martin;	sint_maarten
+locatedIn	southern_asia	neighborOf	neighborOf	iran;	iran	india	afghanistan	pakistan;	turkey	armenia	pakistan	iraq	turkmenistan	afghanistan	azerbaijan
+locatedIn	americas	neighborOf	neighborOf	united_states;	united_states	belize	guatemala;	canada	mexico
+locatedIn	eastern_europe	neighborOf	neighborOf	syria;	bulgaria;	turkey
+locatedIn	southern_europe	neighborOf	neighborOf	syria;	greece;	turkey
+neighborOf	czechia	locatedIn	locatedIn	europe;	germany	austria	poland	slovakia;	western_europe	eastern_europe	central_europe
+neighborOf	uruguay	locatedIn	locatedIn	americas;	argentina	brazil;	south_america
+locatedIn	northern_europe	neighborOf	neighborOf	ireland;	ireland;	united_kingdom
+neighborOf	rwanda	locatedIn	locatedIn	africa;	dr_congo	burundi	tanzania	uganda;	middle_africa	eastern_africa
+locatedIn	south-eastern_asia	neighborOf	neighborOf	indonesia;	indonesia	brunei	thailand;	papua_new_guinea	timor-leste	malaysia
+locatedIn	eastern_europe	neighborOf	neighborOf	india;	russia;	china
+locatedIn	central_asia	neighborOf	neighborOf	azerbaijan;	kazakhstan	turkmenistan;	russia	iran
+locatedIn	central_europe	neighborOf	locatedIn	eastern_europe;	slovakia;	poland	czechia	ukraine	hungary
+locatedIn	middle_africa	neighborOf	locatedIn	eastern_africa;	angola	dr_congo	south_sudan;	zambia	burundi	tanzania	kenya	ethiopia	rwanda	uganda
+locatedIn	western_africa	neighborOf	neighborOf	sudan;	niger;	libya
+locatedIn	south-eastern_asia	neighborOf	neighborOf	russia;	vietnam	laos	myanmar;	china
+neighborOf	malaysia	locatedIn	locatedIn	asia;	brunei	thailand	indonesia;	south-eastern_asia
+locatedIn	asia	neighborOf	neighborOf	macedonia;	turkey;	bulgaria	greece
+locatedIn	southern_africa	neighborOf	neighborOf	tanzania;	namibia	botswana	swaziland	south_africa;	zambia	mozambique
+locatedIn	south-eastern_asia	neighborOf	neighborOf	bangladesh;	laos	thailand	myanmar;	myanmar	india
+locatedIn	europe	neighborOf	neighborOf	ireland;	cyprus	ireland;	united_kingdom
+neighborOf	costa_rica	locatedIn	locatedIn	americas;	nicaragua	panama;	central_america
+locatedIn	europe	neighborOf	neighborOf	morocco;	portugal	gibraltar	andorra	france;	spain
+locatedIn	central_america	neighborOf	neighborOf	mexico;	guatemala	el_salvador	belize	honduras;	belize	guatemala
+locatedIn	asia	neighborOf	neighborOf	libya;	israel	palestine;	egypt
+locatedIn	southern_europe	neighborOf	neighborOf	western_sahara;	spain;	morocco
+locatedIn	western_europe	neighborOf	neighborOf	hungary;	austria	germany	switzerland	liechtenstein;	slovakia	austria	slovenia
+neighborOf	angola	locatedIn	locatedIn	africa;	republic_of_the_congo	dr_congo	zambia	namibia;	middle_africa	eastern_africa	southern_africa
+locatedIn	americas	neighborOf	neighborOf	canada;	canada	mexico;	united_states
+locatedIn	eastern_asia	neighborOf	neighborOf	hong_kong;	macau	north_korea	hong_kong	mongolia;	china
+neighborOf	paraguay	locatedIn	locatedIn	americas;	argentina	bolivia	brazil;	south_america
+locatedIn	africa	neighborOf	neighborOf	andorra;	morocco;	spain
+neighborOf	azerbaijan	locatedIn	locatedIn	asia;	iran	turkey	armenia	georgia;	southern_asia	western_asia
+locatedIn	central_asia	neighborOf	locatedIn	europe;	kazakhstan;	russia
+neighborOf	bulgaria	locatedIn	locatedIn	asia;	turkey;	western_asia
+neighborOf	netherlands	locatedIn	locatedIn	europe;	germany	belgium;	western_europe
+locatedIn	northern_america	neighborOf	neighborOf	guatemala;	mexico	united_states;	belize	mexico
+locatedIn	western_africa	neighborOf	neighborOf	cameroon;	niger	benin	nigeria;	nigeria	chad
+locatedIn	western_asia	neighborOf	neighborOf	lithuania;	georgia	azerbaijan;	russia
+locatedIn	western_europe	neighborOf	neighborOf	belarus;	germany;	poland
+locatedIn	europe	neighborOf	locatedIn	africa;	spain;	morocco
+locatedIn	eastern_asia	neighborOf	neighborOf	cambodia;	china;	vietnam	laos
+locatedIn	africa	neighborOf	neighborOf	spain;	western_sahara	algeria;	morocco
+locatedIn	northern_africa	neighborOf	neighborOf	france;	morocco;	spain
+locatedIn	asia	neighborOf	neighborOf	papua_new_guinea;	timor-leste	malaysia;	indonesia
+neighborOf	north_korea	locatedIn	locatedIn	asia;	south_korea	china;	eastern_asia
+locatedIn	northern_africa	neighborOf	locatedIn	europe;	morocco;	spain
+locatedIn	europe	neighborOf	neighborOf	united_kingdom;	united_kingdom;	ireland
+locatedIn	asia	neighborOf	neighborOf	romania;	turkey;	bulgaria
+neighborOf	honduras	locatedIn	locatedIn	americas;	nicaragua	el_salvador	guatemala;	central_america
+locatedIn	southern_europe	neighborOf	neighborOf	georgia;	greece;	turkey
+locatedIn	eastern_europe	neighborOf	neighborOf	albania;	bulgaria	kosovo;	greece	macedonia	montenegro
+locatedIn	eastern_asia	neighborOf	neighborOf	estonia;	north_korea	china	mongolia;	russia
+locatedIn	central_asia	neighborOf	neighborOf	iraq;	turkmenistan;	iran
+neighborOf	sierra_leone	locatedIn	locatedIn	africa;	guinea	liberia;	western_africa
+locatedIn	southern_asia	neighborOf	neighborOf	thailand;	india	bangladesh;	myanmar
+locatedIn	oceania	neighborOf	neighborOf	timor-leste;	papua_new_guinea;	indonesia
+locatedIn	southern_europe	neighborOf	neighborOf	germany;	italy	slovenia	spain	andorra;	switzerland	austria	france
+locatedIn	western_asia	neighborOf	neighborOf	macedonia;	turkey;	bulgaria	greece
+locatedIn	southern_africa	neighborOf	neighborOf	republic_of_the_congo;	namibia;	angola
+neighborOf	suriname	locatedIn	locatedIn	americas;	guyana	brazil	french_guiana;	south_america
+neighborOf	sint_maarten	locatedIn	locatedIn	americas;	saint_martin;	caribbean
+locatedIn	southern_asia	neighborOf	neighborOf	syria;	iran;	turkey	iraq
+neighborOf	burundi	locatedIn	locatedIn	africa;	dr_congo	tanzania	rwanda;	middle_africa	eastern_africa
+locatedIn	northern_africa	neighborOf	locatedIn	eastern_africa;	sudan;	ethiopia	eritrea
+locatedIn	americas	neighborOf	neighborOf	nicaragua;	nicaragua	panama	el_salvador	guatemala;	costa_rica	honduras
+neighborOf	mongolia	locatedIn	locatedIn	asia;	china;	eastern_asia
+locatedIn	eastern_europe	neighborOf	neighborOf	kosovo;	bulgaria	romania	kosovo	hungary;	serbia	macedonia	montenegro	albania
+neighborOf	israel	locatedIn	locatedIn	africa;	egypt;	northern_africa
+locatedIn	middle_africa	neighborOf	neighborOf	benin;	cameroon	chad;	nigeria	niger
+locatedIn	south-eastern_asia	neighborOf	neighborOf	bhutan;	myanmar	vietnam	laos;	india	china
+locatedIn	europe	neighborOf	neighborOf	macau;	russia;	china
+neighborOf	nepal	locatedIn	locatedIn	asia;	india;	southern_asia
+locatedIn	western_europe	neighborOf	locatedIn	eastern_europe;	germany	austria;	poland	czechia	hungary
+neighborOf	north_korea	locatedIn	locatedIn	europe;	russia;	eastern_europe
+locatedIn	central_america	neighborOf	neighborOf	ecuador;	panama;	colombia
+locatedIn	eastern_asia	neighborOf	neighborOf	south_korea;	south_korea	china;	north_korea
+locatedIn	eastern_europe	neighborOf	neighborOf	france;	poland	czechia;	germany
+locatedIn	northern_africa	neighborOf	neighborOf	kenya;	sudan;	south_sudan	ethiopia
+neighborOf	eritrea	locatedIn	locatedIn	africa;	ethiopia	djibouti	sudan;	eastern_africa	northern_africa
+neighborOf	spain	locatedIn	locatedIn	europe;	portugal	gibraltar	andorra	france;	southern_europe	western_europe
+locatedIn	eastern_africa	neighborOf	neighborOf	lesotho;	mozambique	zimbabwe;	south_africa
+neighborOf	saint_martin	locatedIn	locatedIn	americas;	sint_maarten;	caribbean
+locatedIn	southern_europe	neighborOf	neighborOf	turkey;	serbia	greece	macedonia	albania;	bulgaria	greece
+neighborOf	djibouti	locatedIn	locatedIn	africa;	ethiopia	somalia	eritrea;	eastern_africa
+locatedIn	eastern_europe	neighborOf	neighborOf	hong_kong;	russia;	china
+locatedIn	northern_africa	neighborOf	neighborOf	uganda;	sudan;	south_sudan
+locatedIn	central_europe	neighborOf	neighborOf	belarus;	slovakia;	poland	ukraine
+locatedIn	northern_africa	neighborOf	neighborOf	israel;	sudan	libya;	egypt
+locatedIn	northern_africa	neighborOf	neighborOf	gibraltar;	morocco;	spain
+locatedIn	eastern_europe	neighborOf	neighborOf	belgium;	poland	czechia;	germany
+neighborOf	timor-leste	locatedIn	locatedIn	asia;	indonesia;	south-eastern_asia
+locatedIn	south-eastern_asia	neighborOf	locatedIn	oceania;	indonesia;	papua_new_guinea
+locatedIn	eastern_asia	neighborOf	neighborOf	nepal;	china;	india
+locatedIn	eastern_europe	neighborOf	neighborOf	norway;	poland	ukraine	belarus	russia;	russia	finland
+locatedIn	africa	neighborOf	locatedIn	western_asia;	egypt;	israel
+locatedIn	southern_europe	neighborOf	locatedIn	western_asia;	greece;	turkey
+neighborOf	azerbaijan	locatedIn	locatedIn	europe;	russia;	eastern_europe
+locatedIn	eastern_africa	neighborOf	neighborOf	chad;	ethiopia	eritrea;	sudan
+neighborOf	georgia	locatedIn	locatedIn	asia;	turkey	armenia	azerbaijan;	western_asia
+locatedIn	europe	neighborOf	neighborOf	afghanistan;	russia;	china
+locatedIn	europe	neighborOf	neighborOf	vietnam;	russia;	china
+neighborOf	ecuador	locatedIn	locatedIn	americas;	colombia	peru;	south_america
+locatedIn	western_africa	neighborOf	neighborOf	south_sudan;	nigeria	niger;	chad
+locatedIn	southern_asia	neighborOf	neighborOf	iraq;	iran	pakistan	afghanistan;	turkey	iran
+locatedIn	eastern_europe	neighborOf	locatedIn	southern_europe;	bulgaria	romania	kosovo	hungary;	serbia	greece	macedonia	montenegro	albania	croatia	slovenia
+locatedIn	northern_africa	neighborOf	locatedIn	middle_africa;	sudan	libya;	central_african_republic	south_sudan	chad
+locatedIn	eastern_europe	neighborOf	neighborOf	afghanistan;	russia;	china
+locatedIn	middle_africa	neighborOf	neighborOf	tunisia;	chad;	libya
+locatedIn	western_asia	neighborOf	neighborOf	romania;	turkey;	bulgaria
+neighborOf	san_marino	locatedIn	locatedIn	europe;	italy;	southern_europe
+locatedIn	northern_africa	neighborOf	neighborOf	benin;	libya	algeria;	niger
+locatedIn	central_asia	neighborOf	neighborOf	belarus;	kazakhstan;	russia
+locatedIn	central_europe	neighborOf	locatedIn	western_europe;	slovakia;	austria
+locatedIn	southern_europe	neighborOf	neighborOf	slovakia;	italy	slovenia	serbia	croatia;	austria	hungary
+locatedIn	southern_europe	neighborOf	neighborOf	portugal;	portugal	gibraltar	andorra;	spain
+locatedIn	southern_europe	neighborOf	neighborOf	monaco;	spain	italy	andorra;	france
+locatedIn	south_america	neighborOf	neighborOf	costa_rica;	colombia;	panama
+neighborOf	thailand	locatedIn	locatedIn	asia;	laos	myanmar	cambodia	malaysia;	south-eastern_asia
+locatedIn	americas	neighborOf	neighborOf	costa_rica;	costa_rica	honduras	colombia;	nicaragua	panama
+locatedIn	northern_africa	neighborOf	neighborOf	andorra;	morocco;	spain
+locatedIn	western_europe	neighborOf	neighborOf	russia;	germany;	poland
+locatedIn	southern_europe	neighborOf	neighborOf	moldova;	serbia;	romania
+locatedIn	western_europe	neighborOf	locatedIn	northern_europe;	germany;	denmark
+locatedIn	africa	neighborOf	neighborOf	france;	morocco;	spain
+locatedIn	central_europe	neighborOf	neighborOf	czechia;	slovakia;	poland	austria
+neighborOf	united_states	locatedIn	locatedIn	americas;	canada	mexico;	northern_america
+locatedIn	south-eastern_asia	neighborOf	neighborOf	brunei;	brunei	thailand	indonesia;	malaysia
+locatedIn	caribbean	neighborOf	neighborOf	haiti;	haiti;	dominican_republic
+locatedIn	southern_asia	neighborOf	neighborOf	uzbekistan;	afghanistan	iran	pakistan	india;	tajikistan	turkmenistan	afghanistan
+neighborOf	greece	locatedIn	locatedIn	europe;	macedonia	albania	bulgaria;	southern_europe	eastern_europe
+neighborOf	morocco	locatedIn	locatedIn	europe;	spain;	southern_europe
+neighborOf	liechtenstein	locatedIn	locatedIn	europe;	switzerland	austria;	western_europe
+locatedIn	asia	neighborOf	neighborOf	sudan;	israel	palestine;	egypt
+neighborOf	vietnam	locatedIn	locatedIn	asia;	laos	cambodia	china;	south-eastern_asia	eastern_asia
+locatedIn	europe	neighborOf	neighborOf	western_sahara;	spain;	morocco
+locatedIn	southern_europe	neighborOf	neighborOf	belgium;	spain	italy	andorra;	france
+locatedIn	western_europe	neighborOf	neighborOf	ukraine;	germany	austria;	poland	slovakia	hungary
+locatedIn	south-eastern_asia	neighborOf	neighborOf	sri_lanka;	myanmar;	india
+locatedIn	southern_europe	neighborOf	neighborOf	vatican_city;	vatican_city	san_marino	slovenia;	italy
+locatedIn	western_asia	neighborOf	neighborOf	poland;	georgia	azerbaijan;	russia
+locatedIn	western_africa	neighborOf	neighborOf	egypt;	niger;	libya
+locatedIn	europe	neighborOf	neighborOf	india;	russia;	china
+locatedIn	eastern_europe	neighborOf	neighborOf	italy;	czechia	hungary;	austria	slovenia
+locatedIn	south-eastern_asia	neighborOf	neighborOf	papua_new_guinea;	timor-leste	malaysia;	indonesia
+neighborOf	guinea-bissau	locatedIn	locatedIn	africa;	guinea	senegal;	western_africa
+locatedIn	eastern_asia	neighborOf	neighborOf	latvia;	north_korea	china	mongolia;	russia
+neighborOf	mongolia	locatedIn	locatedIn	europe;	russia;	eastern_europe
+locatedIn	middle_africa	neighborOf	neighborOf	djibouti;	south_sudan;	ethiopia
+locatedIn	western_europe	neighborOf	neighborOf	san_marino;	switzerland	austria	france;	italy
+neighborOf	gambia	locatedIn	locatedIn	africa;	senegal;	western_africa
+locatedIn	northern_europe	neighborOf	locatedIn	western_europe;	denmark;	germany
+locatedIn	caribbean	neighborOf	neighborOf	sint_maarten;	sint_maarten;	saint_martin
+locatedIn	southern_africa	neighborOf	neighborOf	angola;	namibia	botswana	south_africa;	zambia	namibia
+neighborOf	belgium	locatedIn	locatedIn	europe;	netherlands	germany	luxembourg	france;	western_europe
+locatedIn	eastern_europe	neighborOf	neighborOf	macau;	russia;	china
+locatedIn	northern_africa	neighborOf	neighborOf	somalia;	sudan;	ethiopia
+locatedIn	europe	neighborOf	locatedIn	asia;	bulgaria	greece	russia;	turkey	kazakhstan	north_korea	georgia	azerbaijan	china	mongolia
+locatedIn	middle_africa	neighborOf	locatedIn	southern_africa;	angola;	namibia
+locatedIn	eastern_europe	neighborOf	neighborOf	iraq;	bulgaria;	turkey
+locatedIn	northern_africa	neighborOf	neighborOf	ivory_coast;	algeria;	mali
+locatedIn	americas	neighborOf	neighborOf	dominican_republic;	dominican_republic;	haiti
+locatedIn	southern_asia	neighborOf	neighborOf	bulgaria;	iran;	turkey
+locatedIn	middle_africa	neighborOf	neighborOf	niger;	cameroon	chad	central_african_republic;	nigeria	chad	libya
+locatedIn	europe	neighborOf	neighborOf	uzbekistan;	russia;	kazakhstan
+neighborOf	kuwait	locatedIn	locatedIn	asia;	saudi_arabia	iraq;	western_asia
+locatedIn	northern_africa	neighborOf	neighborOf	senegal;	western_sahara	algeria;	mauritania	mali
+locatedIn	eastern_asia	neighborOf	neighborOf	turkmenistan;	china;	kazakhstan	afghanistan
+locatedIn	western_asia	neighborOf	neighborOf	north_korea;	georgia	azerbaijan;	russia
+locatedIn	central_europe	neighborOf	neighborOf	switzerland;	slovakia;	austria
+neighborOf	nigeria	locatedIn	locatedIn	africa;	cameroon	chad	niger	benin;	middle_africa	western_africa
+locatedIn	central_asia	neighborOf	neighborOf	bhutan;	kazakhstan	kyrgyzstan	tajikistan;	china
+locatedIn	eastern_europe	neighborOf	neighborOf	macedonia;	bulgaria	romania	kosovo	hungary;	serbia	bulgaria	greece	albania
+locatedIn	middle_africa	neighborOf	neighborOf	libya;	central_african_republic	south_sudan	cameroon	chad;	sudan	chad	niger
+neighborOf	luxembourg	locatedIn	locatedIn	europe;	germany	belgium	france;	western_europe
+neighborOf	bulgaria	locatedIn	locatedIn	europe;	serbia	greece	macedonia	romania;	southern_europe	eastern_europe
+locatedIn	africa	neighborOf	neighborOf	portugal;	morocco;	spain
+locatedIn	southern_europe	neighborOf	locatedIn	northern_africa;	spain;	morocco
+locatedIn	central_europe	neighborOf	neighborOf	ukraine;	slovakia;	poland	hungary
+locatedIn	eastern_europe	neighborOf	neighborOf	finland;	russia	poland	ukraine	belarus;	norway	russia
+neighborOf	lesotho	locatedIn	locatedIn	africa;	south_africa;	southern_africa
+neighborOf	greece	locatedIn	locatedIn	asia;	turkey;	western_asia
+neighborOf	kazakhstan	locatedIn	locatedIn	europe;	russia;	eastern_europe
+neighborOf	denmark	locatedIn	locatedIn	europe;	germany;	western_europe
+locatedIn	northern_africa	neighborOf	neighborOf	djibouti;	sudan;	ethiopia	eritrea
+neighborOf	egypt	locatedIn	locatedIn	africa;	sudan	libya;	northern_africa
+locatedIn	southern_asia	neighborOf	neighborOf	kuwait;	iran;	iraq
+neighborOf	finland	locatedIn	locatedIn	europe;	norway	sweden	russia;	northern_europe	eastern_europe
+neighborOf	yemen	locatedIn	locatedIn	asia;	saudi_arabia	oman;	western_asia
+locatedIn	south-eastern_asia	neighborOf	neighborOf	tajikistan;	vietnam	laos	myanmar;	china
+locatedIn	central_asia	neighborOf	neighborOf	macau;	kazakhstan	kyrgyzstan	tajikistan;	china
+locatedIn	western_asia	neighborOf	neighborOf	latvia;	georgia	azerbaijan;	russia
+neighborOf	haiti	locatedIn	locatedIn	americas;	dominican_republic;	caribbean
+neighborOf	egypt	locatedIn	locatedIn	asia;	israel	palestine;	western_asia
+locatedIn	western_asia	neighborOf	locatedIn	northern_africa;	israel	palestine;	egypt
+locatedIn	central_asia	neighborOf	neighborOf	georgia;	kazakhstan;	russia
+locatedIn	western_asia	neighborOf	neighborOf	mongolia;	georgia	azerbaijan;	russia
+locatedIn	western_asia	neighborOf	locatedIn	southern_asia;	turkey	armenia	iraq	azerbaijan;	iran
+neighborOf	monaco	locatedIn	locatedIn	europe;	france;	western_europe
+locatedIn	northern_africa	neighborOf	neighborOf	republic_of_the_congo;	sudan;	central_african_republic
+locatedIn	western_asia	neighborOf	neighborOf	finland;	georgia	azerbaijan;	russia
+neighborOf	turkmenistan	locatedIn	locatedIn	asia;	iran	afghanistan	kazakhstan	uzbekistan;	southern_asia	central_asia
+locatedIn	central_europe	neighborOf	neighborOf	poland;	slovakia;	czechia	ukraine
+locatedIn	western_europe	neighborOf	neighborOf	croatia;	austria;	hungary	slovenia
+locatedIn	western_asia	neighborOf	neighborOf	pakistan;	turkey	armenia	iraq	azerbaijan;	iran
+locatedIn	asia	neighborOf	neighborOf	albania;	turkey;	greece
+locatedIn	eastern_europe	neighborOf	neighborOf	kyrgyzstan;	russia;	kazakhstan	china
+neighborOf	cambodia	locatedIn	locatedIn	asia;	vietnam	laos	thailand;	south-eastern_asia
+neighborOf	somalia	locatedIn	locatedIn	africa;	kenya	ethiopia	djibouti;	eastern_africa
+locatedIn	central_asia	neighborOf	neighborOf	vietnam;	kazakhstan	kyrgyzstan	tajikistan;	china
+locatedIn	africa	neighborOf	neighborOf	lebanon;	egypt;	israel
+locatedIn	europe	neighborOf	neighborOf	tajikistan;	russia;	china
+locatedIn	eastern_europe	neighborOf	neighborOf	china;	russia	poland	ukraine	belarus;	kazakhstan	russia	north_korea	mongolia
+locatedIn	northern_america	neighborOf	neighborOf	mexico;	mexico	canada;	belize	guatemala	united_states
+locatedIn	middle_africa	neighborOf	neighborOf	south_africa;	angola;	namibia
+neighborOf	moldova	locatedIn	locatedIn	europe;	romania	ukraine;	eastern_europe
+locatedIn	south-eastern_asia	neighborOf	locatedIn	southern_asia;	myanmar;	india	bangladesh
+locatedIn	middle_africa	neighborOf	neighborOf	mozambique;	angola	dr_congo;	zambia	tanzania
+locatedIn	eastern_europe	neighborOf	locatedIn	eastern_asia;	russia;	north_korea	china	mongolia
+locatedIn	eastern_asia	neighborOf	neighborOf	ukraine;	north_korea	china	mongolia;	russia
+locatedIn	southern_europe	neighborOf	neighborOf	iraq;	greece;	turkey
+locatedIn	melanesia	neighborOf	locatedIn	asia;	papua_new_guinea;	indonesia
+neighborOf	nicaragua	locatedIn	locatedIn	americas;	costa_rica	honduras;	central_america
+locatedIn	eastern_europe	neighborOf	neighborOf	bosnia_and_herzegovina;	bulgaria	romania	kosovo	hungary;	serbia	montenegro	croatia
+locatedIn	eastern_africa	neighborOf	locatedIn	southern_africa;	mozambique	zambia	zimbabwe;	swaziland	namibia	botswana	south_africa
+locatedIn	northern_america	neighborOf	locatedIn	americas;	united_states	mexico	canada;	canada	belize	mexico	guatemala	united_states
+locatedIn	south-eastern_asia	neighborOf	neighborOf	macau;	vietnam	laos	myanmar;	china
+locatedIn	eastern_europe	neighborOf	neighborOf	estonia;	poland	ukraine	belarus	russia;	russia	latvia
+locatedIn	americas	neighborOf	neighborOf	saint_martin;	saint_martin;	sint_maarten
+locatedIn	western_asia	neighborOf	neighborOf	china;	georgia	azerbaijan;	russia
+locatedIn	eastern_europe	neighborOf	neighborOf	pakistan;	russia;	china
+locatedIn	eastern_europe	neighborOf	neighborOf	south_korea;	russia;	north_korea
+neighborOf	united_arab_emirates	locatedIn	locatedIn	asia;	saudi_arabia	oman;	western_asia
+locatedIn	eastern_europe	neighborOf	neighborOf	luxembourg;	poland	czechia;	germany
+locatedIn	southern_europe	neighborOf	neighborOf	czechia;	italy	slovenia;	austria
+locatedIn	northern_africa	neighborOf	locatedIn	western_africa;	western_sahara	algeria	libya;	mauritania	niger	mali
+locatedIn	europe	neighborOf	neighborOf	iraq;	bulgaria	greece;	turkey
+locatedIn	central_america	neighborOf	neighborOf	panama;	panama	nicaragua;	colombia	costa_rica
+locatedIn	central_america	neighborOf	neighborOf	united_states;	belize	guatemala;	mexico
+locatedIn	southern_asia	neighborOf	locatedIn	central_asia;	afghanistan	iran;	uzbekistan	tajikistan	turkmenistan
+locatedIn	south-eastern_asia	neighborOf	neighborOf	kyrgyzstan;	vietnam	laos	myanmar;	china
+neighborOf	guyana	locatedIn	locatedIn	americas;	suriname	brazil	venezuela;	south_america
+locatedIn	central_europe	neighborOf	neighborOf	germany;	slovakia;	poland	czechia	austria
+neighborOf	hong_kong	locatedIn	locatedIn	asia;	china;	eastern_asia
+locatedIn	northern_europe	neighborOf	neighborOf	switzerland;	denmark;	germany
+neighborOf	canada	locatedIn	locatedIn	americas;	united_states;	northern_america
+locatedIn	eastern_europe	neighborOf	neighborOf	montenegro;	bulgaria	romania	kosovo	hungary;	serbia	albania	croatia
+locatedIn	europe	neighborOf	neighborOf	myanmar;	russia;	china
