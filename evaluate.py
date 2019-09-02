@@ -60,6 +60,9 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
     hit_5 = 0
     hit_10 = 0
     with torch.no_grad():
+        cumulated_risks = []
+        picked_path_risks = []
+        picked_path_count = 0
         for i in tqdm(range(len(test))):
             # for each test question
             # create beam size # of state and agents
@@ -69,22 +72,33 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
                 state = State((test[i][1],test[i][2]), kg, node_embedding, WORD_EMB_DIM, word2node, attention, rel_embedding, T, device)
                 states.append(state)
             
-            # get subquestions
-            subquestions = []
+            '''
             for r in test[i][2]:
                 encoded_r = kg.rel_vocab[r] - 2 # remove no-ops and dummy-start
                 if encoded_r not in subquestions:
                     subquestions.append(encoded_r)
+            '''
 
             answers = kg.encode_answers(test[i][0])
             e0 = state.subgraphs[0][0]
             agent.policy.init_path(e0, state)
+
+            # get subquestions
+            e1, e2 = test[i][1]
+            r1, r2, r3 = test[i][2]
+            e3 = test[i][3] 
+            subquestions = [(kg.rel_vocab[r1], answers), (kg.rel_vocab[r2], [kg.en_vocab[e3]]), (kg.rel_vocab[r3], answers)]
+            
 
             # the first step
             possible_actions = np.array(state.generate_all_possible_actions())
             probs = agent.get_probs(states[0], possible_actions)
             top_index = np.argsort(probs)[::-1][0:beam_size]
             top_path_probs = probs[top_index]
+
+            risks_foreach_steps = []
+            risks = calculate_risk(possible_actions, probs, subquestions)
+            risks_foreach_steps.append(risks)
 
             top_actions = possible_actions[top_index]
             top_path = []
@@ -95,8 +109,40 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
         
             # go for T - 1 step
             for step in range(1, T):
-                top_path, top_path_probs, states = get_tops(agent, top_path, top_path_probs, states, e0, beam_size, subquestions)
+                top_path, top_path_probs, states, risks = get_tops(agent, top_path, top_path_probs, states, e0, beam_size, subquestions)
+                risks_foreach_steps.append(risks)
+
+            if len(cumulated_risks) == 0:
+                cumulated_risks = np.array(risks_foreach_steps)
+            else:
+                cumulated_risks += np.array(risks_foreach_steps)
+
+            picked_path_risk = []
+            r1 = kg.rel_vocab[r1]
+            r2 = kg.rel_vocab[r2]
+            r3 = kg.rel_vocab[r3]
+            for step, action in enumerate(top_path[0]):
+                g, r, e = action
+                if r == r1:
+                    r1 = -1 # already picked
+                    picked_path_risk.append(risks_foreach_steps[step][0])
+                elif r == r2:
+                    r2 = -1 # already picked
+                    picked_path_risk.append(risks_foreach_steps[step][1])
+                elif r == r3:
+                    r3 = -1 # already picked
+                    picked_path_risk.append(risks_foreach_steps[step][2])
+                else:
+                    picked_path_risk = []
+                    break
             
+            if len(picked_path_risk) != 0:
+                picked_path_count += 1 
+                if len(picked_path_risks) == 0:
+                    picked_path_risks = np.array(picked_path_risk)
+                else:
+                    picked_path_risks += np.array(picked_path_risk)
+
             final_entities = []
             for path in top_path:
                 temp = path[-1][2]
@@ -126,8 +172,12 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
         hit_3/= len(test)
         hit_2/= len(test)      
 
+        avg_risks = cumulated_risks/len(test)
+        avg_path_risks = picked_path_risks/picked_path_count
         print("hit@1: " + str(hit_1) + ", hit@2: " + str(hit_2)+ ", hit@3: " + str(hit_3) + ", hit@5: " + str(hit_5) + ", hit@10: " + str(hit_10))
-        
+        print(avg_risks)
+        print(avg_path_risks)
+
         '''    
             f1.append(computeF1(answer, e)[-1])
         avg_f1 = np.mean(f1)
@@ -149,8 +199,7 @@ def get_tops(agent, top_path, top_path_probs, states, e0, beam_size, subquestion
         probs = agent.get_probs(states[index], possible_actions)
 
         # calculate the Risk of each subquestion
-        #print(possible_actions)
-        #print(subquestions)
+        risks = calculate_risk(possible_actions, probs, subquestions)
 
         top_index = np.argsort(probs)[::-1][0:beam_size]
         top_probs = probs[top_index]
@@ -171,7 +220,7 @@ def get_tops(agent, top_path, top_path_probs, states, e0, beam_size, subquestion
         state = copy.deepcopy(states[index])
         state.update((g,r,e))
         new_states.append(state)
-    return next_top_path, next_path_probs, new_states
+    return next_top_path, next_path_probs, new_states, risks
 
 def correct(pred_list, answers):
     for a in answers:
@@ -180,8 +229,45 @@ def correct(pred_list, answers):
 
     return False
 
-
+def calculate_risk(possible_actions, probs, subquestions):
+    # build dict for looking up the prob for a certain action and dict for looking up prob for a certain r
+    act2prob = {}
+    r2prob = {}
+    for index, action in enumerate(possible_actions):
+        key = generate_key(action[0], action[1], action[2])
+        act2prob[key] = probs[index]
         
+        r = action[1]
+        if r not in r2prob:
+            r2prob[r] = 0
+        r2prob[r] += probs[index]
+    
+    # calculate risk for each subquestions
+    calculated_risks = []
+    for r, answers in subquestions:
+        P_aq = 0
+        for a in answers:
+            # look up in the first subgraph
+            search_key = generate_key(0, r, a)
+            if search_key in act2prob:
+                P_aq += act2prob[search_key]
+        
+            # look up in the second subgraph
+            search_key = generate_key(1, r, a)
+            if search_key in act2prob:
+                P_aq += act2prob[search_key]
+
+        risk = 1
+        if r in r2prob:
+            P_q = r2prob[r]
+            risk = (P_q - P_aq)/P_q
+
+        calculated_risks.append(risk)
+
+    return calculated_risks
+
+def generate_key(g, r, e):
+    return "" + str(g) + ";" + str(r) + ";" + str(e)
 
 
 

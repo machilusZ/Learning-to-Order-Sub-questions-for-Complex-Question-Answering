@@ -35,9 +35,10 @@ def parser(line):
     temp = line.decode("utf-8").strip().split(";")
     question = temp[0]
     answer = temp[1]
+    internal_node = temp[2]
     r1, e1, r2, r3, e2 = question.split("\t")
     answers = answer.split("\t")[1:]
-    return (answers, [e1,e2], [r1,r2,r3])
+    return (answers, [e1,e2], [r1,r2,r3], internal_node)
 
 def wc_parser(line):
     temp = line.decode("utf-8").strip().split(";")

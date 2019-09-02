@@ -21,10 +21,10 @@ class ReactiveBaseline():
         self.b = (1-self.l)*self.b + self.l*target
 
 
-GAMMA = 0.95
+GAMMA = 0.96
 WORD_EMB_DIM = 256
 NODE_EMB_DIM = 30
-H_DIM = 8
+H_DIM = 16
 T = 3
 NUM_EPOCH = 1000
 SOFT_REWARD_SCALE = 0.1
@@ -121,7 +121,7 @@ for epoch in range(NUM_EPOCH):
     print("epoch: {}, loss: {}, reward: {}, true_positive: {}, acc: {}".format(epoch, avg_loss, avg_reward, true_positive/NUM_ROLL_OUT, acc))
 
     # evaluate on test set
-    if (epoch)%5 == 0 and acc > 0.3:
+    if (epoch)%10 == 0 and acc > 0:
         evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, node_embedding, device, 15)
 
 
