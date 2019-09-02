@@ -64,10 +64,18 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
             # for each test question
             # create beam size # of state and agents
             states = []
+            #print(test[i])
             for _ in range(beam_size):
                 state = State((test[i][1],test[i][2]), kg, node_embedding, WORD_EMB_DIM, word2node, attention, rel_embedding, T, device)
                 states.append(state)
             
+            # get subquestions
+            subquestions = []
+            for r in test[i][2]:
+                encoded_r = kg.rel_vocab[r] - 2 # remove no-ops and dummy-start
+                if encoded_r not in subquestions:
+                    subquestions.append(encoded_r)
+
             answers = kg.encode_answers(test[i][0])
             e0 = state.subgraphs[0][0]
             agent.policy.init_path(e0, state)
@@ -87,7 +95,7 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
         
             # go for T - 1 step
             for step in range(1, T):
-                top_path, top_path_probs, states = get_tops(agent, top_path, top_path_probs, states, e0, beam_size)
+                top_path, top_path_probs, states = get_tops(agent, top_path, top_path_probs, states, e0, beam_size, subquestions)
             
             final_entities = []
             for path in top_path:
@@ -127,7 +135,7 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
         agent.clear_history()
         '''
 
-def get_tops(agent, top_path, top_path_probs, states, e0, beam_size):
+def get_tops(agent, top_path, top_path_probs, states, e0, beam_size, subquestions):
     prob2action = {}
     all_probs = []
     next_path_probs = []
@@ -139,6 +147,11 @@ def get_tops(agent, top_path, top_path_probs, states, e0, beam_size):
             agent.policy.update_path(action, states[index])
         possible_actions = np.array(states[index].generate_all_possible_actions())
         probs = agent.get_probs(states[index], possible_actions)
+
+        # calculate the Risk of each subquestion
+        #print(possible_actions)
+        #print(subquestions)
+
         top_index = np.argsort(probs)[::-1][0:beam_size]
         top_probs = probs[top_index]
         top_actions = possible_actions[top_index]

@@ -65,17 +65,19 @@ class State:
         for i, subgraph in enumerate(self.subgraphs):
 	        ret = self.find_subgraph_neighbors(subgraph, i)
 	        neighbors += ret
+        # if no neighbors stay in the node for the next step
+        if len(neighbors) == 0:
+            neighbors.append((0, 1, self.subgraphs[0][-1]))
         return neighbors
 
     # helper function: find the neighbor edge (e1, r, e2) of a subgraph
     def find_subgraph_neighbors(self, subgraph, subgraph_index):
         ret = []
-        for e1 in subgraph:
-            # ret.append((subgraph_index, 1, e1))
-            neighbors = self.graph.graph.get(e1, [])
-            for (r, e2) in neighbors:
-                if e2 not in subgraph:
-                    ret.append((subgraph_index, r, e2))
+        e1 = subgraph[-1]
+        neighbors = self.graph.graph.get(e1, [])
+        for (r, e2) in neighbors:
+            if e2 not in subgraph:
+                ret.append((subgraph_index, r, e2))
         return ret
 
     # generate all possible actions (r, e) according given all the current neighbors
