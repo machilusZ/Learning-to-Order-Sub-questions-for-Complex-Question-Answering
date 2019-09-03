@@ -86,8 +86,11 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
             # get subquestions
             e1, e2 = test[i][1]
             r1, r2, r3 = test[i][2]
-            e3 = test[i][3] 
-            subquestions = [(kg.rel_vocab[r1], answers), (kg.rel_vocab[r2], [kg.en_vocab[e3]]), (kg.rel_vocab[r3], answers)]
+            internal_nodes = test[i][3]
+            encoded_internal_nodes = []
+            for i, e in enumerate(internal_nodes):
+                encoded_internal_nodes.append(kg.en_vocab[e])
+            subquestions = [(kg.rel_vocab[r1], answers), (kg.rel_vocab[r2], encoded_internal_nodes), (kg.rel_vocab[r3], answers)]
             
 
             # the first step
@@ -133,8 +136,7 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
                     r3 = -1 # already picked
                     picked_path_risk.append(risks_foreach_steps[step][2])
                 else:
-                    picked_path_risk = []
-                    break
+                    picked_path_risk.append(1)
             
             if len(picked_path_risk) != 0:
                 picked_path_count += 1 

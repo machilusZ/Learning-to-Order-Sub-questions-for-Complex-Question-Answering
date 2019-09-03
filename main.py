@@ -33,7 +33,7 @@ SHUFFLE = True
 HIDDEN_DIM = 64
 DROPOUT_RATE = 0
 LSTM_LAYER = 2
-LR = 0.0001
+LR = 0.00009
 L = 0.02
 
 # device 
@@ -77,7 +77,7 @@ for epoch in range(NUM_EPOCH):
     f1 = []
     if SHUFFLE:
         random.shuffle(index_list)
-    for n in tqdm(range(len(train))):
+    for n in range(len(train)):
         # create state from the question
         i = index_list[n]
         for _ in range(NUM_ROLL_OUT):
@@ -118,10 +118,11 @@ for epoch in range(NUM_EPOCH):
     acc = correct/(NUM_ROLL_OUT*len(train))
     avg_loss = np.mean(losses)
     avg_reward = np.mean(rewards)
-    print("epoch: {}, loss: {}, reward: {}, true_positive: {}, acc: {}".format(epoch, avg_loss, avg_reward, true_positive/NUM_ROLL_OUT, acc))
+    # print("epoch: {}, loss: {}, reward: {}, true_positive: {}, acc: {}".format(epoch, avg_loss, avg_reward, true_positive/NUM_ROLL_OUT, acc))
 
     # evaluate on test set
-    if (epoch)%10 == 0 and acc > 0:
+    if (epoch)%20 == 0 and acc > 0:
+        print("epoch: " + str(epoch))
         evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, node_embedding, device, 15)
 
 
