@@ -11,12 +11,12 @@ def load_data(dataset_name, word_emb_size, node_embed_type):
     node_embed_path = "data/" + dataset_name + "/" + dataset_name +  "_embed_" + node_embed_type + ".npy"
     
     graph = KnowledgeGraph(graph_path, vocab_path)
-    test = load_questions(train_path, parser)
-    train = load_questions(test_path, parser)
+    train = load_questions(train_path, parser)
+    test = load_questions(test_path, parser)
     rel_embedding = init_rel_embedding("glove.840B.300d.txt", camel_case_spliter, word_emb_size, graph)
     node_embedding = np.load(node_embed_path)
     
-    return node_embedding, rel_embedding, graph, test, train
+    return node_embedding, rel_embedding, graph, train, test
 
 
 def load_questions(file_path, line_parser):

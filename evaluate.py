@@ -63,6 +63,7 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
         cumulated_risks = []
         picked_path_risks = []
         picked_path_count = 0
+        step_error_num = [0] * T
         for i in tqdm(range(len(test))):
             # for each test question
             # create beam size # of state and agents
@@ -124,17 +125,28 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
             r1 = kg.rel_vocab[r1]
             r2 = kg.rel_vocab[r2]
             r3 = kg.rel_vocab[r3]
+            error_index = -1
             for step, action in enumerate(top_path[0]):
                 g, r, e = action
+                errored = False
                 if r == r1:
                     r1 = -1 # already picked
                     picked_path_risk.append(risks_foreach_steps[step][0])
+                    if e not in answers and not errored:
+                        error_index = step
+                        errored = True
                 elif r == r2:
                     r2 = -1 # already picked
                     picked_path_risk.append(risks_foreach_steps[step][1])
+                    if e not in encoded_internal_nodes and not errored:
+                        error_index = step
+                        errored = True
                 elif r == r3:
                     r3 = -1 # already picked
                     picked_path_risk.append(risks_foreach_steps[step][2])
+                    if e not in answers and not errored:
+                        error_index = step
+                        errored = True
                 else:
                     picked_path_risk.append(1)
             
@@ -159,6 +171,10 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
 
             if ranked_1 in answers:
                 hit_1 += 1
+            else:
+                if error_index != -1:
+                    step_error_num[error_index] += 1
+            
             if correct(ranked_10, answers):
                 hit_10 += 1
             if correct(ranked_5, answers):
@@ -176,9 +192,11 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
 
         avg_risks = cumulated_risks/len(test)
         avg_path_risks = picked_path_risks/picked_path_count
+        step_error_rate = np.array(step_error_num)/len(test)
         print("hit@1: " + str(hit_1) + ", hit@2: " + str(hit_2)+ ", hit@3: " + str(hit_3) + ", hit@5: " + str(hit_5) + ", hit@10: " + str(hit_10))
-        print(avg_risks)
-        print(avg_path_risks)
+        #print(avg_risks)
+        # print(avg_path_risks)
+        print(step_error_rate)
 
         '''    
             f1.append(computeF1(answer, e)[-1])
