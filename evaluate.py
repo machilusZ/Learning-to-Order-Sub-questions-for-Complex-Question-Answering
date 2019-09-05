@@ -194,8 +194,8 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
         avg_path_risks = picked_path_risks/picked_path_count
         step_error_rate = np.array(step_error_num)/len(test)
         print("hit@1: " + str(hit_1) + ", hit@2: " + str(hit_2)+ ", hit@3: " + str(hit_3) + ", hit@5: " + str(hit_5) + ", hit@10: " + str(hit_10))
-        #print(avg_risks)
-        # print(avg_path_risks)
+        print(avg_risks)
+        print(avg_path_risks)
         print(step_error_rate)
 
         '''    
