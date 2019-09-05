@@ -21,18 +21,18 @@ class ReactiveBaseline():
         self.b = (1-self.l)*self.b + self.l*target
 
 
-GAMMA = 0.8
-WORD_EMB_DIM = 256
+GAMMA = 1
+WORD_EMB_DIM = 128
 NODE_EMB_DIM = 30
-H_DIM = 64
+H_DIM = 8
 T = 3
 NUM_EPOCH = 1000
 SOFT_REWARD_SCALE = 0.1
 NUM_ROLL_OUT = 1
 SHUFFLE = True
-HIDDEN_DIM = 64
+HIDDEN_DIM = 50
 DROPOUT_RATE = 0
-LSTM_LAYER = 2
+LSTM_LAYER = 1
 LR = 0.0001
 L = 0.05
 
