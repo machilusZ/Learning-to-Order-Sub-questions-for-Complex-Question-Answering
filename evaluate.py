@@ -153,9 +153,9 @@ def evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embeddi
             if len(picked_path_risk) != 0:
                 picked_path_count += 1 
                 if len(picked_path_risks) == 0:
-                    picked_path_risks = np.array(picked_path_risk)
+                    picked_path_risks = np.array(picked_path_risk, dtype='float64')
                 else:
-                    picked_path_risks += np.array(picked_path_risk)
+                    picked_path_risks += np.array(picked_path_risk, dtype='float64')
 
             final_entities = []
             for path in top_path:

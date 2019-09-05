@@ -21,10 +21,10 @@ class ReactiveBaseline():
         self.b = (1-self.l)*self.b + self.l*target
 
 
-GAMMA = 0.96
+GAMMA = 0.8
 WORD_EMB_DIM = 256
 NODE_EMB_DIM = 30
-H_DIM = 16
+H_DIM = 64
 T = 3
 NUM_EPOCH = 1000
 SOFT_REWARD_SCALE = 0.1
@@ -33,8 +33,8 @@ SHUFFLE = True
 HIDDEN_DIM = 64
 DROPOUT_RATE = 0
 LSTM_LAYER = 2
-LR = 0.00009
-L = 0.02
+LR = 0.0001
+L = 0.05
 
 # device 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -46,7 +46,6 @@ args = parser.parse_args()
 
 # load dataset
 node_embedding, rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM, "ComplEX")
-
 
 # projection from word embedding to node node embedding
 word2node = nn.Linear(WORD_EMB_DIM, NODE_EMB_DIM, bias=False).to(device)
@@ -77,7 +76,7 @@ for epoch in range(NUM_EPOCH):
     f1 = []
     if SHUFFLE:
         random.shuffle(index_list)
-    for n in range(len(train)):
+    for n in tqdm(range(len(train))):
         # create state from the question
         i = index_list[n]
         for _ in range(NUM_ROLL_OUT):
@@ -99,9 +98,9 @@ for epoch in range(NUM_EPOCH):
                     if e in answers and max_shortest_path == 0:
                         correct += 1
                         true_positive += 1
-                        agent.hard_reward(100)
+                        agent.hard_reward(20)
                     elif e in answers:
-                        agent.hard_reward(50)
+                        agent.hard_reward(10)
                         correct += 1
                     else:
                         agent.hard_reward(0)
@@ -118,10 +117,10 @@ for epoch in range(NUM_EPOCH):
     acc = correct/(NUM_ROLL_OUT*len(train))
     avg_loss = np.mean(losses)
     avg_reward = np.mean(rewards)
-    # print("epoch: {}, loss: {}, reward: {}, true_positive: {}, acc: {}".format(epoch, avg_loss, avg_reward, true_positive/NUM_ROLL_OUT, acc))
+    print("epoch: {}, loss: {}, reward: {}, true_positive: {}, acc: {}".format(epoch, avg_loss, avg_reward, true_positive/NUM_ROLL_OUT, acc))
 
     # evaluate on test set
-    if (epoch)%20 == 0 and acc > 0:
+    if (epoch)%20 == 0 and acc > .3:
         print("epoch: " + str(epoch))
         evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, node_embedding, device, 15)
 
