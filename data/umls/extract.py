@@ -15,24 +15,23 @@ def parser(line):
     question = temp[0]
     answer = temp[1]
     internal_node = temp[2]
-    print(internal_node)
     r1, e1, r2, r3, e2 = question.split("\t")
     answers = answer.split("\t")[1:]
     return (answers, e1, e2, r1,r2,r3, internal_node.split("\t")[1:])
 
-train_path = "countries_train.txt"
-test_path = "countries_test.txt"
+train_path = "umls_train.txt"
+test_path = "umls_test.txt"
 test = load_questions(test_path, parser)
 train = load_questions(train_path, parser)
 
 with open("train.txt", 'w') as f1:
     for question in train:
         answers, e1, e2, r1,r2,r3, internal_node = question
-        f1.write(internal_node[0] + "\t" + r3 + "\t" + e2 + "\n")
+        f1.write(e2 + "\t" + r2 + "\t" + internal_node[0] + "\n")
     
 with open("test.txt", 'w') as f2:
     for question in test:
         answers, e1, e2, r1,r2,r3, internal_node = question
-        f2.write(internal_node[0] + "\t" + r3 + "\t" + e2 + "\n")
+        f2.write(e2 + "\t" + r2 + "\t" + internal_node[0] + "\n")
 
 
