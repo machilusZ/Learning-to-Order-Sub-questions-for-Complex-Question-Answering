@@ -21,7 +21,7 @@ class ReactiveBaseline():
         self.b = (1-self.l)*self.b + self.l*target
 
 
-GAMMA = 0.96
+GAMMA = 1
 WORD_EMB_DIM = 512
 NODE_EMB_DIM = 100
 H_DIM = 16
@@ -46,8 +46,8 @@ args = parser.parse_args()
 
 # load dataset
 node_embedding, rel_embedding, kg, train, test = load_data(args.dataset, WORD_EMB_DIM, "ComplEX")
-train = train[:10]
-test = test[:400]
+train = train[:10000]
+test = test[:1000]
 
 
 # projection from word embedding to node node embedding
@@ -123,7 +123,7 @@ for epoch in range(NUM_EPOCH):
     print("epoch: {}, loss: {}, reward: {}, true_positive: {}, acc: {}".format(epoch, avg_loss, avg_reward, true_positive/NUM_ROLL_OUT, acc))
 
     # evaluate on test set
-    if (epoch)%20 == 0 and acc > -1:
+    if (epoch + 1)%30 == 0:
         print("epoch: " + str(epoch))
         evaluate(test, agent, kg, T, WORD_EMB_DIM, word2node, attention, rel_embedding, node_embedding, device, 15)
 

@@ -16,7 +16,7 @@ class KnowledgeGraph:
         with open(file_path, 'rb') as fp:
             line = fp.readline()
             while line:
-                e1, r, e2 = line[0:-1].decode("utf-8").split("\t")
+                e2, r, e1 = line[0:-1].decode("utf-8").split("\t")
 
                 # for countries
                 if e1[-1] == '\r':
